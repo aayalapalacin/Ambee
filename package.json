@@ -13,7 +13,7 @@
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
     "react-native": "0.70.5",
-    "react-native-paper": "^4.12.5",
+    "react-native-paper": "^5.0.0-rc.10",
     "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {
