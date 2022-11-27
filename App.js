@@ -9,7 +9,7 @@ export default function App() {
   return (
     <PaperProvider>
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your application</Text>
+        <Text>Open up App.js to start working on your application!</Text>
         <MyButton />
         <MyCard />
         <StatusBar style="auto" />
