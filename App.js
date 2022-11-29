@@ -4,16 +4,22 @@ import { Provider as PaperProvider } from "react-native-paper";
 import { AppRegistry } from "react-native";
 import MyButton from "./components/button";
 import MyCard from "./components/card";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./components/home";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <PaperProvider>
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your application!</Text>
-        <MyButton />
-        <MyCard />
-        <StatusBar style="auto" />
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="MyCard" component={MyCard} />
+          <Stack.Screen name="MyButton" component={MyButton} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </PaperProvider>
   );
 }
