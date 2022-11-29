@@ -3,7 +3,7 @@ import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 import { FontAwesome5 } from "@expo/vector-icons";
 const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
 
-const MyCard = () => (
+const MyCard = ({ navigation }) => (
   <Card>
     <Card.Title
       title="Card Title"
@@ -17,8 +17,10 @@ const MyCard = () => (
     </Card.Content>
     <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
     <Card.Actions>
-      <Button>Cancel</Button>
-      <Button>Ok</Button>
+      <Button onPress={() => navigation.navigate("MyButton")}>
+        Go to Button
+      </Button>
+      <Button onPress={() => navigation.navigate("Home")}>Go to Home</Button>
     </Card.Actions>
   </Card>
 );
