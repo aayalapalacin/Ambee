@@ -1,6 +1,7 @@
 const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const PORT = process.env.PORT || 3005;
 
 const app = express();
 
@@ -14,6 +15,6 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
-app.listen(3005, () => {
-  console.log("listening on port 3005!");
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}!`);
 });
