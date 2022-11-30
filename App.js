@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Provider as PaperProvider } from "react-native-paper";
 import { AppRegistry } from "react-native";
 import MyButton from "./components/button";
-import MyCard from "./components/card";
+import YesNoCard from "./components/yesNoCard";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./components/home";
@@ -16,7 +16,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="MyCard" component={MyCard} />
+          <Stack.Screen name="YesNoCard" component={YesNoCard} />
           <Stack.Screen name="MyButton" component={MyButton} />
         </Stack.Navigator>
       </NavigationContainer>

@@ -10,7 +10,7 @@ export default function Home({ navigation }) {
         title="Go to Button"
       ></Button>
       <Button
-        onPress={() => navigation.navigate("MyCard")}
+        onPress={() => navigation.navigate("YesNoCard")}
         title="Go to Card Page"
       ></Button>
     </View>
