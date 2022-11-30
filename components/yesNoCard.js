@@ -51,7 +51,7 @@ const YesNoCard = ({ navigation }) => (
           <Feather name="home" size={33} color="black" title="No" />
           <Text>Home</Text>
         </View>
-        <View>
+        <View style={styles.homeSettingBox}>
           <Feather name="settings" size={33} color="black" />
           <Text>Settings</Text>
         </View>
@@ -102,6 +102,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 80,
+  },
+  homeSettingBox: {
+    alignItems: "center",
   },
 });
 
