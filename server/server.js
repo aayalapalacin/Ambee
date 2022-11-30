@@ -1,6 +1,11 @@
+const { formToJSON } = require("axios");
 const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const movie_api = require("./api/movies-of-the-night");
+
+require("dotenv").config();
+
 const PORT = process.env.PORT || 3005;
 
 const app = express();
@@ -12,6 +17,7 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 app.get("/", (req, res) => {
+  console.log(movie_api.get());
   res.send("Hello, World!");
 });
 
