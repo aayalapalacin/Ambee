@@ -7,10 +7,27 @@ import YesNoCard from "./components/yesNoCard";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./components/home";
-
+import { useFonts } from "expo-font";
+import React, { useEffect } from "react";
+// import * as SplashScreen from "expo-splash-screen";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "Nunito-ExtraLight": require("./assets/fonts/Nunito-ExtraLight.ttf"),
+    "Mali-Bold": require("./assets/fonts/Mali-Bold.ttf"),
+  });
+
+  // useEffect(() => {
+  //   async function prepare() {
+  //     await SplashScreen.preventAutoHideAsync();
+  //   }
+  //   prepare();
+  // }, []);
+  if (!fontsLoaded) {
+    return undefined;
+  }
+
   return (
     <PaperProvider>
       <NavigationContainer>

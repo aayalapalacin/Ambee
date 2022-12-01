@@ -8,11 +8,6 @@ import { Feather } from "@expo/vector-icons";
 
 const YesNoCard = ({ navigation }) => (
   <Card>
-    {/* <Card.Title
-          title="Card Title"
-          subtitle="Card Subtitle"
-          left={LeftContent}
-        /> */}
     <Card.Content>
       <Title style={styles.cardTitle}>
         What kind of movie would you like to watch?
@@ -71,6 +66,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginHorizontal: 50,
     marginVertical: 30,
+    fontFamily: "Mali-Bold",
+    fontSize: 27,
   },
   cardTopIcons: {
     flexDirection: "row",
