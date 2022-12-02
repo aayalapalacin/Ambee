@@ -13,7 +13,7 @@ const YesNoCard = ({ navigation }) => (
         What kind of movie would you like to watch?
       </Title>
       <View style={styles.cardTopIcons}>
-        <EvilIcons name="undo" size={40} color="black" style={styles.undo} />
+        <EvilIcons name="undo" size={48} color="black" style={styles.undo} />
         <Card.Actions>
           <Ionicons name="ios-timer-outline" size={40} color="black" />
           <Button>Start</Button>
@@ -30,7 +30,11 @@ const YesNoCard = ({ navigation }) => (
             size={28}
             color="black"
           /> */}
-          <Image source={require("../assets/icons/swipe-left.png")} />
+          <Image
+            style={styles.swipeIcons}
+            source={require("../assets/icons/swipe-left.png")}
+            resizeMode="contain"
+          />
           <Text style={styles.leftIconTxt}>No</Text>
         </View>
         <View style={styles.yesNoIcon}>
@@ -38,10 +42,11 @@ const YesNoCard = ({ navigation }) => (
           <Image
             style={styles.swipeIcons}
             source={require("../assets/icons/swipe-right.png")}
+            resizeMode="contain"
           />
         </View>
       </View>
-      <View style={styles.homeSettingContainer}>
+      {/* <View style={styles.homeSettingContainer}>
         <View>
           <Feather name="home" size={33} color="black" title="No" />
           <Text>Home</Text>
@@ -50,29 +55,23 @@ const YesNoCard = ({ navigation }) => (
           <Feather name="settings" size={33} color="black" />
           <Text>Settings</Text>
         </View>
-      </View>
-
-      {/* <Card.Actions>
-            <Button onPress={() => navigation.navigate("MyButton")}>
-              Go to Button
-            </Button>
-            <Button onPress={() => navigation.navigate("Home")}>Go to Home</Button>
-          </Card.Actions> */}
+      </View> */}
     </Card.Content>
   </Card>
 );
 const styles = StyleSheet.create({
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 50,
+    marginHorizontal: 10,
     marginVertical: 30,
     fontFamily: "Mali-Bold",
-    fontSize: 27,
+    fontSize: 27.9,
   },
   cardTopIcons: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginBottom: 12,
   },
   cardPic: {
     height: 350,
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
   swipeContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 30,
+    marginTop: 80,
   },
   yesNoIcon: {
     flexDirection: "row",
@@ -95,16 +94,20 @@ const styles = StyleSheet.create({
     fontSize: 28,
     paddingEnd: 5,
   },
-  homeSettingContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 80,
-  },
-  homeSettingBox: {
-    alignItems: "center",
-  },
+  // homeSettingContainer: {
+  //   flexDirection: "row",
+  //   justifyContent: "space-around",
+  //   marginTop: 40,
+  //   marginBottom: 30,
+  // },
+  // homeSettingBox: {
+  //   alignItems: "center",
+  // },
   swipeIcons: {
-    // width: 0,
+    width: 33,
+    height: 33,
+    marginTop: 3,
+    marginBottom: 100,
   },
 });
 
