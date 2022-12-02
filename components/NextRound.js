@@ -6,12 +6,20 @@ import { Feather } from "@expo/vector-icons";
 const NextRound = () => (
   <Card>
     <Card.Content>
-      <Title>Card title</Title>
-      <Card.Cover source={{ uri: "https://picsum.photos/700" }} />
+      <View style={styles.picContainer}>
+        <Card.Cover
+          style={styles.cardPic}
+          source={{ uri: "https://picsum.photos/700" }}
+        />
+      </View>
+      <Title style={styles.cardTitle}>Next Round</Title>
+      <Paragraph style={styles.cardParagraph}>
+        You have 2 cards left! You're doing great!
+      </Paragraph>
     </Card.Content>
-    <Card.Actions>
-      <Button>Ok</Button>
-    </Card.Actions>
+    <Button style={styles.continueBtn} mode="contained">
+      <Text style={styles.btnTxt}>Continue</Text>
+    </Button>
     <View style={styles.homeSettingContainer}>
       <View>
         <Feather name="home" size={33} color="black" title="No" />
@@ -26,14 +34,45 @@ const NextRound = () => (
 );
 
 const styles = StyleSheet.create({
+  cardTitle: {
+    textAlign: "center",
+    marginHorizontal: 10,
+    marginTop: 60,
+    marginBottom: 50,
+    fontFamily: "Mali-Bold",
+    fontSize: 32,
+  },
+  cardParagraph: {
+    textAlign: "center",
+    marginHorizontal: 45,
+    fontFamily: "Mali-Regular",
+    fontSize: 23,
+    marginBottom: 100,
+    paddingTop: 2,
+  },
+  cardPic: {
+    height: 225,
+    width: 225,
+  },
+  picContainer: {
+    alignItems: "center",
+    marginTop: 90,
+  },
   homeSettingContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 40,
+    marginTop: 47,
     marginBottom: 30,
   },
   homeSettingBox: {
     alignItems: "center",
+  },
+  continueBtn: {
+    marginHorizontal: 90,
+  },
+  btnTxt: {
+    fontFamily: "Mali-Regular",
+    fontSize: 20,
   },
 });
 

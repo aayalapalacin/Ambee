@@ -16,6 +16,7 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     "Nunito-ExtraLight": require("./assets/fonts/Nunito-ExtraLight.ttf"),
     "Mali-Bold": require("./assets/fonts/Mali-Bold.ttf"),
+    "Mali-Regular": require("./assets/fonts/Mali-Regular.ttf"),
   });
 
   // useEffect(() => {
