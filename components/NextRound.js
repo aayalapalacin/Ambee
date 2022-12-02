@@ -22,12 +22,12 @@ const NextRound = () => (
     </Button>
     <View style={styles.homeSettingContainer}>
       <View>
-        <Feather name="home" size={33} color="black" title="No" />
-        <Text>Home</Text>
+        <Feather name="home" size={37} color="black" title="No" />
+        <Text style={styles.homeSettingsTxt}>Home</Text>
       </View>
       <View style={styles.homeSettingBox}>
-        <Feather name="settings" size={33} color="black" />
-        <Text>Settings</Text>
+        <Feather name="settings" size={37} color="black" />
+        <Text style={styles.homeSettingsTxt}>Settings</Text>
       </View>
     </View>
   </Card>
@@ -61,11 +61,15 @@ const styles = StyleSheet.create({
   homeSettingContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 47,
+    marginTop: 30,
     marginBottom: 30,
   },
   homeSettingBox: {
     alignItems: "center",
+  },
+  homeSettingsTxt: {
+    fontFamily: "Mali-Regular",
+    fontSize: 16,
   },
   continueBtn: {
     marginHorizontal: 90,
