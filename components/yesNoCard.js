@@ -3,8 +3,6 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import { Button, Card, Title, Paragraph } from "react-native-paper";
 import { EvilIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
 
 const YesNoCard = ({ navigation }) => (
   <Card>
@@ -46,16 +44,6 @@ const YesNoCard = ({ navigation }) => (
           />
         </View>
       </View>
-      {/* <View style={styles.homeSettingContainer}>
-        <View>
-          <Feather name="home" size={33} color="black" title="No" />
-          <Text>Home</Text>
-        </View>
-        <View style={styles.homeSettingBox}>
-          <Feather name="settings" size={33} color="black" />
-          <Text>Settings</Text>
-        </View>
-      </View> */}
     </Card.Content>
   </Card>
 );
@@ -94,15 +82,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     paddingEnd: 5,
   },
-  // homeSettingContainer: {
-  //   flexDirection: "row",
-  //   justifyContent: "space-around",
-  //   marginTop: 40,
-  //   marginBottom: 30,
-  // },
-  // homeSettingBox: {
-  //   alignItems: "center",
-  // },
+
   swipeIcons: {
     width: 33,
     height: 33,
