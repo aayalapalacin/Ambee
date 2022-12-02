@@ -4,15 +4,14 @@ import React from "react";
 export default function Home({ navigation }) {
   return (
     <View>
-      <Text>Home</Text>
       <Button
-        onPress={() => navigation.navigate("MyButton")}
-        title="Go to Button"
-      ></Button>
+        onPress={() => navigation.navigate("YesNoCard")}
+        title="Go to Yes/No Card Page"
+      />
       <Button
-        onPress={() => navigation.navigate("MyCard")}
-        title="Go to Card Page"
-      ></Button>
+        onPress={() => navigation.navigate("NextRound")}
+        title="Go to Next Round Page"
+      />
     </View>
   );
 }
