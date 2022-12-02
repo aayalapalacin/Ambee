@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { Provider as PaperProvider } from "react-native-paper";
 import { AppRegistry } from "react-native";
-import MyButton from "./components/button";
+import NextRound from "./components/NextRound";
 import YesNoCard from "./components/yesNoCard";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -34,7 +34,7 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="YesNoCard" component={YesNoCard} />
-          <Stack.Screen name="MyButton" component={MyButton} />
+          <Stack.Screen name="NextRound" component={NextRound} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
