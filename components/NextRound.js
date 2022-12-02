@@ -1,11 +1,79 @@
 import * as React from "react";
-import { View, Text } from "react-native";
-import { Card, Button } from "react-native-paper";
+import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
+import { StyleSheet, Text, View, Image } from "react-native";
+import { Feather } from "@expo/vector-icons";
 
-const NextRound = ({ navigation }) => (
-  <View>
-    <Text>Next Round Screen</Text>
-  </View>
+const NextRound = () => (
+  <Card>
+    <Card.Content>
+      <View style={styles.picContainer}>
+        <Card.Cover
+          style={styles.cardPic}
+          source={{ uri: "https://picsum.photos/700" }}
+        />
+      </View>
+      <Title style={styles.cardTitle}>Next Round</Title>
+      <Paragraph style={styles.cardParagraph}>
+        You have 2 cards left! You're doing great!
+      </Paragraph>
+    </Card.Content>
+    <Button style={styles.continueBtn} mode="contained">
+      <Text style={styles.btnTxt}>Continue</Text>
+    </Button>
+    <View style={styles.homeSettingContainer}>
+      <View>
+        <Feather name="home" size={33} color="black" title="No" />
+        <Text>Home</Text>
+      </View>
+      <View style={styles.homeSettingBox}>
+        <Feather name="settings" size={33} color="black" />
+        <Text>Settings</Text>
+      </View>
+    </View>
+  </Card>
 );
+
+const styles = StyleSheet.create({
+  cardTitle: {
+    textAlign: "center",
+    marginHorizontal: 10,
+    marginTop: 60,
+    marginBottom: 50,
+    fontFamily: "Mali-Bold",
+    fontSize: 32,
+  },
+  cardParagraph: {
+    textAlign: "center",
+    marginHorizontal: 45,
+    fontFamily: "Mali-Regular",
+    fontSize: 23,
+    marginBottom: 100,
+    paddingTop: 2,
+  },
+  cardPic: {
+    height: 225,
+    width: 225,
+  },
+  picContainer: {
+    alignItems: "center",
+    marginTop: 90,
+  },
+  homeSettingContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 47,
+    marginBottom: 30,
+  },
+  homeSettingBox: {
+    alignItems: "center",
+  },
+  continueBtn: {
+    marginHorizontal: 90,
+  },
+  btnTxt: {
+    fontFamily: "Mali-Regular",
+    fontSize: 20,
+  },
+});
 
 export default NextRound;
