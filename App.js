@@ -4,6 +4,7 @@ import { Provider as PaperProvider } from "react-native-paper";
 import { AppRegistry } from "react-native";
 import NextRound from "./components/NextRound";
 import YesNoCard from "./components/yesNoCard";
+import ChosenCard from "./components/chosenCard";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./components/home";
@@ -35,6 +36,7 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="YesNoCard" component={YesNoCard} />
+          <Stack.Screen name="ChosenCard" component={ChosenCard} />
           <Stack.Screen name="NextRound" component={NextRound} />
         </Stack.Navigator>
       </NavigationContainer>

@@ -12,6 +12,10 @@ export default function Home({ navigation }) {
         onPress={() => navigation.navigate("NextRound")}
         title="Go to Next Round Page"
       />
+      <Button
+        onPress={() => navigation.navigate("ChosenCard")}
+        title="Go to Chosen Card Page"
+      />
     </View>
   );
 }
