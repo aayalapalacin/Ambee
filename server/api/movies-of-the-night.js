@@ -1,6 +1,6 @@
-const axios = require("axios");
+import axios from "axios";
 
-function get() {
+export function get() {
   const api_key = `${process.env.MOVIES_OF_THE_NIGHT_API_KEY}`;
   const options = {
     headers: {
@@ -9,17 +9,14 @@ function get() {
     },
   };
 
-  axios
+  let data = axios
     .get("https://streaming-availability.p.rapidapi.com/genres", options)
     .then(function (response) {
-      console.log("Genres: ", response.data);
-      // return JSON.stringify(response.data);
+      return response.data;
     })
     .catch(function (error) {
       console.error(error);
     });
-}
 
-module.exports = {
-  get,
-};
+  return data;
+}
