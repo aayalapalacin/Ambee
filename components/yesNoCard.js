@@ -6,7 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 const YesNoCard = ({ navigation }) => (
   <Card>
-    <Card.Content>
+    <Card.Content style={styles.cardContainer}>
       <Title style={styles.cardTitle}>
         What kind of movie would you like to watch?
       </Title>
@@ -48,6 +48,9 @@ const YesNoCard = ({ navigation }) => (
   </Card>
 );
 const styles = StyleSheet.create({
+  cardContainer: {
+    marginHorizontal: 10,
+  },
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
@@ -87,7 +90,7 @@ const styles = StyleSheet.create({
     width: 33,
     height: 33,
     marginTop: 3,
-    marginBottom: 100,
+    marginBottom: 70,
   },
 });
 
