@@ -1,25 +1,27 @@
-const { formToJSON } = require("axios");
-const express = require("express");
-const helmet = require("helmet");
-const morgan = require("morgan");
-const movie_api = require("./api/movies-of-the-night");
+import express from "express";
+import helmet from "helmet";
+import morgan from "morgan";
+import router from "../routes/routes.js";
 
-require("dotenv").config();
+// This allows us to store our environment vars from .env into process.env.
+import { config } from "dotenv";
+config();
 
 const PORT = process.env.PORT || 3005;
 
 const app = express();
 
-// adding Helmat to enhace REST API's security
+// These are used to help parse response.body
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Adding Helmat to enhace REST API's security
 app.use(helmet());
 
-// adding Morgan to log HTTP requests
+// Adding Morgan to log HTTP requests
 app.use(morgan("dev"));
 
-app.get("/", (req, res) => {
-  console.log(movie_api.get());
-  res.send("Hello, World!");
-});
+app.use(router);
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}!`);
