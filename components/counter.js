@@ -1,4 +1,6 @@
 import { StyleSheet, Text, View, Button } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+
 import React, { useState } from "react";
 
 const Counter = () => {
@@ -22,15 +24,52 @@ const Counter = () => {
 
   return (
     <View>
-      <View style={styles.btnContainer}>
-        <Button onPress={() => decrement()} title="decrement" />
+      {/* <View style={styles.btnContainer}></View> */}
+      <View style={styles.count}>
+        <Text>Limit your option</Text>
+        <View>
+          <AntDesign
+            onPress={() => increment()}
+            name="plus"
+            size={24}
+            color="black"
+          />
+        </View>
+        <View>
+          <Text variant="displaySmall">{count}</Text>
+        </View>
+        <View>
+          <AntDesign
+            onPress={() => decrement()}
+            name="minus"
+            size={24}
+            color="black"
+          />
+        </View>
       </View>
       <View style={styles.count}>
-        <Text variant="displaySmall">{count}</Text>
+        <Text>Set a timer</Text>
+        <View>
+          <AntDesign
+            onPress={() => increment()}
+            name="plus"
+            size={24}
+            color="black"
+          />
+        </View>
+        <View>
+          <Text variant="displaySmall">{count}</Text>
+        </View>
+        <View>
+          <AntDesign
+            onPress={() => decrement()}
+            name="minus"
+            size={24}
+            color="black"
+          />
+        </View>
       </View>
-      <View style={styles.btnContainer}>
-        <Button onPress={() => increment()} title="increment" />
-      </View>
+      <View style={styles.btnContainer}></View>
     </View>
   );
 };
@@ -39,6 +78,7 @@ export default Counter;
 
 const styles = StyleSheet.create({
   count: {
-    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "flex-end",
   },
 });
