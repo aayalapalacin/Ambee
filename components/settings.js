@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Checkbox, Switch } from "react-native-paper";
-import RnIncrementDecrementBtn from "react-native-increment-decrement-button";
+// import RnIncrementDecrementBtn from "react-native-increment-decrement-button";
 import React from "react";
 
 const Settings = () => {
@@ -11,7 +11,7 @@ const Settings = () => {
     <View>
       <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
       <Checkbox.Item label="Item" status="checked" />
-      <RnIncrementDecrementBtn minVal={0} minreq={3} max={10} val={3} />
+      {/* <RnIncrementDecrementBtn minVal={0} minreq={3} max={10} val={3} /> */}
     </View>
   );
 };

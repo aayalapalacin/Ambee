@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     width: 33,
     height: 33,
     marginTop: 3,
-    marginBottom: 70,
+    marginBottom: 85,
   },
 });
 

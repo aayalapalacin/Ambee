@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
   homeSettingContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 30,
-    marginBottom: 8,
+    marginTop: 38,
+    marginBottom: 25,
   },
   homeSettingBox: {
     alignItems: "center",
