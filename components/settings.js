@@ -1,17 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Checkbox, Switch } from "react-native-paper";
-// import RnIncrementDecrementBtn from "react-native-increment-decrement-button";
 import React from "react";
+import Counter from "./counter";
 
 const Settings = () => {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
-
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
+
   return (
     <View>
       <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
       <Checkbox.Item label="Item" status="checked" />
-      {/* <RnIncrementDecrementBtn minVal={0} minreq={3} max={10} val={3} /> */}
+      <Counter />
     </View>
   );
 };
