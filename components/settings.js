@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   homeSettingContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    // alignItems: "flex-end",
+
     marginTop: 275,
   },
   homeSettingBox: {
