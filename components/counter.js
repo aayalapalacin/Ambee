@@ -24,47 +24,50 @@ const Counter = () => {
 
   return (
     <View>
-      {/* <View style={styles.btnContainer}></View> */}
-      <View style={styles.count}>
+      <View style={styles.countContainer}>
         <Text>Limit your option</Text>
         <View>
           <AntDesign
             onPress={() => increment()}
             name="plus"
-            size={24}
+            size={15}
             color="black"
           />
         </View>
         <View>
-          <Text variant="displaySmall">{count}</Text>
+          <Text style={styles.countBorder} variant="displaySmall">
+            {count}
+          </Text>
         </View>
         <View>
           <AntDesign
             onPress={() => decrement()}
             name="minus"
-            size={24}
+            size={15}
             color="black"
           />
         </View>
       </View>
-      <View style={styles.count}>
+      <View style={styles.countContainer}>
         <Text>Set a timer</Text>
         <View>
           <AntDesign
             onPress={() => increment()}
             name="plus"
-            size={24}
+            size={15}
             color="black"
           />
         </View>
         <View>
-          <Text variant="displaySmall">{count}</Text>
+          <Text style={styles.countBorder} variant="displaySmall">
+            {count}
+          </Text>
         </View>
         <View>
           <AntDesign
             onPress={() => decrement()}
             name="minus"
-            size={24}
+            size={15}
             color="black"
           />
         </View>
@@ -77,8 +80,18 @@ const Counter = () => {
 export default Counter;
 
 const styles = StyleSheet.create({
-  count: {
+  countContainer: {
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 10,
+  },
+  countBorder: {
+    textAlign: "center",
+    borderWidth: 1,
+    paddingHorizontal: 13,
+    paddingVertical: 1,
+    borderRadius: 10,
+    marginHorizontal: 3,
   },
 });

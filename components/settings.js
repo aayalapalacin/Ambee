@@ -7,13 +7,25 @@ import Counter from "./counter";
 
 const Settings = () => {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
+  const [checked, setChecked] = React.useState(false);
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
 
   return (
     <View>
       <Title style={styles.cardTitle}>Settings</Title>
       <Counter />
-      <Checkbox.Item label="Pick for me" status="checked" />
+      <View style={styles.pickBoxContainer}>
+        <Text>Pick for me</Text>
+        <Checkbox
+          style={styles.checkbox}
+          label="Pick for me"
+          status={checked ? "checked" : "unchecked"}
+          onPress={() => {
+            setChecked(!checked);
+          }}
+        />
+      </View>
+
       <View style={styles.repeatContainer}>
         <Title>No repeating mode</Title>
         <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
@@ -44,8 +56,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   repeatContainer: {
-    justifyContent: "flex-end",
-    alignContent: "center",
+    justifyContent: "center",
+    alignItems: "center",
     flexDirection: "row",
   },
   homeSettingContainer: {
@@ -63,5 +75,10 @@ const styles = StyleSheet.create({
   },
   homeContainer: {
     marginRight: 32,
+  },
+  pickBoxContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
