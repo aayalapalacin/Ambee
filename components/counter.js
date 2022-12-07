@@ -4,16 +4,31 @@ import { AntDesign } from "@expo/vector-icons";
 import React, { useState } from "react";
 
 const Counter = () => {
-  const [count, setCount] = useState(0);
-  function increment() {
-    // setCount((prevCount) => (prevCount += 1));
-    setCount(function (prevCount) {
+  const [optionCount, setOptionCount] = useState(0);
+  const [timerCount, setTimerCount] = useState(0);
+  function optionIncrement() {
+    setOptionCount(function (prevCount) {
       return (prevCount += 1);
     });
   }
 
-  function decrement() {
-    setCount(function (prevCount) {
+  function optionDecrement() {
+    setOptionCount(function (prevCount) {
+      if (prevCount > 0) {
+        return (prevCount -= 1);
+      } else {
+        return (prevCount = 0);
+      }
+    });
+  }
+  function timerIncrement() {
+    setTimerCount(function (prevCount) {
+      return (prevCount += 1);
+    });
+  }
+
+  function timerDecrement() {
+    setTimerCount(function (prevCount) {
       if (prevCount > 0) {
         return (prevCount -= 1);
       } else {
@@ -28,7 +43,7 @@ const Counter = () => {
         <Text>Limit your option</Text>
         <View>
           <AntDesign
-            onPress={() => increment()}
+            onPress={() => optionIncrement()}
             name="plus"
             size={15}
             color="black"
@@ -36,12 +51,12 @@ const Counter = () => {
         </View>
         <View>
           <Text style={styles.countBorder} variant="displaySmall">
-            {count}
+            {optionCount}
           </Text>
         </View>
         <View>
           <AntDesign
-            onPress={() => decrement()}
+            onPress={() => optionDecrement()}
             name="minus"
             size={15}
             color="black"
@@ -52,7 +67,7 @@ const Counter = () => {
         <Text>Set a timer</Text>
         <View>
           <AntDesign
-            onPress={() => increment()}
+            onPress={() => timerIncrement()}
             name="plus"
             size={15}
             color="black"
@@ -60,12 +75,12 @@ const Counter = () => {
         </View>
         <View>
           <Text style={styles.countBorder} variant="displaySmall">
-            {count}
+            {timerCount}
           </Text>
         </View>
         <View>
           <AntDesign
-            onPress={() => decrement()}
+            onPress={() => timerDecrement()}
             name="minus"
             size={15}
             color="black"
