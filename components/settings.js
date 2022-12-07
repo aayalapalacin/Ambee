@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     // alignItems: "flex-end",
-    marginTop: 300,
+    marginTop: 275,
   },
   homeSettingBox: {
     alignItems: "center",
@@ -109,9 +109,13 @@ const styles = StyleSheet.create({
     marginRight: 33,
   },
   check: {
-    borderWidth: 1,
+    // borderWidth: 1,
     backgroundColor: "white",
     borderRadius: 10,
     marginRight: 6,
+  },
+  homeSettingsTxt: {
+    fontFamily: "Mali-Regular",
+    fontSize: 16,
   },
 });
