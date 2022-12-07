@@ -24,6 +24,10 @@ export default function Home({ navigation }) {
         onPress={() => navigation.navigate("Options")}
         title="See Genre Options"
       />
+      <Button
+        onPress={() => navigation.navigate("WelcomeCard")}
+        title="Go to WelcomeCard"
+      />
     </View>
   );
 }
