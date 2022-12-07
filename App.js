@@ -9,6 +9,8 @@ import Settings from "./components/settings";
 import Options from "./components/options";
 import WelcomeCard from "./components/welcomeCard";
 import StepOne from "./components/stepOne";
+import StepTwo from "./components/stepTwo";
+import StepThree from "./components/stepThree";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./components/home";
@@ -47,6 +49,8 @@ export default function App() {
           <Stack.Screen name="Options" component={Options} />
           <Stack.Screen name="WelcomeCard" component={WelcomeCard} />
           <Stack.Screen name="StepOne" component={StepOne} />
+          <Stack.Screen name="StepTwo" component={StepTwo} />
+          <Stack.Screen name="StepThree" component={StepThree} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
