@@ -40,12 +40,12 @@ const Counter = () => {
   return (
     <View>
       <View style={styles.countContainer}>
-        {/* <Text style={styles.settingsTxt}>Limit your option</Text> */}
         <View>
           <AntDesign
+            style={styles.incrementIcons}
             onPress={() => optionIncrement()}
             name="plus"
-            size={15}
+            size={21}
             color="black"
           />
         </View>
@@ -56,20 +56,21 @@ const Counter = () => {
         </View>
         <View>
           <AntDesign
+            style={styles.incrementIcons}
             onPress={() => optionDecrement()}
             name="minus"
-            size={15}
+            size={21}
             color="black"
           />
         </View>
       </View>
       <View style={styles.countContainer}>
-        {/* <Text style={styles.settingsTxt}>Set a timer</Text> */}
         <View>
           <AntDesign
+            style={styles.incrementIcons}
             onPress={() => timerIncrement()}
             name="plus"
-            size={15}
+            size={21}
             color="black"
           />
         </View>
@@ -80,10 +81,10 @@ const Counter = () => {
         </View>
         <View>
           <AntDesign
-            style={styles.minus}
+            style={styles.incrementIcons}
             onPress={() => timerDecrement()}
             name="minus"
-            size={15}
+            size={21}
             color="black"
           />
         </View>
@@ -100,21 +101,21 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 10,
+    marginVertical: 18,
   },
   countBorder: {
     textAlign: "center",
     borderWidth: 1,
-    paddingHorizontal: 13,
-    paddingVertical: 1,
-    borderRadius: 10,
-    // marginHorizontal: 3,
+    paddingHorizontal: 22,
+    paddingVertical: 3.5,
+    borderRadius: 13,
+    backgroundColor: "white",
   },
   settingsTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 19,
   },
-  minus: {
-    justifyContent: "center",
+  incrementIcons: {
+    paddingHorizontal: 5,
   },
 });

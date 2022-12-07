@@ -1,17 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Checkbox, Switch, Title } from "react-native-paper";
 import { Feather } from "@expo/vector-icons";
-
-import React from "react";
+// import CheckBox from "@react-native-community/checkbox";
+import React, { useState } from "react";
 import Counter from "./counter";
 
 const Settings = () => {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
-
+  const [toggleCheckBox, setToggleCheckBox] = useState(false);
   return (
-    <View>
+    <View style={styles.settingsBox}>
       <Title style={styles.cardTitle}>Settings</Title>
       <View style={styles.counterLabel}>
         <View>
@@ -22,19 +22,25 @@ const Settings = () => {
       </View>
       <View style={styles.pickBoxContainer}>
         <Text style={styles.settingsTxt}>Pick for me</Text>
-        <Checkbox
-          style={styles.checkbox}
-          label="Pick for me"
-          status={checked ? "checked" : "unchecked"}
-          onPress={() => {
-            setChecked(!checked);
-          }}
-        />
+
+        <View style={styles.bottomSettingsIcons}>
+          <View style={styles.check}>
+            <Checkbox
+              status={checked ? "checked" : "unchecked"}
+              onPress={() => {
+                setChecked(!checked);
+              }}
+            />
+          </View>
+        </View>
       </View>
 
       <View style={styles.repeatContainer}>
         <Title style={styles.settingsTxt}>No repeating mode</Title>
-        <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
+
+        <View style={styles.bottomSettingsIcons}>
+          <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
+        </View>
       </View>
       <View style={styles.homeSettingContainer}>
         <View style={styles.homeContainer}>
@@ -53,6 +59,9 @@ const Settings = () => {
 export default Settings;
 
 const styles = StyleSheet.create({
+  settingsBox: {
+    marginHorizontal: 30,
+  },
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
@@ -69,8 +78,8 @@ const styles = StyleSheet.create({
   homeSettingContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 38,
-    marginBottom: 25,
+    // alignItems: "flex-end",
+    marginTop: 300,
   },
   homeSettingBox: {
     alignItems: "center",
@@ -90,9 +99,19 @@ const styles = StyleSheet.create({
   settingsTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 19,
+    marginVertical: 18,
   },
   counterLabel: {
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  bottomSettingsIcons: {
+    marginRight: 33,
+  },
+  check: {
+    borderWidth: 1,
+    backgroundColor: "white",
+    borderRadius: 10,
+    marginRight: 6,
   },
 });
