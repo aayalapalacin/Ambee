@@ -13,9 +13,15 @@ const Settings = () => {
   return (
     <View>
       <Title style={styles.cardTitle}>Settings</Title>
-      <Counter />
+      <View style={styles.counterLabel}>
+        <View>
+          <Text style={styles.settingsTxt}>Limit your option</Text>
+          <Text style={styles.settingsTxt}>Set a timer</Text>
+        </View>
+        <Counter />
+      </View>
       <View style={styles.pickBoxContainer}>
-        <Text>Pick for me</Text>
+        <Text style={styles.settingsTxt}>Pick for me</Text>
         <Checkbox
           style={styles.checkbox}
           label="Pick for me"
@@ -27,7 +33,7 @@ const Settings = () => {
       </View>
 
       <View style={styles.repeatContainer}>
-        <Title>No repeating mode</Title>
+        <Title style={styles.settingsTxt}>No repeating mode</Title>
         <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
       </View>
       <View style={styles.homeSettingContainer}>
@@ -56,7 +62,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   repeatContainer: {
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
   },
@@ -79,6 +85,14 @@ const styles = StyleSheet.create({
   pickBoxContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
+  },
+  settingsTxt: {
+    fontFamily: "Mali-Regular",
+    fontSize: 19,
+  },
+  counterLabel: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });

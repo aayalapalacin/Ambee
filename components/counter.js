@@ -40,7 +40,7 @@ const Counter = () => {
   return (
     <View>
       <View style={styles.countContainer}>
-        <Text>Limit your option</Text>
+        {/* <Text style={styles.settingsTxt}>Limit your option</Text> */}
         <View>
           <AntDesign
             onPress={() => optionIncrement()}
@@ -64,7 +64,7 @@ const Counter = () => {
         </View>
       </View>
       <View style={styles.countContainer}>
-        <Text>Set a timer</Text>
+        {/* <Text style={styles.settingsTxt}>Set a timer</Text> */}
         <View>
           <AntDesign
             onPress={() => timerIncrement()}
@@ -80,6 +80,7 @@ const Counter = () => {
         </View>
         <View>
           <AntDesign
+            style={styles.minus}
             onPress={() => timerDecrement()}
             name="minus"
             size={15}
@@ -107,6 +108,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 13,
     paddingVertical: 1,
     borderRadius: 10,
-    marginHorizontal: 3,
+    // marginHorizontal: 3,
+  },
+  settingsTxt: {
+    fontFamily: "Mali-Regular",
+    fontSize: 19,
+  },
+  minus: {
+    justifyContent: "center",
   },
 });
