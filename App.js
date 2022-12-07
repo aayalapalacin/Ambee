@@ -6,6 +6,7 @@ import NextRound from "./components/NextRound";
 import YesNoCard from "./components/yesNoCard";
 import ChosenCard from "./components/chosenCard";
 import Settings from "./components/settings";
+import Options from "./components/options";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./components/home";
@@ -41,6 +42,7 @@ export default function App() {
           <Stack.Screen name="ChosenCard" component={ChosenCard} />
           <Stack.Screen name="Settings" component={Settings} />
           <Stack.Screen name="NextRound" component={NextRound} />
+          <Stack.Screen name="Options" component={Options} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

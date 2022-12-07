@@ -20,6 +20,10 @@ export default function Home({ navigation }) {
         onPress={() => navigation.navigate("Settings")}
         title="Go to Settings Page"
       />
+      <Button
+        onPress={() => navigation.navigate("Options")}
+        title="See Genre Options"
+      />
     </View>
   );
 }
