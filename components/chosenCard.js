@@ -20,7 +20,7 @@ const ChosenCard = ({ navigation }) => (
         consectetur blandit nisl enim. Congue nibh leo turpis viverra ut dolor.
       </Paragraph>
       <View style={styles.homeSettingContainer}>
-        <View>
+        <View style={styles.homeContainer}>
           <Feather name="home" size={37} color="black" title="No" />
           <Text style={styles.homeSettingsTxt}>Home</Text>
         </View>
@@ -54,12 +54,15 @@ const styles = StyleSheet.create({
   },
   homeSettingContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 30,
-    marginBottom: 8,
+    justifyContent: "center",
+    marginTop: 38,
+    marginBottom: 25,
   },
   homeSettingBox: {
     alignItems: "center",
+  },
+  homeContainer: {
+    marginRight: 32,
   },
   homeSettingsTxt: {
     fontFamily: "Mali-Regular",
