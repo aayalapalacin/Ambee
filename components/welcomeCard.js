@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 import { StyleSheet, Text, View, Image } from "react-native";
-
+import { LinearGradient } from "expo";
 const WelcomeCard = () => (
   <Card>
     <Card.Content>
@@ -11,6 +11,7 @@ const WelcomeCard = () => (
           source={{ uri: "https://picsum.photos/700" }}
         />
       </View>
+
       <Title style={styles.cardTitle}>Welcome to AmBee</Title>
       <Paragraph style={styles.cardParagraph}>
         Lorem ipsum dolor sit amet consectetur. Gravida ac eget in tincidunt
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
   arrowIconBox: {
     flexDirection: "row",
     justifyContent: "center",
-    marginBottom: 110,
+    marginBottom: 125,
   },
 });
 
