@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Checkbox, Switch, Title } from "react-native-paper";
+import { Feather } from "@expo/vector-icons";
 
 import React from "react";
 import Counter from "./counter";
@@ -11,12 +12,22 @@ const Settings = () => {
   return (
     <View>
       <Title style={styles.cardTitle}>Settings</Title>
+      <Counter />
+      <Checkbox.Item label="Pick for me" status="checked" />
       <View style={styles.repeatContainer}>
         <Title>No repeating mode</Title>
         <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
       </View>
-      <Checkbox.Item label="Pick for me" status="checked" />
-      <Counter />
+      <View style={styles.homeSettingContainer}>
+        <View style={styles.homeContainer}>
+          <Feather name="home" size={37} color="black" title="No" />
+          <Text style={styles.homeSettingsTxt}>Home</Text>
+        </View>
+        <View style={styles.homeSettingBox}>
+          <Feather name="settings" size={37} color="black" />
+          <Text style={styles.homeSettingsTxt}>Settings</Text>
+        </View>
+      </View>
     </View>
   );
 };
@@ -36,5 +47,21 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignContent: "center",
     flexDirection: "row",
+  },
+  homeSettingContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 38,
+    marginBottom: 25,
+  },
+  homeSettingBox: {
+    alignItems: "center",
+  },
+  homeSettingsTxt: {
+    fontFamily: "Mali-Regular",
+    fontSize: 16,
+  },
+  homeContainer: {
+    marginRight: 32,
   },
 });
