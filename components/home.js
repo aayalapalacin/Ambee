@@ -28,6 +28,18 @@ export default function Home({ navigation }) {
         onPress={() => navigation.navigate("WelcomeCard")}
         title="Go to WelcomeCard"
       />
+      <Button
+        onPress={() => navigation.navigate("StepOne")}
+        title="Go to StepOne"
+      />
+      <Button
+        onPress={() => navigation.navigate("StepTwo")}
+        title="Go to StepTwo"
+      />
+      <Button
+        onPress={() => navigation.navigate("StepThree")}
+        title="Go to StepThree"
+      />
     </View>
   );
 }
