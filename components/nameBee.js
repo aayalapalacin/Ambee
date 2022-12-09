@@ -1,27 +1,32 @@
 import * as React from "react";
-import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
-import { StyleSheet, Text, View, Image } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { Button, Card, Title, TextInput } from "react-native-paper";
+import { StyleSheet, Text, View } from "react-native";
 
-const NameBee = () => (
-  <Card>
-    <Card.Content>
-      <View style={styles.picContainer}>
-        <Card.Cover
-          style={styles.cardPic}
-          source={{ uri: "https://picsum.photos/700" }}
-        />
-      </View>
-      <Title style={styles.cardTitle}>Step One</Title>
-      <Paragraph style={styles.cardParagraph}>
-        A place where you can get help making decisions without overthinking.
-      </Paragraph>
-    </Card.Content>
-    <Button style={styles.continueBtn} mode="contained">
-      <Text style={styles.btnTxt}>Next</Text>
-    </Button>
-  </Card>
-);
+const NameBee = () => {
+  const [text, setText] = React.useState("");
+  return (
+    <Card>
+      <Card.Content>
+        <View style={styles.picContainer}>
+          <Card.Cover
+            style={styles.cardPic}
+            source={{ uri: "https://picsum.photos/700" }}
+          />
+        </View>
+        <Title style={styles.cardTitle}>What is the name of your bee?</Title>
+      </Card.Content>
+      <TextInput
+        style={styles.input}
+        label="Type Here"
+        value={text}
+        onChangeText={(text) => setText(text)}
+      />
+      <Button style={styles.continueBtn} mode="contained">
+        <Text style={styles.btnTxt}>Next</Text>
+      </Button>
+    </Card>
+  );
+};
 
 const styles = StyleSheet.create({
   cardTitle: {
@@ -32,14 +37,7 @@ const styles = StyleSheet.create({
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
-  cardParagraph: {
-    textAlign: "center",
-    marginHorizontal: 45,
-    fontFamily: "Mali-Regular",
-    fontSize: 23,
-    marginBottom: 70,
-    paddingTop: 2,
-  },
+
   cardPic: {
     height: 225,
     width: 225,
@@ -56,6 +54,12 @@ const styles = StyleSheet.create({
   btnTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 20,
+  },
+  input: {
+    marginHorizontal: 90,
+    marginBottom: 100,
+    backgroundColor: "white",
+    borderWidth: 1,
   },
 });
 
