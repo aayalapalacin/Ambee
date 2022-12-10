@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from "react-native";
 const NameBee = () => {
   const [text, setText] = React.useState("");
   return (
-    <Card>
+    <Card style={styles.cardContainer}>
       <Card.Content>
         <View style={styles.picContainer}>
           <Card.Cover
@@ -13,7 +13,7 @@ const NameBee = () => {
             source={{ uri: "https://picsum.photos/700" }}
           />
         </View>
-        <Title style={styles.cardTitle}>What is the name of your bee?</Title>
+        <Title style={styles.cardTitle}>What is the name of your be?</Title>
       </Card.Content>
       <TextInput
         style={styles.input}
@@ -29,6 +29,10 @@ const NameBee = () => {
 };
 
 const styles = StyleSheet.create({
+  cardContainer: {
+    marginVertical: 0,
+    // backgroundColor: "red",
+  },
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
@@ -49,7 +53,7 @@ const styles = StyleSheet.create({
 
   continueBtn: {
     marginHorizontal: 90,
-    marginBottom: 130,
+    // marginBottom: 130,
   },
   btnTxt: {
     fontFamily: "Mali-Regular",

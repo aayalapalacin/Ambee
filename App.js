@@ -12,12 +12,13 @@ import StepOne from "./components/stepOne";
 import StepTwo from "./components/stepTwo";
 import StepThree from "./components/stepThree";
 import NameBee from "./components/nameBee";
-import { NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./components/home";
 import { useFonts } from "expo-font";
 import React, { useEffect } from "react";
 import { enableScreens } from "react-native-screens";
+import { Dimensions } from "react-native";
 // import * as SplashScreen from "expo-splash-screen";
 const Stack = createNativeStackNavigator();
 enableScreens();
@@ -37,10 +38,12 @@ export default function App() {
   if (!fontsLoaded) {
     return undefined;
   }
+  const navTheme = DefaultTheme;
+  navTheme.colors.background = "white";
 
   return (
     <PaperProvider>
-      <NavigationContainer>
+      <NavigationContainer theme={navTheme}>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="YesNoCard" component={YesNoCard} />
@@ -60,10 +63,8 @@ export default function App() {
 }
 AppRegistry.registerComponent(App, () => Main);
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+  body: {
+    backgroundColor: "blue",
+    height: 1000,
   },
 });
