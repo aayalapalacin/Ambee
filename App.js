@@ -12,6 +12,7 @@ import StepOne from "./components/stepOne";
 import StepTwo from "./components/stepTwo";
 import StepThree from "./components/stepThree";
 import NameBee from "./components/nameBee";
+import HowManyCards from "./components/howManyCards";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./components/home";
@@ -46,6 +47,7 @@ export default function App() {
           <Stack.Screen name="StepTwo" component={StepTwo} />
           <Stack.Screen name="StepThree" component={StepThree} />
           <Stack.Screen name="NameBee" component={NameBee} />
+          <Stack.Screen name="HowManyCards" component={HowManyCards} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

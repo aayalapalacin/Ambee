@@ -44,6 +44,10 @@ export default function Home({ navigation }) {
         onPress={() => navigation.navigate("NameBee")}
         title="Go to NameBee"
       />
+      <Button
+        onPress={() => navigation.navigate("HowManyCards")}
+        title="Go to HowManyCards"
+      />
     </View>
   );
 }
