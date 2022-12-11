@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 90,
+    marginTop: 80,
   },
 
   continueBtn: {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   },
   input: {
     marginHorizontal: 90,
-    marginBottom: 100,
+    marginBottom: 90,
     backgroundColor: "white",
     borderWidth: 1,
   },
