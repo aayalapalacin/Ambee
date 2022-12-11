@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
   continueBtn: {
     marginHorizontal: 90,
-    marginTop: 70,
+    marginTop: 100,
   },
   btnTxt: {
     fontFamily: "Mali-Regular",
