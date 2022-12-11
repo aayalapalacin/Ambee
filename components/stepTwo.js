@@ -1,29 +1,34 @@
 import * as React from "react";
-import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
-import { StyleSheet, Text, View, Image } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { Button, Card, Title, Paragraph } from "react-native-paper";
+import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 
-const StepTwo = () => (
-  <Card>
-    <Card.Content>
-      <View style={styles.picContainer}>
-        <Card.Cover
-          style={styles.cardPic}
-          source={{ uri: "https://picsum.photos/700" }}
-        />
-      </View>
-      <Title style={styles.cardTitle}>Step Two</Title>
-      <Paragraph style={styles.cardParagraph}>
-        Our app will recommend a movie based on your preferences.
-      </Paragraph>
-    </Card.Content>
-    <Button style={styles.continueBtn} mode="contained">
-      <Text style={styles.btnTxt}>Next</Text>
-    </Button>
-  </Card>
-);
+const StepTwo = () => {
+  const window = useWindowDimensions();
+  return (
+    <Card height={window.height} style={styles.container}>
+      <Card.Content>
+        <View style={styles.picContainer}>
+          <Card.Cover
+            style={styles.cardPic}
+            source={{ uri: "https://picsum.photos/700" }}
+          />
+        </View>
+        <Title style={styles.cardTitle}>Step Two</Title>
+        <Paragraph style={styles.cardParagraph}>
+          Our app will recommend a movie based on your preferences.
+        </Paragraph>
+      </Card.Content>
+      <Button style={styles.continueBtn} mode="contained">
+        <Text style={styles.btnTxt}>Next</Text>
+      </Button>
+    </Card>
+  );
+};
 
 const styles = StyleSheet.create({
+  container: {
+    borderRadius: 0,
+  },
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
@@ -51,7 +56,6 @@ const styles = StyleSheet.create({
 
   continueBtn: {
     marginHorizontal: 90,
-    marginBottom: 130,
   },
   btnTxt: {
     fontFamily: "Mali-Regular",

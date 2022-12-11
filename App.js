@@ -16,9 +16,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./components/home";
 import { useFonts } from "expo-font";
-import React, { useEffect } from "react";
+import React from "react";
 import { enableScreens } from "react-native-screens";
-// import * as SplashScreen from "expo-splash-screen";
 const Stack = createNativeStackNavigator();
 enableScreens();
 export default function App() {
@@ -28,12 +27,6 @@ export default function App() {
     "Mali-Regular": require("./assets/fonts/Mali-Regular.ttf"),
   });
 
-  // useEffect(() => {
-  //   async function prepare() {
-  //     await SplashScreen.preventAutoHideAsync();
-  //   }
-  //   prepare();
-  // }, []);
   if (!fontsLoaded) {
     return undefined;
   }
@@ -59,11 +52,4 @@ export default function App() {
   );
 }
 AppRegistry.registerComponent(App, () => Main);
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const styles = StyleSheet.create({});

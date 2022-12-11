@@ -1,11 +1,12 @@
 import * as React from "react";
 import { Button, Card, Title, TextInput } from "react-native-paper";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 
 const NameBee = () => {
+  const window = useWindowDimensions();
   const [text, setText] = React.useState("");
   return (
-    <Card>
+    <Card style={styles.cardContainer} height={window.height}>
       <Card.Content>
         <View style={styles.picContainer}>
           <Card.Cover
@@ -13,7 +14,7 @@ const NameBee = () => {
             source={{ uri: "https://picsum.photos/700" }}
           />
         </View>
-        <Title style={styles.cardTitle}>What is the name of your bee?</Title>
+        <Title style={styles.cardTitle}>What is the name of your be?</Title>
       </Card.Content>
       <TextInput
         style={styles.input}
@@ -29,6 +30,7 @@ const NameBee = () => {
 };
 
 const styles = StyleSheet.create({
+  cardContainer: { borderRadius: 0 },
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
@@ -44,12 +46,12 @@ const styles = StyleSheet.create({
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 90,
+    marginTop: 80,
   },
 
   continueBtn: {
     marginHorizontal: 90,
-    marginBottom: 130,
+    // marginBottom: 130,
   },
   btnTxt: {
     fontFamily: "Mali-Regular",
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
   },
   input: {
     marginHorizontal: 90,
-    marginBottom: 100,
+    marginBottom: 90,
     backgroundColor: "white",
     borderWidth: 1,
   },
