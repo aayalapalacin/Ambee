@@ -1,29 +1,41 @@
 import * as React from "react";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
-import { StyleSheet, Text, View, Image } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  useWindowDimensions,
+} from "react-native";
 
-const StepOne = () => (
-  <Card>
-    <Card.Content>
-      <View style={styles.picContainer}>
-        <Card.Cover
-          style={styles.cardPic}
-          source={{ uri: "https://picsum.photos/700" }}
-        />
-      </View>
-      <Title style={styles.cardTitle}>Step One</Title>
-      <Paragraph style={styles.cardParagraph}>
-        A place where you can get help making decisions without overthinking.
-      </Paragraph>
-    </Card.Content>
-    <Button style={styles.continueBtn} mode="contained">
-      <Text style={styles.btnTxt}>Next</Text>
-    </Button>
-  </Card>
-);
+const StepOne = () => {
+  const window = useWindowDimensions();
+
+  return (
+    <Card style={styles.container} height={window.height}>
+      <Card.Content>
+        <View style={styles.picContainer}>
+          <Card.Cover
+            style={styles.cardPic}
+            source={{ uri: "https://picsum.photos/700" }}
+          />
+        </View>
+        <Title style={styles.cardTitle}>Step One</Title>
+        <Paragraph style={styles.cardParagraph}>
+          A place where you can get help making decisions without overthinking.
+        </Paragraph>
+      </Card.Content>
+      <Button style={styles.continueBtn} mode="contained">
+        <Text style={styles.btnTxt}>Next</Text>
+      </Button>
+    </Card>
+  );
+};
 
 const styles = StyleSheet.create({
+  container: {
+    borderRadius: 0,
+  },
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
@@ -51,7 +63,6 @@ const styles = StyleSheet.create({
 
   continueBtn: {
     marginHorizontal: 90,
-    marginBottom: 130,
   },
   btnTxt: {
     fontFamily: "Mali-Regular",

@@ -1,11 +1,12 @@
 import * as React from "react";
 import { Button, Card, Title, TextInput } from "react-native-paper";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 
 const NameBee = () => {
+  const window = useWindowDimensions();
   const [text, setText] = React.useState("");
   return (
-    <Card style={styles.cardContainer}>
+    <Card style={styles.cardContainer} height={window.height}>
       <Card.Content>
         <View style={styles.picContainer}>
           <Card.Cover
@@ -29,10 +30,7 @@ const NameBee = () => {
 };
 
 const styles = StyleSheet.create({
-  cardContainer: {
-    marginVertical: 0,
-    // backgroundColor: "red",
-  },
+  cardContainer: { borderRadius: 0 },
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
