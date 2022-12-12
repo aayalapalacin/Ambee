@@ -5,9 +5,10 @@ import {
   Text,
   View,
   useWindowDimensions,
-  FlatList,
+  TouchableOpacity,
 } from "react-native";
 import OptionBtn from "../../components/optionBtn";
+import ContinueBtn from "../../components/continueBtn";
 
 const Item = ({ title }) => (
   <View style={styles.item}>
@@ -23,13 +24,9 @@ const Options = ({ navigation }) => {
         <Title style={styles.cardTitle}>What type of movies do you like?</Title>
         <OptionBtn />
       </Card.Content>
-      <Button
-        style={styles.continueBtn}
-        mode="contained"
-        onPress={() => navigation.navigate("HowManyCards")}
-      >
-        <Text style={styles.btnTxt}>Continue</Text>
-      </Button>
+      <TouchableOpacity onPress={() => navigation.navigate("HowManyCards")}>
+        <ContinueBtn text="Continue" />
+      </TouchableOpacity>
     </Card>
   );
 };

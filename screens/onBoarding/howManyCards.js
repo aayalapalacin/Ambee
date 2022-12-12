@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Button, Card, Title, Paragraph } from "react-native-paper";
+import { TouchableOpacity } from "react-native";
+import { Button, Card, Title } from "react-native-paper";
 import {
   StyleSheet,
   Text,
@@ -8,6 +9,7 @@ import {
   FlatList,
 } from "react-native";
 import OptionBtn from "../../components/optionBtn";
+import ContinueBtn from "../../components/continueBtn";
 
 const Item = ({ title }) => (
   <View style={styles.item}>
@@ -41,13 +43,9 @@ const HowManyCards = ({ navigation }) => {
           </View>
         </View>
       </Card.Content>
-      <Button
-        style={styles.continueBtn}
-        mode="contained"
-        onPress={() => navigation.navigate("YesNoCard")}
-      >
-        <Text style={styles.btnTxt}>Continue</Text>
-      </Button>
+      <TouchableOpacity onPress={() => navigation.navigate("YesNoCard")}>
+        <ContinueBtn text="Continue" />
+      </TouchableOpacity>
     </Card>
   );
 };
@@ -69,14 +67,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     padding: 22,
   },
-  continueBtn: {
-    marginHorizontal: 90,
-    marginTop: 100,
-  },
-  btnTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 20,
-  },
+
   genreBtnTxt: {
     fontSize: 20,
   },
@@ -94,6 +85,7 @@ const styles = StyleSheet.create({
   },
   low: {
     alignItems: "flex-start",
+    marginBottom: 75,
   },
   btnContainer: {
     marginHorizontal: 55,

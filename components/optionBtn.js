@@ -15,7 +15,7 @@ const genres = [
 ];
 const OptionBtn = () => {
   return (
-    <View>
+    <View style={styles.optionBtnContainer}>
       <View style={styles.genreContainer}>
         <Button
           style={styles.genreDiv}
@@ -101,8 +101,12 @@ const styles = StyleSheet.create({
     width: 100,
     marginVertical: 18,
     marginHorizontal: 9,
+    paddingVertical: 6,
   },
   genreTxt: {
     fontSize: 19,
+  },
+  optionBtnContainer: {
+    marginBottom: 80,
   },
 });

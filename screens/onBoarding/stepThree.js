@@ -1,6 +1,12 @@
 import * as React from "react";
-import { Button, Card, Title, Paragraph } from "react-native-paper";
-import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
+import { Card, Title, Paragraph } from "react-native-paper";
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  useWindowDimensions,
+} from "react-native";
+import ContinueBtn from "../../components/continueBtn";
 
 const StepThree = ({ navigation }) => {
   window = useWindowDimensions();
@@ -18,13 +24,9 @@ const StepThree = ({ navigation }) => {
           You can use the app by swiping right for yes swiping left for no.
         </Paragraph>
       </Card.Content>
-      <Button
-        style={styles.continueBtn}
-        mode="contained"
-        onPress={() => navigation.navigate("Options")}
-      >
-        <Text style={styles.btnTxt}>Next</Text>
-      </Button>
+      <TouchableOpacity onPress={() => navigation.navigate("Options")}>
+        <ContinueBtn text="Next" />
+      </TouchableOpacity>
     </Card>
   );
 };
@@ -54,14 +56,6 @@ const styles = StyleSheet.create({
   picContainer: {
     alignItems: "center",
     marginTop: 90,
-  },
-
-  continueBtn: {
-    marginHorizontal: 90,
-  },
-  btnTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 20,
   },
 });
 

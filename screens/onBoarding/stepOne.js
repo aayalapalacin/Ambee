@@ -4,9 +4,10 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
+  TouchableOpacity,
   useWindowDimensions,
 } from "react-native";
+import ContinueBtn from "../../components/continueBtn";
 
 const StepOne = ({ navigation }) => {
   const window = useWindowDimensions();
@@ -25,13 +26,9 @@ const StepOne = ({ navigation }) => {
           A place where you can get help making decisions without overthinking.
         </Paragraph>
       </Card.Content>
-      <Button
-        style={styles.continueBtn}
-        mode="contained"
-        onPress={() => navigation.navigate("StepTwo")}
-      >
-        <Text style={styles.btnTxt}>Next</Text>
-      </Button>
+      <TouchableOpacity onPress={() => navigation.navigate("StepTwo")}>
+        <ContinueBtn text="Next" />
+      </TouchableOpacity>
     </Card>
   );
 };
@@ -63,14 +60,6 @@ const styles = StyleSheet.create({
   picContainer: {
     alignItems: "center",
     marginTop: 90,
-  },
-
-  continueBtn: {
-    marginHorizontal: 90,
-  },
-  btnTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 20,
   },
 });
 
