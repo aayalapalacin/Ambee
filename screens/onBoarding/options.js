@@ -14,7 +14,7 @@ const Item = ({ title }) => (
     <Text style={styles.title}>{title}</Text>
   </View>
 );
-const Options = () => {
+const Options = ({ navigation }) => {
   const window = useWindowDimensions();
 
   return (
@@ -23,7 +23,11 @@ const Options = () => {
         <Title style={styles.cardTitle}>What type of movies do you like?</Title>
         <OptionBtn />
       </Card.Content>
-      <Button style={styles.continueBtn} mode="contained">
+      <Button
+        style={styles.continueBtn}
+        mode="contained"
+        onPress={() => navigation.navigate("HowManyCards")}
+      >
         <Text style={styles.btnTxt}>Continue</Text>
       </Button>
     </Card>

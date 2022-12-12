@@ -6,7 +6,7 @@ import NextRound from "./screens/main/NextRound";
 import YesNoCard from "./screens/main/yesNoCard";
 import ChosenCard from "./screens/main/chosenCard";
 import Settings from "./screens/main/settings";
-import Options from "./screens/main/options";
+import Options from "./screens/onBoarding/options";
 import WelcomeCard from "./screens/onBoarding/welcomeCard";
 import StepOne from "./screens/onBoarding/stepOne";
 import StepTwo from "./screens/onBoarding/stepTwo";

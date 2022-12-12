@@ -2,7 +2,7 @@ import * as React from "react";
 import { Button, Card, Title, Paragraph } from "react-native-paper";
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 
-const StepThree = () => {
+const StepThree = ({ navigation }) => {
   window = useWindowDimensions();
   return (
     <Card style={styles.container} height={window.height}>
@@ -18,7 +18,11 @@ const StepThree = () => {
           You can use the app by swiping right for yes swiping left for no.
         </Paragraph>
       </Card.Content>
-      <Button style={styles.continueBtn} mode="contained">
+      <Button
+        style={styles.continueBtn}
+        mode="contained"
+        onPress={() => navigation.navigate("Options")}
+      >
         <Text style={styles.btnTxt}>Next</Text>
       </Button>
     </Card>

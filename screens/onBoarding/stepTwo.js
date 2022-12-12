@@ -2,7 +2,7 @@ import * as React from "react";
 import { Button, Card, Title, Paragraph } from "react-native-paper";
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 
-const StepTwo = () => {
+const StepTwo = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
     <Card height={window.height} style={styles.container}>
@@ -18,7 +18,11 @@ const StepTwo = () => {
           Our app will recommend a movie based on your preferences.
         </Paragraph>
       </Card.Content>
-      <Button style={styles.continueBtn} mode="contained">
+      <Button
+        style={styles.continueBtn}
+        mode="contained"
+        onPress={() => navigation.navigate("StepThree")}
+      >
         <Text style={styles.btnTxt}>Next</Text>
       </Button>
     </Card>

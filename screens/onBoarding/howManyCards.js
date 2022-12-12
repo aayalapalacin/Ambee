@@ -14,7 +14,7 @@ const Item = ({ title }) => (
     <Text style={styles.title}>{title}</Text>
   </View>
 );
-const HowManyCards = () => {
+const HowManyCards = ({ navigation }) => {
   const window = useWindowDimensions();
 
   return (
@@ -41,7 +41,11 @@ const HowManyCards = () => {
           </View>
         </View>
       </Card.Content>
-      <Button style={styles.continueBtn} mode="contained">
+      <Button
+        style={styles.continueBtn}
+        mode="contained"
+        onPress={() => navigation.navigate("YesNoCard")}
+      >
         <Text style={styles.btnTxt}>Continue</Text>
       </Button>
     </Card>

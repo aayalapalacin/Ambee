@@ -2,7 +2,7 @@ import * as React from "react";
 import { Button, Card, Title, TextInput } from "react-native-paper";
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 
-const NameBee = () => {
+const NameBee = ({ navigation }) => {
   const window = useWindowDimensions();
   const [text, setText] = React.useState("");
   return (
@@ -22,7 +22,11 @@ const NameBee = () => {
         value={text}
         onChangeText={(text) => setText(text)}
       />
-      <Button style={styles.continueBtn} mode="contained">
+      <Button
+        style={styles.continueBtn}
+        mode="contained"
+        onPress={() => navigation.navigate("StepOne")}
+      >
         <Text style={styles.btnTxt}>Next</Text>
       </Button>
     </Card>

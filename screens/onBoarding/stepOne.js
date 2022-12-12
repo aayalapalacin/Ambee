@@ -8,7 +8,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 
-const StepOne = () => {
+const StepOne = ({ navigation }) => {
   const window = useWindowDimensions();
 
   return (
@@ -25,7 +25,11 @@ const StepOne = () => {
           A place where you can get help making decisions without overthinking.
         </Paragraph>
       </Card.Content>
-      <Button style={styles.continueBtn} mode="contained">
+      <Button
+        style={styles.continueBtn}
+        mode="contained"
+        onPress={() => navigation.navigate("StepTwo")}
+      >
         <Text style={styles.btnTxt}>Next</Text>
       </Button>
     </Card>
