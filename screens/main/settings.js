@@ -1,11 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Checkbox, Switch, Title } from "react-native-paper";
 import { Feather } from "@expo/vector-icons";
-// import CheckBox from "@react-native-community/checkbox";
 import React, { useState } from "react";
 import Counter from "../../components/counter";
 
-const Settings = () => {
+const Settings = ({ navigation }) => {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
@@ -47,10 +46,12 @@ const Settings = () => {
           <Feather name="home" size={37} color="black" title="No" />
           <Text style={styles.homeSettingsTxt}>Home</Text>
         </View>
-        <View style={styles.homeSettingBox}>
-          <Feather name="settings" size={37} color="black" />
-          <Text style={styles.homeSettingsTxt}>Settings</Text>
-        </View>
+        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+          <View style={styles.homeSettingBox}>
+            <Feather name="settings" size={37} color="black" />
+            <Text style={styles.homeSettingsTxt}>Settings</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
