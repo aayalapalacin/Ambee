@@ -36,8 +36,8 @@ export default function App() {
     <PaperProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="WelcomeCard" component={WelcomeCard} />
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="WelcomeCard" component={WelcomeCard} />
           <Stack.Screen name="YesNoCard" component={YesNoCard} />
           <Stack.Screen name="ChosenCard" component={ChosenCard} />
           <Stack.Screen name="Settings" component={Settings} />

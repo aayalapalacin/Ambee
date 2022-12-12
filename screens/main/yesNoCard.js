@@ -9,6 +9,7 @@ import {
 import { Button, Card, Title } from "react-native-paper";
 import { EvilIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import HomeSettings from "../../components/homeSettings";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
@@ -49,6 +50,7 @@ const YesNoCard = ({ navigation }) => {
           </View>
         </View>
       </Card.Content>
+      <HomeSettings />
     </Card>
   );
 };

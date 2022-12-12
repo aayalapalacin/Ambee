@@ -2,11 +2,12 @@ import * as React from "react";
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
 import { Feather } from "@expo/vector-icons";
+import HomeSettings from "../../components/homeSettings";
 
 const ChosenCard = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
-    <Card style={styles.container}>
+    <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
         <Title style={styles.cardTitle}>Here is your movie choice</Title>
 
@@ -21,17 +22,8 @@ const ChosenCard = ({ navigation }) => {
           consectetur blandit nisl enim. Congue nibh leo turpis viverra ut
           dolor.
         </Paragraph>
-        <View style={styles.homeSettingContainer}>
-          <View style={styles.homeContainer}>
-            <Feather name="home" size={37} color="black" title="No" />
-            <Text style={styles.homeSettingsTxt}>Home</Text>
-          </View>
-          <View style={styles.homeSettingBox}>
-            <Feather name="settings" size={37} color="black" />
-            <Text style={styles.homeSettingsTxt}>Settings</Text>
-          </View>
-        </View>
       </Card.Content>
+      <HomeSettings />
     </Card>
   );
 };

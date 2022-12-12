@@ -1,9 +1,15 @@
 import * as React from "react";
-import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
-import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { Card, Title, Paragraph } from "react-native-paper";
+import {
+  StyleSheet,
+  View,
+  useWindowDimensions,
+  TouchableOpacity,
+} from "react-native";
+import HomeSettings from "../../components/homeSettings";
+import ContinueBtn from "../../components/continueBtn";
 
-const NextRound = () => {
+const NextRound = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
     <Card style={styles.container} height={window.height}>
@@ -19,19 +25,10 @@ const NextRound = () => {
           You have 2 cards left! You're doing great!
         </Paragraph>
       </Card.Content>
-      <Button style={styles.continueBtn} mode="contained">
-        <Text style={styles.btnTxt}>Continue</Text>
-      </Button>
-      <View style={styles.homeSettingContainer}>
-        <View style={styles.homeContainer}>
-          <Feather name="home" size={37} color="black" title="No" />
-          <Text style={styles.homeSettingsTxt}>Home</Text>
-        </View>
-        <View style={styles.homeSettingBox}>
-          <Feather name="settings" size={37} color="black" />
-          <Text style={styles.homeSettingsTxt}>Settings</Text>
-        </View>
-      </View>
+      <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
+        <ContinueBtn text="Continue" />
+      </TouchableOpacity>
+      <HomeSettings />
     </Card>
   );
 };
@@ -53,7 +50,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 45,
     fontFamily: "Mali-Regular",
     fontSize: 23,
-    marginBottom: 70,
+    marginBottom: 110,
     paddingTop: 2,
   },
   cardPic: {
@@ -63,29 +60,6 @@ const styles = StyleSheet.create({
   picContainer: {
     alignItems: "center",
     marginTop: 70,
-  },
-  homeSettingContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: 30,
-  },
-  homeSettingBox: {
-    alignItems: "center",
-  },
-  homeSettingsTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 16,
-  },
-  homeContainer: {
-    marginRight: 32,
-  },
-  continueBtn: {
-    marginHorizontal: 90,
-    marginBottom: 10,
-  },
-  btnTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 20,
   },
 });
 
