@@ -34,7 +34,7 @@ const YesNoCard = ({ navigation }) => {
           <View style={styles.yesNoIcon}>
             <Image
               style={styles.swipeIcons}
-              source={require("../assets/icons/swipe-left.png")}
+              source={require("../../assets/icons/swipe-left.png")}
               resizeMode="contain"
             />
             <Text style={styles.leftIconTxt}>No</Text>
@@ -43,7 +43,7 @@ const YesNoCard = ({ navigation }) => {
             <Text style={styles.rightIconText}>Yes</Text>
             <Image
               style={styles.swipeIcons}
-              source={require("../assets/icons/swipe-right.png")}
+              source={require("../../assets/icons/swipe-right.png")}
               resizeMode="contain"
             />
           </View>

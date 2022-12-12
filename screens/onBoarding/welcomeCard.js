@@ -1,8 +1,14 @@
 import * as React from "react";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
-import { StyleSheet, View, Image, useWindowDimensions } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  useWindowDimensions,
+  TouchableOpacity,
+} from "react-native";
 import { LinearGradient } from "expo";
-const WelcomeCard = () => {
+const WelcomeCard = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
     <Card style={styles.container} height={window.height}>
@@ -21,13 +27,16 @@ const WelcomeCard = () => {
           mauris.
         </Paragraph>
       </Card.Content>
-      <View style={styles.arrowIconBox}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("NameBee")}
+        style={styles.arrowIconBox}
+      >
         <Image
           style={styles.arrowIcon}
-          source={require("../assets/icons/arrowCircleRight.png")}
+          source={require("../../assets/icons/arrowCircleRight.png")}
           resizeMode="contain"
         />
-      </View>
+      </TouchableOpacity>
     </Card>
   );
 };
@@ -63,12 +72,13 @@ const styles = StyleSheet.create({
 
   arrowIcon: {
     tintColor: "grey",
-    width: 60,
-    height: 60,
+    width: 70,
+    height: 70,
   },
   arrowIconBox: {
     flexDirection: "row",
     justifyContent: "center",
+    backgroundColor: "none",
   },
 });
 

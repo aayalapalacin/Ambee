@@ -7,7 +7,7 @@ import {
   useWindowDimensions,
   FlatList,
 } from "react-native";
-import OptionBtn from "./optionBtn";
+import OptionBtn from "../../components/optionBtn";
 
 const Item = ({ title }) => (
   <View style={styles.item}>

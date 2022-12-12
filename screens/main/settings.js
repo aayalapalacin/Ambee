@@ -3,7 +3,7 @@ import { Checkbox, Switch, Title } from "react-native-paper";
 import { Feather } from "@expo/vector-icons";
 // import CheckBox from "@react-native-community/checkbox";
 import React, { useState } from "react";
-import Counter from "./counter";
+import Counter from "../../components/counter";
 
 const Settings = () => {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
