@@ -28,7 +28,7 @@ const NextRound = ({ navigation }) => {
       <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
         <ContinueBtn text="Continue" />
       </TouchableOpacity>
-      <HomeSettings />
+      <HomeSettings navigation={navigation} />
     </Card>
   );
 };

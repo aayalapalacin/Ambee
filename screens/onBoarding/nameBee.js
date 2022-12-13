@@ -1,6 +1,13 @@
 import * as React from "react";
 import { Button, Card, Title, TextInput } from "react-native-paper";
-import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+  TouchableOpacity,
+} from "react-native";
+import ContinueBtn from "../../components/continueBtn";
 
 const NameBee = ({ navigation }) => {
   const window = useWindowDimensions();
@@ -14,21 +21,17 @@ const NameBee = ({ navigation }) => {
             source={{ uri: "https://picsum.photos/700" }}
           />
         </View>
-        <Title style={styles.cardTitle}>What is the name of your be?</Title>
+        <Title style={styles.cardTitle}>What is the name of your bee?</Title>
       </Card.Content>
       <TextInput
         style={styles.input}
-        label="Type Here"
+        label="Type here"
         value={text}
         onChangeText={(text) => setText(text)}
       />
-      <Button
-        style={styles.continueBtn}
-        mode="contained"
-        onPress={() => navigation.navigate("StepOne")}
-      >
-        <Text style={styles.btnTxt}>Next</Text>
-      </Button>
+      <TouchableOpacity onPress={() => navigation.navigate("StepOne")}>
+        <ContinueBtn text="Continue" />
+      </TouchableOpacity>
     </Card>
   );
 };

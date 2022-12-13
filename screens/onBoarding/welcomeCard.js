@@ -23,8 +23,7 @@ const WelcomeCard = ({ navigation }) => {
 
         <Title style={styles.cardTitle}>Welcome to AmBee</Title>
         <Paragraph style={styles.cardParagraph}>
-          Lorem ipsum dolor sit amet consectetur. Gravida ac eget in tincidunt
-          mauris.
+          A place where you can get help making decisions without overthinking..
         </Paragraph>
       </Card.Content>
       <TouchableOpacity

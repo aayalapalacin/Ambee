@@ -23,7 +23,7 @@ const YesNoCard = ({ navigation }) => {
           <EvilIcons name="undo" size={48} color="black" style={styles.undo} />
           <Card.Actions>
             <Ionicons name="ios-timer-outline" size={40} color="black" />
-            <Button>Start</Button>
+            <Button>Watch Now</Button>
           </Card.Actions>
         </View>
         <Card.Cover
@@ -50,7 +50,7 @@ const YesNoCard = ({ navigation }) => {
           </View>
         </View>
       </Card.Content>
-      <HomeSettings />
+      <HomeSettings navigation={navigation} />
     </Card>
   );
 };

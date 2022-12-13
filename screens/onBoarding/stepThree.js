@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Card, Title, Paragraph } from "react-native-paper";
+import { Card, Title, Paragraph, Text } from "react-native-paper";
 import {
   StyleSheet,
   TouchableOpacity,
@@ -12,6 +12,11 @@ const StepThree = ({ navigation }) => {
   window = useWindowDimensions();
   return (
     <Card style={styles.container} height={window.height}>
+      <View style={styles.skipContainer}>
+        <Text style={styles.skipTxt} variant="bodyMedium">
+          Skip
+        </Text>
+      </View>
       <Card.Content>
         <View style={styles.picContainer}>
           <Card.Cover
@@ -33,6 +38,14 @@ const StepThree = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: { borderRadius: 0 },
+  skipContainer: {
+    alignItems: "flex-end",
+    marginTop: 60,
+    marginEnd: 20,
+  },
+  skipTxt: {
+    fontWeight: "bold",
+  },
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
@@ -55,7 +68,7 @@ const styles = StyleSheet.create({
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 90,
+    marginTop: 30,
   },
 });
 

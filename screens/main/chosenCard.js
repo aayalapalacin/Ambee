@@ -23,7 +23,7 @@ const ChosenCard = ({ navigation }) => {
           dolor.
         </Paragraph>
       </Card.Content>
-      <HomeSettings />
+      <HomeSettings navigation={navigation} />
     </Card>
   );
 };

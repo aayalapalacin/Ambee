@@ -5,13 +5,13 @@ import { Feather } from "@expo/vector-icons";
 const HomeSettings = ({ navigation }) => {
   return (
     <View style={styles.homeSettingContainer}>
-      <TouchableOpacity onPress={() => console.log("home")}>
+      <TouchableOpacity onPress={() => navigation.navigate("YesNoCard")}>
         <View style={styles.homeContainer}>
           <Feather name="home" size={37} color="black" title="No" />
           <Text style={styles.homeSettingsTxt}>Home</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => console.log("settings")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
         <View style={styles.homeSettingBox}>
           <Feather name="settings" size={37} color="black" />
           <Text style={styles.homeSettingsTxt}>Settings</Text>
