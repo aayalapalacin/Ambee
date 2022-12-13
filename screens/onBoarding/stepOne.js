@@ -13,11 +13,13 @@ const StepOne = ({ navigation }) => {
 
   return (
     <Card style={styles.container} height={window.height}>
-      <View style={styles.skipContainer}>
-        <Text style={styles.skipTxt} variant="bodyMedium">
-          Skip
-        </Text>
-      </View>
+      <TouchableOpacity onPress={() => navigation.navigate("Options")}>
+        <View style={styles.skipContainer}>
+          <Text style={styles.skipTxt} variant="bodyMedium">
+            Skip
+          </Text>
+        </View>
+      </TouchableOpacity>
       <Card.Content>
         <View style={styles.picContainer}>
           <Card.Cover

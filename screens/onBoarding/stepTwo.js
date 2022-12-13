@@ -12,11 +12,13 @@ const StepTwo = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
     <Card height={window.height} style={styles.container}>
-      <View style={styles.skipContainer}>
-        <Text style={styles.skipTxt} variant="bodyMedium">
-          Skip
-        </Text>
-      </View>
+      <TouchableOpacity onPress={() => navigation.navigate("Options")}>
+        <View style={styles.skipContainer}>
+          <Text style={styles.skipTxt} variant="bodyMedium">
+            Skip
+          </Text>
+        </View>
+      </TouchableOpacity>
       <Card.Content>
         <View style={styles.picContainer}>
           <Card.Cover
