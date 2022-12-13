@@ -7,17 +7,14 @@ import {
   useWindowDimensions,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
+import Skip from "../../components/skip";
 
 const StepTwo = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
     <Card height={window.height} style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate("Options")}>
-        <View style={styles.skipContainer}>
-          <Text style={styles.skipTxt} variant="bodyMedium">
-            Skip
-          </Text>
-        </View>
+        <Skip />
       </TouchableOpacity>
       <Card.Content>
         <View style={styles.picContainer}>
@@ -42,14 +39,7 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
   },
-  skipContainer: {
-    alignItems: "flex-end",
-    marginTop: 60,
-    marginEnd: 20,
-  },
-  skipTxt: {
-    fontWeight: "bold",
-  },
+
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,

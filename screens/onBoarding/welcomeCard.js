@@ -21,7 +21,7 @@ const WelcomeCard = ({ navigation }) => {
           />
         </View>
 
-        <Title style={styles.cardTitle}>Welcome to AmBee</Title>
+        <Title style={styles.cardTitle}>Welcome to AmBee!</Title>
         <Paragraph style={styles.cardParagraph}>
           A place where you can get help making decisions without overthinking..
         </Paragraph>
@@ -30,11 +30,13 @@ const WelcomeCard = ({ navigation }) => {
         onPress={() => navigation.navigate("NameBee")}
         style={styles.arrowIconBox}
       >
-        <Image
-          style={styles.arrowIcon}
-          source={require("../../assets/icons/arrowCircleRight.png")}
-          resizeMode="contain"
-        />
+        <View style={styles.arrowBorder}>
+          <Image
+            style={styles.arrowIcon}
+            source={require("../../assets/icons/arrowCircleRight.png")}
+            resizeMode="contain"
+          />
+        </View>
       </TouchableOpacity>
     </Card>
   );
@@ -54,9 +56,9 @@ const styles = StyleSheet.create({
   },
   cardParagraph: {
     textAlign: "center",
-    marginHorizontal: 45,
+    lineHeight: 30,
     fontFamily: "Mali-Regular",
-    fontSize: 23,
+    fontSize: 22,
     marginBottom: 65,
     paddingTop: 2,
   },
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
   },
 
   arrowIcon: {
-    tintColor: "grey",
+    tintColor: "#FF6033",
     width: 70,
     height: 70,
   },
@@ -78,6 +80,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     backgroundColor: "none",
+  },
+  arrowBorder: {
+    borderWidth: 1,
+    borderRadius: 50,
+    borderColor: "#FF6033",
   },
 });
 

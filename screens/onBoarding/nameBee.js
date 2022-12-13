@@ -8,12 +8,16 @@ import {
   TouchableOpacity,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
+import Skip from "../../components/skip";
 
 const NameBee = ({ navigation }) => {
   const window = useWindowDimensions();
   const [text, setText] = React.useState("");
   return (
     <Card style={styles.cardContainer} height={window.height}>
+      <TouchableOpacity onPress={() => navigation.navigate("StepOne")}>
+        <Skip />
+      </TouchableOpacity>
       <Card.Content>
         <View style={styles.picContainer}>
           <Card.Cover
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 80,
+    marginTop: 60,
   },
 
   continueBtn: {
