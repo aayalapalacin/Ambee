@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
+import { Octicons } from "@expo/vector-icons";
 
 const StepTwo = ({ navigation }) => {
   const window = useWindowDimensions();
@@ -24,6 +25,26 @@ const StepTwo = ({ navigation }) => {
           />
         </View>
         <Title style={styles.cardTitle}>Step Two</Title>
+        <View style={styles.dotContainer}>
+          <Octicons
+            name="dot"
+            size={24}
+            color="#6750A4"
+            style={styles.dotIcon}
+          />
+          <Octicons
+            name="dot-fill"
+            size={24}
+            color="#CF9FFF"
+            style={styles.dotFillIcon}
+          />
+          <Octicons
+            name="dot"
+            size={24}
+            color="#6750A4"
+            style={styles.dotIcon}
+          />
+        </View>
         <Paragraph style={styles.cardParagraph}>
           Our app will recommend a movie based on your preferences.
         </Paragraph>
@@ -44,7 +65,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginHorizontal: 10,
     marginTop: 60,
-    marginBottom: 50,
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
@@ -63,6 +83,17 @@ const styles = StyleSheet.create({
   picContainer: {
     alignItems: "center",
     marginTop: 30,
+  },
+  dotContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginVertical: 30,
+  },
+  dotIcon: {
+    marginHorizontal: 4,
+  },
+  dotFillIcon: {
+    marginHorizontal: 4,
   },
 });
 

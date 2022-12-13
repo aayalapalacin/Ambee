@@ -19,5 +19,6 @@ const styles = StyleSheet.create({
   },
   skipTxt: {
     fontWeight: "bold",
+    fontSize: 15,
   },
 });

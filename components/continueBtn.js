@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 90,
     paddingVertical: 6,
+    backgroundColor: "#FF6033",
   },
   btnTxt: {
     fontFamily: "Mali-Regular",

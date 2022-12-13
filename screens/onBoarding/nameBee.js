@@ -29,7 +29,8 @@ const NameBee = ({ navigation }) => {
       </Card.Content>
       <TextInput
         style={styles.input}
-        label="Type here"
+        placeholder="Type here"
+        placeholderTextColor="#FF6033"
         value={text}
         onChangeText={(text) => setText(text)}
       />
@@ -72,7 +73,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 90,
     marginBottom: 90,
     backgroundColor: "white",
-    borderWidth: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: "#FF6033",
   },
 });
 
