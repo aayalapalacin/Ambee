@@ -23,7 +23,7 @@ const HowManyCards = ({ navigation }) => {
     <Card height={window.height} style={styles.container}>
       <Card.Content>
         <Title style={styles.cardTitle}>
-          How many cards would you like to start with?
+          How many movies would you like to start with?
         </Title>
         <View style={styles.btnContainer}>
           <View style={styles.top}>

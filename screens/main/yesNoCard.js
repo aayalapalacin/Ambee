@@ -22,7 +22,6 @@ const YesNoCard = ({ navigation }) => {
         <View style={styles.cardTopIcons}>
           <EvilIcons name="undo" size={48} color="black" style={styles.undo} />
           <Card.Actions>
-            <Ionicons name="ios-timer-outline" size={40} color="black" />
             <Button>Watch Now</Button>
           </Card.Actions>
         </View>
