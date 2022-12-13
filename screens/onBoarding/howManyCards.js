@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
+    marginHorizontal: 5,
     marginTop: 60,
     marginBottom: 50,
     fontFamily: "Mali-Bold",
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 
   genreBtn: {
     marginTop: 20,
-    padding: 22,
+    padding: 23,
   },
 
   genreBtnTxt: {

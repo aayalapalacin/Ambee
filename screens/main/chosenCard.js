@@ -9,7 +9,7 @@ const ChosenCard = ({ navigation }) => {
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
-        <Title style={styles.cardTitle}>Here is your movie choice</Title>
+        <Title style={styles.cardTitle}>Awesome! You chose: John Wick!</Title>
 
         <Card.Cover
           style={styles.cardPic}
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     marginHorizontal: 10,
+    marginBottom: 40,
   },
   cardTitle: {
     textAlign: "center",
@@ -50,21 +51,7 @@ const styles = StyleSheet.create({
   cardPic: {
     height: 300,
   },
-  homeSettingContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: 10,
-  },
-  homeSettingBox: {
-    alignItems: "center",
-  },
-  homeContainer: {
-    marginRight: 32,
-  },
-  homeSettingsTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 16,
-  },
+
   aboutTitleTxt: {
     fontFamily: "Mali-Bold",
     paddingTop: 20,

@@ -28,7 +28,7 @@ const NextRound = ({ navigation }) => {
       <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
         <ContinueBtn text="Continue" />
       </TouchableOpacity>
-      <HomeSettings navigation={navigation} />
+      {/* <HomeSettings navigation={navigation} /> */}
     </Card>
   );
 };
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 45,
     fontFamily: "Mali-Regular",
     fontSize: 23,
-    marginBottom: 110,
+    marginBottom: 50,
     paddingTop: 2,
   },
   cardPic: {
