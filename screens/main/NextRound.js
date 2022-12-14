@@ -14,10 +14,14 @@ const NextRound = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const getData = async () => {
     try {
-      const value = await AsyncStorage.getItem("@username");
-      if (value !== null) {
-        setUsername(value);
+      const usernameValue = await AsyncStorage.getItem("@username");
+      const userGenreValue = await AsyncStorage.getItem("@userGenres");
+      console.log(userGenreValue, "userGenre");
+      if (usernameValue !== null) {
+        setUsername(usernameValue);
         // console.log(value, "storage value");
+      } else {
+        setUsername("You");
       }
     } catch (e) {
       // error reading value
