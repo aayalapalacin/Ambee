@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Button, Card, Title, Paragraph } from "react-native-paper";
+import { Card, Title } from "react-native-paper";
 import {
   StyleSheet,
-  Text,
-  View,
+  Alert,
   useWindowDimensions,
   TouchableOpacity,
 } from "react-native";
@@ -19,7 +18,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const Options = ({ navigation }) => {
   const window = useWindowDimensions();
   const [selectedGenres, setSelectedGenres] = useState([]);
-  console.log(selectedGenres, "selected genres");
+
   const storeData = async (value) => {
     try {
       await AsyncStorage.setItem("@userGenres", JSON.stringify(value));
@@ -38,8 +37,12 @@ const Options = ({ navigation }) => {
       </Card.Content>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("HowManyCards");
-          storeData(selectedGenres);
+          if (selectedGenres.length == 0) {
+            Alert.alert("Please Choose At Least One");
+          } else {
+            navigation.navigate("HowManyCards");
+            storeData(selectedGenres);
+          }
         }}
       >
         <ContinueBtn text="Continue" />

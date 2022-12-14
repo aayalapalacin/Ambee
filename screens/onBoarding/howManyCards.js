@@ -1,24 +1,30 @@
-import * as React from "react";
-import { TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { Alert, TouchableOpacity } from "react-native";
 import { Button, Card, Title } from "react-native-paper";
-import {
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-  FlatList,
-} from "react-native";
-import OptionBtn from "../../components/optionBtn";
+import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const Item = ({ title }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
-);
+const numOfMovies = ["3", "5", "7"];
 const HowManyCards = ({ navigation }) => {
+  const [userNumOfMovies, setUserNumOfMovies] = useState("");
   const window = useWindowDimensions();
-
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem("@userNum", value);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const validation = () => {
+    return (
+      <View style={styles.validationContainer}>
+        <Text style={styles.validationTxt} variant="labelSmall">
+          Label Small
+        </Text>
+      </View>
+    );
+  };
   return (
     <Card height={window.height} style={styles.container}>
       <Card.Content>
@@ -27,23 +33,45 @@ const HowManyCards = ({ navigation }) => {
         </Title>
         <View style={styles.btnContainer}>
           <View style={styles.top}>
-            <Button style={styles.genreBtn} mode="contained">
-              <Text style={styles.genreBtnTxt}>7</Text>
+            <Button
+              style={styles.genreBtn}
+              mode="contained"
+              onPress={() => setUserNumOfMovies(numOfMovies[2])}
+            >
+              <Text style={styles.genreBtnTxt}>{numOfMovies[2]}</Text>
             </Button>
           </View>
           <View style={styles.mid}>
-            <Button style={styles.genreBtn} mode="contained">
-              <Text style={styles.genreBtnTxt}>5</Text>
+            <Button
+              style={styles.genreBtn}
+              mode="contained"
+              onPress={() => setUserNumOfMovies(numOfMovies[1])}
+            >
+              <Text style={styles.genreBtnTxt}>{numOfMovies[1]}</Text>
             </Button>
           </View>
           <View style={styles.low}>
-            <Button style={styles.genreBtn} mode="contained">
-              <Text style={styles.genreBtnTxt}>3</Text>
+            <Button
+              style={styles.genreBtn}
+              mode="contained"
+              onPress={() => setUserNumOfMovies(numOfMovies[0])}
+            >
+              <Text style={styles.genreBtnTxt}>{numOfMovies[0]}</Text>
             </Button>
           </View>
         </View>
       </Card.Content>
-      <TouchableOpacity onPress={() => navigation.navigate("YesNoCard")}>
+      {validation}
+      <TouchableOpacity
+        onPress={() => {
+          if (userNumOfMovies == "") {
+            Alert.alert("Please Choose One");
+          } else {
+            navigation.navigate("YesNoCard");
+            storeData(userNumOfMovies);
+          }
+        }}
+      >
         <ContinueBtn text="Continue" />
       </TouchableOpacity>
     </Card>
@@ -89,6 +117,13 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     marginHorizontal: 55,
+  },
+  validationContainer: {
+    justifyContent: "center",
+    textAlign: "center",
+  },
+  validationTxt: {
+    color: "red",
   },
 });
 export default HowManyCards;

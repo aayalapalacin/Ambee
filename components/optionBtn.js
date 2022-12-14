@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import React, { useState } from "react";
+import React from "react";
 
 const genres = [
   { name: "horror", key: 1 },
