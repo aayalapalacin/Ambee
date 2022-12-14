@@ -11,7 +11,6 @@ import Skip from "../../components/skip";
 import { Octicons } from "@expo/vector-icons";
 
 const StepTwo = ({ navigation }) => {
-  const window = useWindowDimensions();
   return (
     <Card height={window.height} style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate("Options")}>

@@ -1,11 +1,10 @@
-import * as React from "react";
-import { Text, Card, Title, Paragraph } from "react-native-paper";
+import React from "react";
+import { Card, Title, Paragraph } from "react-native-paper";
 import {
   StyleSheet,
   View,
   TouchableOpacity,
   useWindowDimensions,
-  Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
@@ -48,7 +47,7 @@ const StepOne = ({ navigation }) => {
           />
         </View>
         <Paragraph style={styles.cardParagraph}>
-          Our app will recommend a movie based on your preferences.
+          Our app will recommend a movie based on preferences.
         </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("StepTwo")}>

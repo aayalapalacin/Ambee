@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Title, Paragraph } from "react-native-paper";
 import {
   StyleSheet,
@@ -6,11 +6,36 @@ import {
   useWindowDimensions,
   TouchableOpacity,
 } from "react-native";
-import HomeSettings from "../../components/homeSettings";
 import ContinueBtn from "../../components/continueBtn";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const NextRound = ({ navigation }) => {
   const window = useWindowDimensions();
+  const [username, setUsername] = useState("");
+  const [userGenre, setUserGenre] = useState("");
+  const [userNum, setUserNum] = useState("");
+  const getData = async () => {
+    try {
+      const usernameValue = await AsyncStorage.getItem("@username");
+      const userGenreValue = await AsyncStorage.getItem("@userGenres");
+      const userNumValue = await AsyncStorage.getItem("@userNum");
+      console.log(userGenreValue, "userGenre");
+      if (usernameValue !== null) {
+        setUsername(usernameValue);
+        setUserGenre(JSON.parse(userGenreValue));
+        setUserNum(userNumValue);
+      } else {
+        setUsername("You");
+      }
+    } catch (e) {
+      // error reading value
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content>
@@ -22,7 +47,9 @@ const NextRound = ({ navigation }) => {
         </View>
         <Title style={styles.cardTitle}>Next Round</Title>
         <Paragraph style={styles.cardParagraph}>
-          You have 2 cards left! You're doing great!
+          {username}, you choose {userGenre} for movie genre's and decided to
+          start with {userNum} movies. You have 2 cards left! You're doing
+          great!
         </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>

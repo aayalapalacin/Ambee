@@ -1,20 +1,30 @@
 import * as React from "react";
-import { Button, Card, Title, TextInput } from "react-native-paper";
+import { Card, Title, TextInput } from "react-native-paper";
 import {
   StyleSheet,
-  Text,
   View,
   useWindowDimensions,
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const NameBee = ({ navigation }) => {
   const window = useWindowDimensions();
-  const [text, setText] = React.useState("");
+  const [username, setUsername] = React.useState("");
+
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem("@username", value);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Card style={styles.cardContainer} height={window.height}>
@@ -34,10 +44,19 @@ const NameBee = ({ navigation }) => {
           style={styles.input}
           placeholder="Type here"
           placeholderTextColor="#FF6033"
-          value={text}
-          onChangeText={(text) => setText(text)}
+          value={username}
+          onChangeText={(username) => setUsername(username)}
         />
-        <TouchableOpacity onPress={() => navigation.navigate("StepOne")}>
+        <TouchableOpacity
+          onPress={() => {
+            if (username.length == 0) {
+              Alert.alert("Please Enter UserName");
+            } else {
+              navigation.navigate("StepOne");
+              storeData(username);
+            }
+          }}
+        >
           <ContinueBtn text="Continue" />
         </TouchableOpacity>
       </Card>
