@@ -7,9 +7,8 @@ import {
   useWindowDimensions,
 } from "react-native";
 import { Button, Card, Title } from "react-native-paper";
-import { EvilIcons } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
 import HomeSettings from "../../components/homeSettings";
+import { Ionicons } from "@expo/vector-icons";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
@@ -21,12 +20,7 @@ const YesNoCard = ({ navigation }) => {
         </Title>
         <View style={styles.cardTopIcons}>
           <View>
-            <EvilIcons
-              name="undo"
-              size={48}
-              color="#8570D8"
-              style={styles.undo}
-            />
+            <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
           </View>
           <View style={styles.watchBtn}>
             <Button>Watch Now</Button>
@@ -92,7 +86,7 @@ const styles = StyleSheet.create({
   swipeContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 80,
+    marginTop: 20,
   },
   yesNoIcon: {
     flexDirection: "row",
