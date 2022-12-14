@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Title, Paragraph } from "react-native-paper";
 import {
   StyleSheet,
@@ -6,11 +6,27 @@ import {
   useWindowDimensions,
   TouchableOpacity,
 } from "react-native";
-// import HomeSettings from "../../components/homeSettings";
 import ContinueBtn from "../../components/continueBtn";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const NextRound = ({ navigation }) => {
   const window = useWindowDimensions();
+  const [username, setUsername] = useState("");
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem("@username");
+      if (value !== null) {
+        setUsername(value);
+        // console.log(value, "storage value");
+      }
+    } catch (e) {
+      // error reading value
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <Card style={styles.container} height={window.height}>
@@ -23,7 +39,7 @@ const NextRound = ({ navigation }) => {
         </View>
         <Title style={styles.cardTitle}>Next Round</Title>
         <Paragraph style={styles.cardParagraph}>
-          You have 2 cards left! You're doing great!
+          {username} have 2 cards left! You're doing great!
         </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>

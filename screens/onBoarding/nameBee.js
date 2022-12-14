@@ -10,10 +10,19 @@ import {
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const NameBee = ({ navigation }) => {
   const window = useWindowDimensions();
   const [text, setText] = React.useState("");
+
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem("@username", value);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -38,7 +47,10 @@ const NameBee = ({ navigation }) => {
           onChangeText={(text) => setText(text)}
         />
         <TouchableOpacity
-          onPress={() => navigation.navigate("StepOne", { text })}
+          onPress={() => {
+            navigation.navigate("StepOne", { text });
+            storeData(text);
+          }}
         >
           <ContinueBtn text="Continue" />
         </TouchableOpacity>
