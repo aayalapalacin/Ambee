@@ -1,15 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Checkbox, Switch, Title } from "react-native-paper";
 import { Feather } from "@expo/vector-icons";
-// import CheckBox from "@react-native-community/checkbox";
 import React, { useState } from "react";
-import Counter from "./counter";
+import Counter from "../../components/counter";
+import HomeSettings from "../../components/homeSettings";
 
-const Settings = () => {
+const Settings = ({ navigation }) => {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
-  const [checked, setChecked] = React.useState(false);
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
-  const [toggleCheckBox, setToggleCheckBox] = useState(false);
   return (
     <View style={styles.settingsBox}>
       <Title style={styles.cardTitle}>Settings</Title>
@@ -20,20 +18,6 @@ const Settings = () => {
         </View>
         <Counter />
       </View>
-      <View style={styles.pickBoxContainer}>
-        <Text style={styles.settingsTxt}>Pick for me</Text>
-
-        <View style={styles.bottomSettingsIcons}>
-          <View style={styles.check}>
-            <Checkbox
-              status={checked ? "checked" : "unchecked"}
-              onPress={() => {
-                setChecked(!checked);
-              }}
-            />
-          </View>
-        </View>
-      </View>
 
       <View style={styles.repeatContainer}>
         <Title style={styles.settingsTxt}>No repeating mode</Title>
@@ -42,16 +26,8 @@ const Settings = () => {
           <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
         </View>
       </View>
-      <View style={styles.homeSettingContainer}>
-        <View style={styles.homeContainer}>
-          <Feather name="home" size={37} color="black" title="No" />
-          <Text style={styles.homeSettingsTxt}>Home</Text>
-        </View>
-        <View style={styles.homeSettingBox}>
-          <Feather name="settings" size={37} color="black" />
-          <Text style={styles.homeSettingsTxt}>Settings</Text>
-        </View>
-      </View>
+
+      <HomeSettings navigation={navigation} />
     </View>
   );
 };
@@ -74,6 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
+    marginBottom: 200,
   },
   homeSettingContainer: {
     flexDirection: "row",

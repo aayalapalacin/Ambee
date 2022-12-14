@@ -2,15 +2,14 @@ import * as React from "react";
 import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
 import {
   StyleSheet,
-  Text,
   View,
   Image,
   useWindowDimensions,
+  TouchableOpacity,
 } from "react-native";
-
-const StepOne = () => {
+import { LinearGradient } from "expo";
+const WelcomeCard = ({ navigation }) => {
   const window = useWindowDimensions();
-
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content>
@@ -18,16 +17,27 @@ const StepOne = () => {
           <Card.Cover
             style={styles.cardPic}
             source={{ uri: "https://picsum.photos/700" }}
+            resizeMode="contain"
           />
         </View>
-        <Title style={styles.cardTitle}>Step One</Title>
+
+        <Title style={styles.cardTitle}>Welcome to AmBee!</Title>
         <Paragraph style={styles.cardParagraph}>
-          A place where you can get help making decisions without overthinking.
+          A place where you can get help making decisions without overthinking..
         </Paragraph>
       </Card.Content>
-      <Button style={styles.continueBtn} mode="contained">
-        <Text style={styles.btnTxt}>Next</Text>
-      </Button>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("NameBee")}
+        style={styles.arrowIconBox}
+      >
+        <View style={styles.arrowBorder}>
+          <Image
+            style={styles.arrowIcon}
+            source={require("../../assets/icons/arrowCircleRight.png")}
+            resizeMode="contain"
+          />
+        </View>
+      </TouchableOpacity>
     </Card>
   );
 };
@@ -46,10 +56,10 @@ const styles = StyleSheet.create({
   },
   cardParagraph: {
     textAlign: "center",
-    marginHorizontal: 45,
+    lineHeight: 30,
     fontFamily: "Mali-Regular",
-    fontSize: 23,
-    marginBottom: 70,
+    fontSize: 22,
+    marginBottom: 65,
     paddingTop: 2,
   },
   cardPic: {
@@ -58,16 +68,24 @@ const styles = StyleSheet.create({
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 90,
+    marginTop: 80,
   },
 
-  continueBtn: {
-    marginHorizontal: 90,
+  arrowIcon: {
+    tintColor: "#FF6033",
+    width: 70,
+    height: 70,
   },
-  btnTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 20,
+  arrowIconBox: {
+    flexDirection: "row",
+    justifyContent: "center",
+    backgroundColor: "none",
+  },
+  arrowBorder: {
+    borderWidth: 1,
+    borderRadius: 50,
+    borderColor: "#FF6033",
   },
 });
 
-export default StepOne;
+export default WelcomeCard;

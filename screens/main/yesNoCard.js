@@ -7,7 +7,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 import { Button, Card, Title } from "react-native-paper";
-import { EvilIcons } from "@expo/vector-icons";
+import HomeSettings from "../../components/homeSettings";
 import { Ionicons } from "@expo/vector-icons";
 
 const YesNoCard = ({ navigation }) => {
@@ -19,11 +19,12 @@ const YesNoCard = ({ navigation }) => {
           What kind of movie would you like to watch?
         </Title>
         <View style={styles.cardTopIcons}>
-          <EvilIcons name="undo" size={48} color="black" style={styles.undo} />
-          <Card.Actions>
-            <Ionicons name="ios-timer-outline" size={40} color="black" />
-            <Button>Start</Button>
-          </Card.Actions>
+          <View>
+            <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
+          </View>
+          <View style={styles.watchBtn}>
+            <Button>Watch Now</Button>
+          </View>
         </View>
         <Card.Cover
           style={styles.cardPic}
@@ -34,7 +35,7 @@ const YesNoCard = ({ navigation }) => {
           <View style={styles.yesNoIcon}>
             <Image
               style={styles.swipeIcons}
-              source={require("../assets/icons/swipe-left.png")}
+              source={require("../../assets/icons/swipe-left.png")}
               resizeMode="contain"
             />
             <Text style={styles.leftIconTxt}>No</Text>
@@ -43,12 +44,13 @@ const YesNoCard = ({ navigation }) => {
             <Text style={styles.rightIconText}>Yes</Text>
             <Image
               style={styles.swipeIcons}
-              source={require("../assets/icons/swipe-right.png")}
+              source={require("../../assets/icons/swipe-right.png")}
               resizeMode="contain"
             />
           </View>
         </View>
       </Card.Content>
+      <HomeSettings navigation={navigation} />
     </Card>
   );
 };
@@ -66,6 +68,12 @@ const styles = StyleSheet.create({
     fontFamily: "Mali-Bold",
     fontSize: 27.9,
   },
+  watchBtn: {
+    marginHorizontal: 0,
+    borderWidth: 1.5,
+    borderRadius: 13,
+    borderColor: "#8570D8",
+  },
   cardTopIcons: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -78,16 +86,17 @@ const styles = StyleSheet.create({
   swipeContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 80,
+    marginTop: 20,
   },
   yesNoIcon: {
     flexDirection: "row",
     justifyContent: "center",
+    marginBottom: 25,
   },
   leftIconTxt: {
     marginEnd: 40,
     fontSize: 28,
-    paddingStart: 5,
+    paddingStart: 8.5,
   },
   rightIconText: {
     fontSize: 28,
@@ -98,6 +107,7 @@ const styles = StyleSheet.create({
     width: 33,
     height: 33,
     marginTop: 3,
+    tintColor: "#8570D8",
   },
 });
 
