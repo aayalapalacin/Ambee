@@ -23,7 +23,7 @@ const YesNoCard = ({ navigation }) => {
             <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
           </View>
           <View style={styles.watchBtn}>
-            <Button onPress={() => navigation.navigate("ChosenCard")}>
+            <Button onPress={() => navigation.navigate("NextRound")}>
               Watch Now
             </Button>
           </View>
