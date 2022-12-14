@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, Title, Paragraph } from "react-native-paper";
 import {
   StyleSheet,
@@ -9,13 +9,10 @@ import {
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
 import { Octicons } from "@expo/vector-icons";
-import { useRoute } from "@react-navigation/native";
 
 const StepOne = ({ navigation }) => {
   const window = useWindowDimensions();
-  const route = useRoute();
-  const [username, setUsername] = useState(route.params.text);
-  console.log(username, "username");
+
   return (
     <Card style={styles.container} height={window.height}>
       <TouchableOpacity onPress={() => navigation.navigate("Options")}>
@@ -53,9 +50,7 @@ const StepOne = ({ navigation }) => {
           Our app will recommend a movie based on preferences.
         </Paragraph>
       </Card.Content>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("StepTwo", username)}
-      >
+      <TouchableOpacity onPress={() => navigation.navigate("StepTwo")}>
         <ContinueBtn text="Next" />
       </TouchableOpacity>
     </Card>

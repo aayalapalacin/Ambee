@@ -22,7 +22,7 @@ const NextRound = ({ navigation }) => {
       console.log(userGenreValue, "userGenre");
       if (usernameValue !== null) {
         setUsername(usernameValue);
-        setUserGenre(userGenreValue);
+        setUserGenre(JSON.parse(userGenreValue));
         setUserNum(userNumValue);
       } else {
         setUsername("You");

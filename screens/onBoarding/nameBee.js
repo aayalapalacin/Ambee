@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
@@ -14,7 +15,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const NameBee = ({ navigation }) => {
   const window = useWindowDimensions();
-  const [text, setText] = React.useState("");
+  const [username, setUsername] = React.useState("");
 
   const storeData = async (value) => {
     try {
@@ -43,13 +44,17 @@ const NameBee = ({ navigation }) => {
           style={styles.input}
           placeholder="Type here"
           placeholderTextColor="#FF6033"
-          value={text}
-          onChangeText={(text) => setText(text)}
+          value={username}
+          onChangeText={(username) => setUsername(username)}
         />
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("StepOne", { text });
-            storeData(text);
+            if (username.length == 0) {
+              Alert.alert("Please Enter UserName");
+            } else {
+              navigation.navigate("StepOne");
+              storeData(username);
+            }
           }}
         >
           <ContinueBtn text="Continue" />

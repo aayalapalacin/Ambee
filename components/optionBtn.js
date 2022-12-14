@@ -3,14 +3,14 @@ import { Button } from "react-native-paper";
 import React from "react";
 
 const genres = [
-  { name: "horror", key: 1 },
-  { name: "comedy", key: 2 },
-  { name: "doc", key: 3 },
-  { name: "sci-fi", key: 4 },
-  { name: "anime", key: 5 },
-  { name: "musical", key: 6 },
-  { name: "action", key: 7 },
-  { name: "romantic", key: 8 },
+  { name: "horror ", key: 1 },
+  { name: "comedy ", key: 2 },
+  { name: "doc ", key: 3 },
+  { name: "sci-fi ", key: 4 },
+  { name: "anime ", key: 5 },
+  { name: "musical ", key: 6 },
+  { name: "action ", key: 7 },
+  { name: "romantic ", key: 8 },
 ];
 const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
   return (

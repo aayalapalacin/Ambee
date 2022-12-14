@@ -10,15 +10,10 @@ import OptionBtn from "../../components/optionBtn";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// const Item = ({ title }) => (
-//   <View style={styles.item}>
-//     <Text style={styles.title}>{title}</Text>
-//   </View>
-// );
 const Options = ({ navigation }) => {
   const window = useWindowDimensions();
   const [selectedGenres, setSelectedGenres] = useState([]);
-
+  console.log(selectedGenres, "select");
   const storeData = async (value) => {
     try {
       await AsyncStorage.setItem("@userGenres", JSON.stringify(value));
