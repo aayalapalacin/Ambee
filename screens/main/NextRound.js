@@ -6,11 +6,12 @@ import {
   useWindowDimensions,
   TouchableOpacity,
 } from "react-native";
-import HomeSettings from "../../components/homeSettings";
+// import HomeSettings from "../../components/homeSettings";
 import ContinueBtn from "../../components/continueBtn";
 
 const NextRound = ({ navigation }) => {
   const window = useWindowDimensions();
+
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content>

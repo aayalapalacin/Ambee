@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Button, Card, Title, TextInput } from "react-native-paper";
+import { Card, Title, TextInput } from "react-native-paper";
 import {
   StyleSheet,
-  Text,
   View,
   useWindowDimensions,
   TouchableOpacity,
@@ -15,6 +14,7 @@ import Skip from "../../components/skip";
 const NameBee = ({ navigation }) => {
   const window = useWindowDimensions();
   const [text, setText] = React.useState("");
+
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Card style={styles.cardContainer} height={window.height}>
@@ -37,7 +37,9 @@ const NameBee = ({ navigation }) => {
           value={text}
           onChangeText={(text) => setText(text)}
         />
-        <TouchableOpacity onPress={() => navigation.navigate("StepOne")}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("StepOne", { text })}
+        >
           <ContinueBtn text="Continue" />
         </TouchableOpacity>
       </Card>

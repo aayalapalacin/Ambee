@@ -1,19 +1,21 @@
-import * as React from "react";
-import { Text, Card, Title, Paragraph } from "react-native-paper";
+import React, { useState } from "react";
+import { Card, Title, Paragraph } from "react-native-paper";
 import {
   StyleSheet,
   View,
   TouchableOpacity,
   useWindowDimensions,
-  Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
 import { Octicons } from "@expo/vector-icons";
+import { useRoute } from "@react-navigation/native";
 
 const StepOne = ({ navigation }) => {
   const window = useWindowDimensions();
-
+  const route = useRoute();
+  const [username, setUsername] = useState(route.params.text);
+  console.log(username, "username");
   return (
     <Card style={styles.container} height={window.height}>
       <TouchableOpacity onPress={() => navigation.navigate("Options")}>
@@ -48,10 +50,12 @@ const StepOne = ({ navigation }) => {
           />
         </View>
         <Paragraph style={styles.cardParagraph}>
-          Our app will recommend a movie based on your preferences.
+          Our app will recommend a movie based on preferences.
         </Paragraph>
       </Card.Content>
-      <TouchableOpacity onPress={() => navigation.navigate("StepTwo")}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("StepTwo", username)}
+      >
         <ContinueBtn text="Next" />
       </TouchableOpacity>
     </Card>
