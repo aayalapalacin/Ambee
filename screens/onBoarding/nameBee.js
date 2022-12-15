@@ -28,7 +28,11 @@ const NameBee = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Card style={styles.cardContainer} height={window.height}>
-        <TouchableOpacity onPress={() => navigation.navigate("StepOne")}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("StepOne");
+          }}
+        >
           <Skip />
         </TouchableOpacity>
         <Card.Content>

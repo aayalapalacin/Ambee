@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginHorizontal: 10,
     marginTop: 60,
-    marginBottom: 50,
+    marginBottom: 40,
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },

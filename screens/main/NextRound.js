@@ -47,7 +47,9 @@ const NextRound = ({ navigation }) => {
         </View>
         <Title style={styles.cardTitle}>Next Round</Title>
         <Paragraph style={styles.cardParagraph}>
-          {username}, have 2 cards left! You're doing great!
+          {username}, you choose {userGenre} for movie genre's and decided to
+          start with {userNum} movies. You have 2 cards left! You're doing
+          great!
         </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
