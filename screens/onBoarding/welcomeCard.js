@@ -16,7 +16,7 @@ const WelcomeCard = ({ navigation }) => {
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
-            source={{ uri: "https://picsum.photos/700" }}
+            source={require("../../assets/icons/GroupWave.png")}
             resizeMode="contain"
           />
         </View>
@@ -63,8 +63,8 @@ const styles = StyleSheet.create({
     paddingTop: 2,
   },
   cardPic: {
-    height: 225,
-    width: 225,
+    height: 190,
+    width: 360,
   },
   picContainer: {
     alignItems: "center",

@@ -21,10 +21,13 @@ const StepThree = ({ navigation }) => {
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
-            source={{ uri: "https://picsum.photos/700" }}
+            source={require("../../assets/icons/Phone2.png")}
           />
         </View>
         <Title style={styles.cardTitle}>Step Three</Title>
+        <Paragraph style={styles.cardParagraph}>
+          You can use the app by swiping right for yes swiping left for no.
+        </Paragraph>
         <View style={styles.dotContainer}>
           <Octicons
             name="dot"
@@ -45,9 +48,6 @@ const StepThree = ({ navigation }) => {
             style={styles.dotFillIcon}
           />
         </View>
-        <Paragraph style={styles.cardParagraph}>
-          You can use the app by swiping right for yes swiping left for no.
-        </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("Options")}>
         <ContinueBtn text="Next" />
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
-    marginTop: 60,
+    marginTop: 40,
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
@@ -71,12 +71,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 45,
     fontFamily: "Mali-Regular",
     fontSize: 23,
-    marginBottom: 70,
+    marginTop: 20,
     paddingTop: 2,
   },
   cardPic: {
-    height: 225,
-    width: 225,
+    height: 280,
+    width: 360,
   },
   picContainer: {
     alignItems: "center",
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   dotContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginVertical: 30,
+    marginVertical: 40,
   },
   dotIcon: {
     marginHorizontal: 4,

@@ -35,7 +35,7 @@ const NameBee = ({ navigation }) => {
           <View style={styles.picContainer}>
             <Card.Cover
               style={styles.cardPic}
-              source={{ uri: "https://picsum.photos/700" }}
+              source={require("../../assets/icons/Question.png")}
             />
           </View>
           <Title style={styles.cardTitle}>What is the name of your bee?</Title>
@@ -69,19 +69,19 @@ const styles = StyleSheet.create({
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
-    marginTop: 20,
+    marginTop: 40,
     marginBottom: 50,
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
 
   cardPic: {
-    height: 225,
-    width: 225,
+    height: 270,
+    width: 290,
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 60,
+    marginTop: 40,
   },
 
   continueBtn: {
