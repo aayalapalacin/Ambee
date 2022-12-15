@@ -16,7 +16,7 @@ const WelcomeCard = ({ navigation }) => {
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
-            source={require("../../assets/icons/GroupWave.png")}
+            source={require("../../assets/icons/ambeeTest.png")}
             resizeMode="contain"
           />
         </View>
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
   cardPic: {
     height: 190,
     width: 360,
+    tintColor: "white",
   },
   picContainer: {
     alignItems: "center",

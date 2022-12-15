@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { Provider as PaperProvider } from "react-native-paper";
 import { AppRegistry } from "react-native";
 import NextRound from "./screens/main/NextRound";
@@ -32,22 +32,93 @@ export default function App() {
     return undefined;
   }
 
+  function Logo() {
+    return (
+      <Image
+        resizeMode="contain"
+        style={{ height: 50, marginVertical: 5, marginLeft: 230 }}
+        source={require("./assets/icons/ambeeColor.png")}
+      />
+    );
+  }
+  function LogoTitle() {
+    return (
+      <Image
+        resizeMode="contain"
+        style={{ height: 40, marginVertical: 5, marginRight: 130 }}
+        source={require("./assets/icons/ambeeTest.png")}
+      />
+    );
+  }
+
   return (
     <PaperProvider>
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="WelcomeCard" component={WelcomeCard} />
-          <Stack.Screen name="YesNoCard" component={YesNoCard} />
-          <Stack.Screen name="ChosenCard" component={ChosenCard} />
-          <Stack.Screen name="Settings" component={Settings} />
-          <Stack.Screen name="NextRound" component={NextRound} />
-          <Stack.Screen name="Options" component={Options} />
-          <Stack.Screen name="StepOne" component={StepOne} />
-          <Stack.Screen name="StepTwo" component={StepTwo} />
-          <Stack.Screen name="StepThree" component={StepThree} />
-          <Stack.Screen name="NameBee" component={NameBee} />
-          <Stack.Screen name="HowManyCards" component={HowManyCards} />
+        <Stack.Navigator
+        // screenOptions={{
+        //   headerTitle: (props) => <Logo {...props} />,
+        // }}
+        >
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            // options={{ headerTitle: (props) => <Logo {...props} /> }}
+          />
+          <Stack.Screen
+            name="WelcomeCard"
+            component={WelcomeCard}
+            options={{ headerTitle: (props) => <Logo {...props} /> }}
+          />
+          <Stack.Screen
+            name="NameBee"
+            component={NameBee}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
+          <Stack.Screen
+            name="StepOne"
+            component={StepOne}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
+          <Stack.Screen
+            name="StepTwo"
+            component={StepTwo}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
+          <Stack.Screen
+            name="StepThree"
+            component={StepThree}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
+          <Stack.Screen
+            name="Options"
+            component={Options}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
+          <Stack.Screen
+            name="HowManyCards"
+            component={HowManyCards}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
+          <Stack.Screen
+            name="YesNoCard"
+            component={YesNoCard}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
+          <Stack.Screen
+            name="NextRound"
+            component={NextRound}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
+          <Stack.Screen
+            name="ChosenCard"
+            component={ChosenCard}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
+          <Stack.Screen
+            name="Settings"
+            component={Settings}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
