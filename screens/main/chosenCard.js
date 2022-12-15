@@ -10,12 +10,13 @@ const ChosenCard = ({ navigation }) => {
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
         <Title style={styles.cardTitle}>Awesome! You chose: John Wick!</Title>
-
-        <Card.Cover
-          style={styles.cardPic}
-          source={{ uri: "https://picsum.photos/700" }}
-          resizeMode="contain"
-        />
+        <View style={styles.picContainer}>
+          <Card.Cover
+            style={styles.cardPic}
+            source={{ uri: "https://picsum.photos/700" }}
+            resizeMode="contain"
+          />
+        </View>
         <Title style={styles.aboutTitleTxt}>About this movie</Title>
         <Paragraph style={styles.pTxt}>
           Lorem ipsum dolor sit amet consectetur. Volutpat euismod varius
@@ -51,7 +52,9 @@ const styles = StyleSheet.create({
   cardPic: {
     height: 300,
   },
-
+  picContainer: {
+    marginHorizontal: 30,
+  },
   aboutTitleTxt: {
     fontFamily: "Mali-Bold",
     paddingTop: 20,

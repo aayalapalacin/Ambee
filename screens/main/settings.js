@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
-    marginBottom: 200,
+    marginBottom: 290,
   },
   homeSettingContainer: {
     flexDirection: "row",

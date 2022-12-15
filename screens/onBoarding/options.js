@@ -33,7 +33,7 @@ const Options = ({ navigation }) => {
       <TouchableOpacity
         onPress={() => {
           if (selectedGenres.length == 0) {
-            Alert.alert("Please Choose At Least One");
+            Alert.alert("Please Choose At Least One Genre");
           } else {
             navigation.navigate("HowManyCards");
             storeData(selectedGenres);
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
-    marginTop: 60,
+    marginTop: 100,
     marginBottom: 50,
     fontFamily: "Mali-Bold",
     fontSize: 32,

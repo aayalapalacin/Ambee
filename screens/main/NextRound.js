@@ -28,7 +28,7 @@ const NextRound = ({ navigation }) => {
         setUsername("You");
       }
     } catch (e) {
-      // error reading value
+      console.log(e);
     }
   };
 
@@ -42,14 +42,12 @@ const NextRound = ({ navigation }) => {
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
-            source={{ uri: "https://picsum.photos/700" }}
+            source={require("../../assets/icons/Jump.png")}
           />
         </View>
         <Title style={styles.cardTitle}>Next Round</Title>
         <Paragraph style={styles.cardParagraph}>
-          {username}, you choose {userGenre} for movie genre's and decided to
-          start with {userNum} movies. You have 2 cards left! You're doing
-          great!
+          {username}, have 2 cards left! You're doing great!
         </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
@@ -81,8 +79,8 @@ const styles = StyleSheet.create({
     paddingTop: 2,
   },
   cardPic: {
-    height: 225,
-    width: 225,
+    height: 300,
+    width: 270,
   },
   picContainer: {
     alignItems: "center",

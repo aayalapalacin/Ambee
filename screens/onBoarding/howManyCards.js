@@ -61,7 +61,7 @@ const HowManyCards = ({ navigation }) => {
           </View>
         </View>
       </Card.Content>
-      {validation}
+
       <TouchableOpacity
         onPress={() => {
           if (userNumOfMovies == "") {
