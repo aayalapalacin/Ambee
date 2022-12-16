@@ -36,7 +36,7 @@ export default function App() {
     return (
       <Image
         resizeMode="contain"
-        style={{ height: 50, marginVertical: 5, marginLeft: 230 }}
+        style={{ height: 50, marginBottom: 5, marginLeft: 230 }}
         source={require("./assets/icons/ambeeColor.png")}
       />
     );
@@ -45,7 +45,7 @@ export default function App() {
     return (
       <Image
         resizeMode="contain"
-        style={{ height: 40, marginVertical: 5, marginRight: 130 }}
+        style={{ height: 40, marginBottom: 5, marginRight: 130 }}
         source={require("./assets/icons/ambeeTest.png")}
       />
     );
