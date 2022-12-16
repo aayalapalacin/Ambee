@@ -30,7 +30,7 @@ const YesNoCard = ({ navigation }) => {
             until={30}
             onFinish={() => {
               alert("Finished");
-              setReset(Math.random());
+              // setReset(Math.random());
               console.log(reset);
             }}
             digitStyle={{
