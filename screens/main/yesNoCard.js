@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -13,6 +13,7 @@ import CountDown from "react-native-countdown-component";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
+  const [reset, setReset] = useState("1");
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
@@ -24,19 +25,25 @@ const YesNoCard = ({ navigation }) => {
             <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
           </View>
           <CountDown
-            size={16}
+            id={reset}
+            size={17}
             until={30}
-            onFinish={() => alert("Finished")}
+            onFinish={() => {
+              alert("Finished");
+              setReset(Math.random());
+              console.log(reset);
+            }}
             digitStyle={{
               backgroundColor: "#FFF",
               borderWidth: 2,
               borderColor: "#FF6033",
+              borderRadius: 10,
             }}
-            digitTxtStyle={{ color: "#1CC625" }}
-            timeLabelStyle={{ color: "red", fontWeight: "bold" }}
-            separatorStyle={{ color: "#1CC625" }}
-            timeToShow={["M", "S"]}
-            timeLabels={{ m: null, s: null }}
+            digitTxtStyle={{ color: "#8570D8" }}
+            timeLabelStyle={{ color: "green", fontWeight: "bold" }}
+            separatorStyle={{ color: "#8570D8" }}
+            timeToShow={["S"]}
+            timeLabels={{ s: "seconds" }}
             showSeparator
           />
           <View style={styles.watchBtn}>
@@ -102,7 +109,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 17,
+    marginBottom: 12,
   },
   cardPic: {
     height: 325,
