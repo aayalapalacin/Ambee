@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,9 +9,11 @@ import {
 import { Button, Card, Title } from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
 import { Ionicons } from "@expo/vector-icons";
+import CountDown from "react-native-countdown-component";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
+  const [reset, setReset] = useState("1");
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
@@ -22,17 +24,41 @@ const YesNoCard = ({ navigation }) => {
           <View>
             <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
           </View>
+          <CountDown
+            id={reset}
+            size={17}
+            until={30}
+            onFinish={() => {
+              alert("Finished");
+              // setReset(Math.random());
+              console.log(reset);
+            }}
+            digitStyle={{
+              backgroundColor: "#FFF",
+              borderWidth: 2,
+              borderColor: "#FF6033",
+              borderRadius: 10,
+            }}
+            digitTxtStyle={{ color: "#8570D8" }}
+            timeLabelStyle={{ color: "green", fontWeight: "bold" }}
+            separatorStyle={{ color: "#8570D8" }}
+            timeToShow={["S"]}
+            timeLabels={{ s: "seconds" }}
+            showSeparator
+          />
           <View style={styles.watchBtn}>
             <Button onPress={() => navigation.navigate("NextRound")}>
               Watch Now
             </Button>
           </View>
         </View>
-        <Card.Cover
-          style={styles.cardPic}
-          source={{ uri: "https://picsum.photos/700" }}
-          resizeMode="contain"
-        />
+        <View style={styles.picContainer}>
+          <Card.Cover
+            style={styles.cardPic}
+            source={{ uri: "https://picsum.photos/700" }}
+            resizeMode="contain"
+          />
+        </View>
         <View style={styles.swipeContainer}>
           <View style={styles.yesNoIcon}>
             <Image
@@ -63,6 +89,9 @@ const styles = StyleSheet.create({
   cardContainer: {
     marginHorizontal: 10,
   },
+  picContainer: {
+    marginHorizontal: 15,
+  },
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
@@ -83,12 +112,13 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   cardPic: {
-    height: 300,
+    height: 325,
   },
   swipeContainer: {
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 20,
+    marginBottom: 30,
   },
   yesNoIcon: {
     flexDirection: "row",

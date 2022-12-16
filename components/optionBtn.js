@@ -97,13 +97,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   genreDiv: {
-    width: 100,
-    marginVertical: 18,
+    width: 110,
+    marginVertical: 19,
     marginHorizontal: 9,
-    paddingVertical: 6,
+    paddingVertical: 7,
   },
   genreTxt: {
-    fontSize: 19,
+    fontSize: 20,
   },
   optionBtnContainer: {
     marginBottom: 80,

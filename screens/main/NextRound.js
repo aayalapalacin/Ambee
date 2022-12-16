@@ -28,7 +28,7 @@ const NextRound = ({ navigation }) => {
         setUsername("You");
       }
     } catch (e) {
-      // error reading value
+      console.log(e);
     }
   };
 
@@ -42,7 +42,7 @@ const NextRound = ({ navigation }) => {
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
-            source={{ uri: "https://picsum.photos/700" }}
+            source={require("../../assets/icons/Jump.png")}
           />
         </View>
         <Title style={styles.cardTitle}>Next Round</Title>
@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
     paddingTop: 2,
   },
   cardPic: {
-    height: 225,
-    width: 225,
+    height: 300,
+    width: 270,
   },
   picContainer: {
     alignItems: "center",

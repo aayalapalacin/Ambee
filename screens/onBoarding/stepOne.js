@@ -22,10 +22,13 @@ const StepOne = ({ navigation }) => {
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
-            source={{ uri: "https://picsum.photos/700" }}
+            source={require("../../assets/icons/Search.png")}
           />
         </View>
         <Title style={styles.cardTitle}>Step One</Title>
+        <Paragraph style={styles.cardParagraph}>
+          Our app will recommend a movie based on preferences.
+        </Paragraph>
         <View style={styles.dotContainer}>
           <Octicons
             name="dot-fill"
@@ -46,9 +49,6 @@ const StepOne = ({ navigation }) => {
             style={styles.dotIcon}
           />
         </View>
-        <Paragraph style={styles.cardParagraph}>
-          Our app will recommend a movie based on preferences.
-        </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("StepTwo")}>
         <ContinueBtn text="Next" />
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
-    marginTop: 60,
+    marginTop: 50,
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
@@ -73,13 +73,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginHorizontal: 45,
     fontFamily: "Mali-Regular",
+    marginTop: 30,
     fontSize: 23,
-    marginBottom: 70,
     paddingTop: 2,
   },
   cardPic: {
-    height: 225,
-    width: 225,
+    height: 245,
+    width: 355,
   },
   picContainer: {
     alignItems: "center",
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   dotContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginVertical: 30,
+    marginVertical: 40,
   },
   dotIcon: {
     marginHorizontal: 4,

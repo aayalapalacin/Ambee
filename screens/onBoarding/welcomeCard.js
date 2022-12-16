@@ -16,7 +16,7 @@ const WelcomeCard = ({ navigation }) => {
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
-            source={{ uri: "https://picsum.photos/700" }}
+            source={require("../../assets/icons/ambeeTest.png")}
             resizeMode="contain"
           />
         </View>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginHorizontal: 10,
     marginTop: 60,
-    marginBottom: 50,
+    marginBottom: 40,
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
@@ -63,8 +63,9 @@ const styles = StyleSheet.create({
     paddingTop: 2,
   },
   cardPic: {
-    height: 225,
-    width: 225,
+    height: 190,
+    width: 360,
+    tintColor: "white",
   },
   picContainer: {
     alignItems: "center",

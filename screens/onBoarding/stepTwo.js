@@ -11,6 +11,7 @@ import Skip from "../../components/skip";
 import { Octicons } from "@expo/vector-icons";
 
 const StepTwo = ({ navigation }) => {
+  const window = useWindowDimensions();
   return (
     <Card height={window.height} style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate("Options")}>
@@ -20,10 +21,13 @@ const StepTwo = ({ navigation }) => {
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
-            source={{ uri: "https://picsum.photos/700" }}
+            source={require("../../assets/icons/Phone1.png")}
           />
         </View>
         <Title style={styles.cardTitle}>Step Two</Title>
+        <Paragraph style={styles.cardParagraph}>
+          Our app will recommend a movie based on your preferences.
+        </Paragraph>
         <View style={styles.dotContainer}>
           <Octicons
             name="dot"
@@ -44,9 +48,6 @@ const StepTwo = ({ navigation }) => {
             style={styles.dotIcon}
           />
         </View>
-        <Paragraph style={styles.cardParagraph}>
-          Our app will recommend a movie based on your preferences.
-        </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("StepThree")}>
         <ContinueBtn text="Next" />
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
-    marginTop: 60,
+    marginTop: 40,
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
@@ -72,12 +73,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 45,
     fontFamily: "Mali-Regular",
     fontSize: 23,
-    marginBottom: 70,
+    marginTop: 20,
     paddingTop: 2,
   },
   cardPic: {
-    height: 225,
-    width: 225,
+    height: 300,
+    width: 260,
   },
   picContainer: {
     alignItems: "center",
