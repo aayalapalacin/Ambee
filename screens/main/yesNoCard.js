@@ -31,7 +31,7 @@ const YesNoCard = ({ navigation }) => {
             onFinish={() => {
               alert("Finished");
               // setReset(Math.random());
-              console.log(reset);
+              // console.log(reset);
             }}
             digitStyle={{
               backgroundColor: "#FFF",
