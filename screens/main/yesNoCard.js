@@ -9,6 +9,7 @@ import {
 import { Button, Card, Title } from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
 import { Ionicons } from "@expo/vector-icons";
+import CountDown from "react-native-countdown-component";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
@@ -22,17 +23,35 @@ const YesNoCard = ({ navigation }) => {
           <View>
             <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
           </View>
+          <CountDown
+            size={16}
+            until={30}
+            onFinish={() => alert("Finished")}
+            digitStyle={{
+              backgroundColor: "#FFF",
+              borderWidth: 2,
+              borderColor: "#FF6033",
+            }}
+            digitTxtStyle={{ color: "#1CC625" }}
+            timeLabelStyle={{ color: "red", fontWeight: "bold" }}
+            separatorStyle={{ color: "#1CC625" }}
+            timeToShow={["M", "S"]}
+            timeLabels={{ m: null, s: null }}
+            showSeparator
+          />
           <View style={styles.watchBtn}>
             <Button onPress={() => navigation.navigate("NextRound")}>
               Watch Now
             </Button>
           </View>
         </View>
-        <Card.Cover
-          style={styles.cardPic}
-          source={{ uri: "https://picsum.photos/700" }}
-          resizeMode="contain"
-        />
+        <View style={styles.picContainer}>
+          <Card.Cover
+            style={styles.cardPic}
+            source={{ uri: "https://picsum.photos/700" }}
+            resizeMode="contain"
+          />
+        </View>
         <View style={styles.swipeContainer}>
           <View style={styles.yesNoIcon}>
             <Image
@@ -63,6 +82,9 @@ const styles = StyleSheet.create({
   cardContainer: {
     marginHorizontal: 10,
   },
+  picContainer: {
+    marginHorizontal: 15,
+  },
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
@@ -80,16 +102,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 12,
+    marginBottom: 17,
   },
   cardPic: {
-    height: 300,
+    height: 325,
   },
   swipeContainer: {
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 20,
-    marginBottom: 50,
+    marginBottom: 30,
   },
   yesNoIcon: {
     flexDirection: "row",
