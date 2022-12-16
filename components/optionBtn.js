@@ -78,6 +78,7 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
       return "contained";
     }
   };
+  console.log(selectedGenres);
   return (
     <View style={styles.optionBtnContainer}>
       <View style={styles.genreContainer}>
@@ -86,9 +87,21 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           mode={clicked1Status()}
           onPress={() => {
             setClicked1(!clicked1);
-            if (clicked1) {
+            if (!clicked1) {
               setSelectedGenres([...selectedGenres, genres[0].name]);
+            } else {
+              const newGenre = selectedGenres.filter((item) => {
+                console.log(item, "item");
+                console.log(genres[0].name, "genre");
+                genres[0].name != item;
+              });
+              setSelectedGenres(newGenre);
             }
+            // else{
+            //   setSelectedGenres((prevGenre)=>{
+            //     console.log(prevGenre,"prevGenre")
+            //   })
+            // }
             console.log(selectedGenres);
             // genres[0]["mode"] = "contained";
             // setSelectedGenres([...selectedGenres, genres[0].name]);
@@ -100,6 +113,9 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           style={styles.genreDiv}
           mode={clicked2Status()}
           onPress={() => {
+            if (!clicked2) {
+              setSelectedGenres([...selectedGenres, genres[1].name]);
+            }
             setClicked2(!clicked2);
             // setSelectedGenres([...selectedGenres, genres[1].name])
           }}
