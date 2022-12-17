@@ -34,16 +34,16 @@ const YesNoCard = ({ navigation }) => {
               // console.log(reset);
             }}
             digitStyle={{
-              backgroundColor: "#FFF",
-              borderWidth: 2,
-              borderColor: "#FF6033",
-              borderRadius: 10,
+              backgroundColor: "#8570D8",
+              width: 46,
+              height: 35,
+              borderRadius: 30,
             }}
-            digitTxtStyle={{ color: "#8570D8" }}
+            digitTxtStyle={{ color: "white" }}
             timeLabelStyle={{ color: "green", fontWeight: "bold" }}
             separatorStyle={{ color: "#8570D8" }}
             timeToShow={["S"]}
-            timeLabels={{ s: "seconds" }}
+            timeLabels={{ s: null }}
             showSeparator
           />
           <View style={styles.watchBtn}>
