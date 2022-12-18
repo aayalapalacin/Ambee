@@ -15,6 +15,7 @@ const Options = ({ navigation }) => {
   const [selectedGenres, setSelectedGenres] = useState([]);
 
   const storeData = async (value) => {
+    console.log(value, "value");
     try {
       await AsyncStorage.setItem("@userGenres", JSON.stringify(value));
     } catch (e) {

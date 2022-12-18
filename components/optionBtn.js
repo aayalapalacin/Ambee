@@ -217,6 +217,7 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           <Text style={styles.genreTxt}>{genres[7].name}</Text>
         </Button>
       </View>
+      <Button onPress={() => setSelectedGenres([])}> eempty state</Button>
     </View>
   );
 };
