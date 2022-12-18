@@ -13,7 +13,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const Options = ({ navigation }) => {
   const window = useWindowDimensions();
   const [selectedGenres, setSelectedGenres] = useState([]);
-  console.log(selectedGenres, "select");
+
   const storeData = async (value) => {
     try {
       await AsyncStorage.setItem("@userGenres", JSON.stringify(value));
@@ -21,6 +21,7 @@ const Options = ({ navigation }) => {
       console.log(e);
     }
   };
+
   return (
     <Card height={window.height} style={styles.container}>
       <Card.Content>

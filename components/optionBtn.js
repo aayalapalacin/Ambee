@@ -1,16 +1,16 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const genres = [
-  { name: "horror ", mode: "contained-tonal", key: 1 },
-  { name: "comedy ", mode: "contained-tonal", key: 2 },
-  { name: "doc ", mode: "contained-tonal", key: 3 },
-  { name: "sci-fi ", mode: "contained-tonal", key: 4 },
-  { name: "anime ", mode: "contained-tonal", key: 5 },
-  { name: "musical ", mode: "contained-tonal", key: 6 },
-  { name: "action ", mode: "contained-tonal", key: 7 },
-  { name: "romantic ", mode: "contained-tonal", key: 8 },
+  { name: "horror ", key: 1 },
+  { name: "comedy ", key: 2 },
+  { name: "doc ", key: 3 },
+  { name: "sci-fi ", key: 4 },
+  { name: "anime ", key: 5 },
+  { name: "musical ", key: 6 },
+  { name: "action ", key: 7 },
+  { name: "romantic ", key: 8 },
 ];
 const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
   const [clicked1, setClicked1] = useState(false);
@@ -22,6 +22,15 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
   const [clicked7, setClicked7] = useState(false);
   const [clicked8, setClicked8] = useState(false);
 
+  useEffect(() => {
+    console.log(selectedGenres, "selectedGenres");
+  }, [selectedGenres]);
+  const deleteGenre = (key) => {
+    const newGenreList = selectedGenres.filter((genre) => {
+      return genre.key !== key;
+    });
+    setSelectedGenres(newGenreList);
+  };
   const clicked1Status = () => {
     if (clicked1 == false) {
       return "contained-tonal";
@@ -78,7 +87,7 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
       return "contained";
     }
   };
-  console.log(selectedGenres);
+
   return (
     <View style={styles.optionBtnContainer}>
       <View style={styles.genreContainer}>
@@ -86,25 +95,13 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           style={styles.genreDiv}
           mode={clicked1Status()}
           onPress={() => {
-            setClicked1(!clicked1);
-            if (!clicked1) {
-              setSelectedGenres([...selectedGenres, genres[0].name]);
-            } else {
-              const newGenre = selectedGenres.filter((item) => {
-                console.log(item, "item");
-                console.log(genres[0].name, "genre");
-                genres[0].name != item;
-              });
-              setSelectedGenres(newGenre);
+            if (clicked1 == true) {
+              setClicked1(false);
+              deleteGenre(genres[0].key);
+            } else if (clicked1 == false) {
+              setClicked1(true);
+              setSelectedGenres([...selectedGenres, genres[0]]);
             }
-            // else{
-            //   setSelectedGenres((prevGenre)=>{
-            //     console.log(prevGenre,"prevGenre")
-            //   })
-            // }
-            console.log(selectedGenres);
-            // genres[0]["mode"] = "contained";
-            // setSelectedGenres([...selectedGenres, genres[0].name]);
           }}
         >
           <Text style={styles.genreTxt}>{genres[0].name}</Text>
@@ -113,11 +110,14 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           style={styles.genreDiv}
           mode={clicked2Status()}
           onPress={() => {
-            if (!clicked2) {
-              setSelectedGenres([...selectedGenres, genres[1].name]);
+            if (clicked2 == true) {
+              setClicked2(false);
+
+              deleteGenre(genres[1].key);
+            } else if (clicked2 == false) {
+              setClicked2(true);
+              setSelectedGenres([...selectedGenres, genres[1]]);
             }
-            setClicked2(!clicked2);
-            // setSelectedGenres([...selectedGenres, genres[1].name])
           }}
         >
           <Text style={styles.genreTxt}>{genres[1].name}</Text>
@@ -126,8 +126,13 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           style={styles.genreDiv}
           mode={clicked3Status()}
           onPress={() => {
-            setClicked3(!clicked3);
-            // setSelectedGenres([...selectedGenres, genres[2].name])
+            if (clicked3 == true) {
+              setClicked3(false);
+              deleteGenre(genres[2].key);
+            } else if (clicked3 == false) {
+              setClicked3(true);
+              setSelectedGenres([...selectedGenres, genres[2]]);
+            }
           }}
         >
           <Text style={styles.genreTxt}>{genres[2].name}</Text>
@@ -138,9 +143,13 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           style={styles.genreDiv}
           mode={clicked4Status()}
           onPress={() => {
-            setClicked4(!clicked4);
-
-            // setSelectedGenres([...selectedGenres, genres[3].name])
+            if (clicked4 == true) {
+              setClicked4(false);
+              deleteGenre(genres[3].key);
+            } else if (clicked4 == false) {
+              setClicked4(true);
+              setSelectedGenres([...selectedGenres, genres[3]]);
+            }
           }}
         >
           <Text style={styles.genreTxt}>{genres[3].name}</Text>
@@ -149,9 +158,13 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           style={styles.genreDiv}
           mode={clicked5Status()}
           onPress={() => {
-            setClicked5(!clicked5);
-
-            // setSelectedGenres([...selectedGenres, genres[4].name])
+            if (clicked5 == true) {
+              setClicked5(false);
+              deleteGenre(genres[4].key);
+            } else if (clicked5 == false) {
+              setClicked5(true);
+              setSelectedGenres([...selectedGenres, genres[4]]);
+            }
           }}
         >
           <Text style={styles.genreTxt}>{genres[4].name}</Text>
@@ -162,9 +175,13 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           style={styles.genreDiv}
           mode={clicked6Status()}
           onPress={() => {
-            setClicked6(!clicked6);
-
-            // setSelectedGenres([...selectedGenres, genres[5].name])
+            if (clicked6 == true) {
+              setClicked6(false);
+              deleteGenre(genres[5].key);
+            } else if (clicked6 == false) {
+              setClicked6(true);
+              setSelectedGenres([...selectedGenres, genres[5]]);
+            }
           }}
         >
           <Text style={styles.genreTxt}>{genres[5].name}</Text>
@@ -173,9 +190,13 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           style={styles.genreDiv}
           mode={clicked7Status()}
           onPress={() => {
-            setClicked7(!clicked7);
-
-            // setSelectedGenres([...selectedGenres, genres[6].name])
+            if (clicked7 == true) {
+              setClicked7(false);
+              deleteGenre(genres[6].key);
+            } else if (clicked7 == false) {
+              setClicked7(true);
+              setSelectedGenres([...selectedGenres, genres[6]]);
+            }
           }}
         >
           <Text style={styles.genreTxt}>{genres[6].name}</Text>
@@ -184,14 +205,19 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           style={styles.genreDiv}
           mode={clicked8Status()}
           onPress={() => {
-            setClicked8(!clicked8);
-
-            // setSelectedGenres([...selectedGenres, genres[7].name])
+            if (clicked8 == true) {
+              setClicked8(false);
+              deleteGenre(genres[7].key);
+            } else if (clicked8 == false) {
+              setClicked8(true);
+              setSelectedGenres([...selectedGenres, genres[7]]);
+            }
           }}
         >
           <Text style={styles.genreTxt}>{genres[7].name}</Text>
         </Button>
       </View>
+      <Button onPress={() => setSelectedGenres([])}>empty genre state</Button>
     </View>
   );
 };
