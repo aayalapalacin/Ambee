@@ -3,8 +3,10 @@ import { Card, Title, Paragraph } from "react-native-paper";
 import {
   StyleSheet,
   View,
+  Text,
   useWindowDimensions,
   TouchableOpacity,
+  FlatList,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -47,9 +49,21 @@ const NextRound = ({ navigation }) => {
         </View>
         <Title style={styles.cardTitle}>Next Round</Title>
         <Paragraph style={styles.cardParagraph}>
-          {username}, you choose {userGenre} for movie genre's and decided to
-          start with {userNum} movies. You have 2 cards left! You're doing
-          great!
+          {username}, You have {userNum} cards left! You're doing great! Your
+          Genres are:{" "}
+          {userGenre.map((item) => (
+            <View key={item.key}>
+              <Text style={styles.genreTxt}>{item.name}</Text>
+            </View>
+          ))}
+          {/* <FlatList
+            data={userGenre}
+            renderItem={({ item }) => (
+              <View>
+                <Text>{item.name}</Text>
+              </View>
+            )}
+          /> */}
         </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
@@ -64,6 +78,11 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
   },
+  genreTxt: {
+    fontFamily: "Mali-Regular",
+    fontSize: 23,
+  },
+
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
