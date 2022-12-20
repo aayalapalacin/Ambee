@@ -11,6 +11,7 @@ import WelcomeCard from "./screens/onBoarding/welcomeCard";
 import StepOne from "./screens/onBoarding/stepOne";
 import StepTwo from "./screens/onBoarding/stepTwo";
 import StepThree from "./screens/onBoarding/stepThree";
+import HelpOrSurprise from "./screens/onBoarding/helpOrSurprise";
 import NameBee from "./screens/onBoarding/nameBee";
 import HowManyCards from "./screens/onBoarding/howManyCards";
 import { NavigationContainer } from "@react-navigation/native";
@@ -87,6 +88,11 @@ export default function App() {
           <Stack.Screen
             name="StepThree"
             component={StepThree}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
+          <Stack.Screen
+            name="HelpOrSurprise"
+            component={HelpOrSurprise}
             options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
           />
           <Stack.Screen
