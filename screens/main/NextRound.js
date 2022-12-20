@@ -3,10 +3,8 @@ import { Card, Title, Paragraph } from "react-native-paper";
 import {
   StyleSheet,
   View,
-  Text,
   useWindowDimensions,
   TouchableOpacity,
-  FlatList,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
