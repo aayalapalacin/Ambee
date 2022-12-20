@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
 import React from "react";
-import { NavigationHelpersContext } from "@react-navigation/native";
 
 const ContinueBtn = (props, { navigation }) => {
   let screen = props.screen;

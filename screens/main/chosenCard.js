@@ -1,7 +1,6 @@
 import * as React from "react";
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
-import { Feather } from "@expo/vector-icons";
 import HomeSettings from "../../components/homeSettings";
 
 const ChosenCard = ({ navigation }) => {

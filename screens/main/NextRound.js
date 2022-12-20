@@ -3,10 +3,8 @@ import { Card, Title, Paragraph } from "react-native-paper";
 import {
   StyleSheet,
   View,
-  Text,
   useWindowDimensions,
   TouchableOpacity,
-  FlatList,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -21,7 +19,7 @@ const NextRound = ({ navigation }) => {
       const usernameValue = await AsyncStorage.getItem("@username");
       const userGenreValue = await AsyncStorage.getItem("@userGenres");
       const userNumValue = await AsyncStorage.getItem("@userNum");
-      console.log(userGenreValue, "userGenre");
+
       if (usernameValue !== null) {
         setUsername(usernameValue);
         setUserGenre(JSON.parse(userGenreValue));
@@ -37,7 +35,7 @@ const NextRound = ({ navigation }) => {
   useEffect(() => {
     getData();
   }, []);
-
+  console.log(userGenre, "userGenreKey");
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content>
@@ -49,13 +47,13 @@ const NextRound = ({ navigation }) => {
         </View>
         <Title style={styles.cardTitle}>Next Round</Title>
         <Paragraph style={styles.cardParagraph}>
-          {username}, You have {userNum} cards left! You're doing great! Your
-          Genres are:{" "}
-          {userGenre.map((item) => (
+          {username}, You have {userNum} cards left! You're doing great!
+          {/* Genres are:{" "}
+          {/* {userGenre.map((item) => (
             <View key={item.key}>
               <Text style={styles.genreTxt}>{item.name}</Text>
             </View>
-          ))}
+          ))} */}
           {/* <FlatList
             data={userGenre}
             renderItem={({ item }) => (
@@ -63,7 +61,7 @@ const NextRound = ({ navigation }) => {
                 <Text>{item.name}</Text>
               </View>
             )}
-          /> */}
+          />  */}
         </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
