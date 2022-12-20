@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Alert, TouchableOpacity } from "react-native";
-import { Button, Card, Title } from "react-native-paper";
+import { Button, Card, Title, RadioButton } from "react-native-paper";
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -16,15 +16,34 @@ const HowManyCards = ({ navigation }) => {
       console.log(e);
     }
   };
-  const validation = () => {
-    return (
-      <View style={styles.validationContainer}>
-        <Text style={styles.validationTxt} variant="labelSmall">
-          Label Small
-        </Text>
-      </View>
-    );
+  const [checked3, setChecked3] = useState(false);
+  const [checked5, setChecked5] = useState(false);
+  const [checked7, setChecked7] = useState(false);
+
+  const checked3Status = () => {
+    if (checked3 == false) {
+      return "contained-tonal";
+    } else {
+      return "contained";
+    }
   };
+  const checked5Status = () => {
+    if (checked5 == false) {
+      return "contained-tonal";
+    } else {
+      return "contained";
+    }
+  };
+  const checked7Status = () => {
+    if (checked7 == false) {
+      return "contained-tonal";
+    } else {
+      return "contained";
+    }
+  };
+  useEffect(() => {
+    console.log(userNumOfMovies, "userNumOfMovies");
+  }, [userNumOfMovies]);
   return (
     <Card height={window.height} style={styles.container}>
       <Card.Content>
@@ -35,8 +54,17 @@ const HowManyCards = ({ navigation }) => {
           <View style={styles.top}>
             <Button
               style={styles.genreBtn}
-              mode="contained"
-              onPress={() => setUserNumOfMovies(numOfMovies[2])}
+              mode={checked7Status()}
+              onPress={() => {
+                if (checked7 == true) {
+                  setChecked7(false);
+                } else if (checked7 == false) {
+                  setChecked7(true);
+                  setChecked3(false);
+                  setChecked5(false);
+                  setUserNumOfMovies(numOfMovies[2]);
+                }
+              }}
             >
               <Text style={styles.genreBtnTxt}>{numOfMovies[2]}</Text>
             </Button>
@@ -44,8 +72,17 @@ const HowManyCards = ({ navigation }) => {
           <View style={styles.mid}>
             <Button
               style={styles.genreBtn}
-              mode="contained"
-              onPress={() => setUserNumOfMovies(numOfMovies[1])}
+              mode={checked5Status()}
+              onPress={() => {
+                if (checked5 == true) {
+                  setChecked5(false);
+                } else if (checked5 == false) {
+                  setChecked5(true);
+                  setChecked3(false);
+                  setChecked7(false);
+                  setUserNumOfMovies(numOfMovies[1]);
+                }
+              }}
             >
               <Text style={styles.genreBtnTxt}>{numOfMovies[1]}</Text>
             </Button>
@@ -53,8 +90,17 @@ const HowManyCards = ({ navigation }) => {
           <View style={styles.low}>
             <Button
               style={styles.genreBtn}
-              mode="contained"
-              onPress={() => setUserNumOfMovies(numOfMovies[0])}
+              mode={checked3Status()}
+              onPress={() => {
+                if (checked3 == true) {
+                  setChecked3(false);
+                } else if (checked3 == false) {
+                  setChecked3(true);
+                  setChecked5(false);
+                  setChecked7(false);
+                  setUserNumOfMovies(numOfMovies[0]);
+                }
+              }}
             >
               <Text style={styles.genreBtnTxt}>{numOfMovies[0]}</Text>
             </Button>
@@ -67,8 +113,12 @@ const HowManyCards = ({ navigation }) => {
           if (userNumOfMovies == "") {
             Alert.alert("Please Choose One");
           } else {
-            navigation.navigate("YesNoCard");
-            storeData(userNumOfMovies);
+            if (checked3 == false && checked5 == false && checked7 == false) {
+              Alert.alert("Please Choose One");
+            } else {
+              navigation.navigate("YesNoCard");
+              storeData(userNumOfMovies);
+            }
           }
         }}
       >

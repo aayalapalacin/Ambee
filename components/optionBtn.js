@@ -217,7 +217,6 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
           <Text style={styles.genreTxt}>{genres[7].name}</Text>
         </Button>
       </View>
-      <Button onPress={() => setSelectedGenres([])}> eempty state</Button>
     </View>
   );
 };
@@ -236,7 +235,7 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
   },
   genreTxt: {
-    fontSize: 20,
+    fontSize: 17,
   },
   optionBtnContainer: {
     marginBottom: 80,
