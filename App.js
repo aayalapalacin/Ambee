@@ -21,6 +21,10 @@ import React from "react";
 import { enableScreens } from "react-native-screens";
 const Stack = createNativeStackNavigator();
 enableScreens();
+
+import Simple from "./screens/main/CardList";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     "Nunito-ExtraLight": require("./assets/fonts/Nunito-ExtraLight.ttf"),
@@ -52,6 +56,7 @@ export default function App() {
   }
 
   return (
+    // <SafeAreaProvider>
     <PaperProvider>
       <NavigationContainer>
         <Stack.Navigator
@@ -115,6 +120,11 @@ export default function App() {
             options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
           />
           <Stack.Screen
+            name="CardList"
+            component={Simple}
+            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+          />
+          <Stack.Screen
             name="Settings"
             component={Settings}
             options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
@@ -122,6 +132,7 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
+    // </SafeAreaProvider>
   );
 }
 AppRegistry.registerComponent(App, () => Main);
