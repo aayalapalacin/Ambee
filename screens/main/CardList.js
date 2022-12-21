@@ -116,7 +116,7 @@ function Simple() {
           >
             <View style={styles.card}>
               <ImageBackground style={styles.cardImage} source={character.img}>
-                {/* <Text style={styles.cardTitle}>{character.name}</Text> */}
+                <Text style={styles.cardTitle}>{character.name}</Text>
               </ImageBackground>
             </View>
           </TinderCard>

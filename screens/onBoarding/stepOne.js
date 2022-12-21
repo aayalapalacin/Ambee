@@ -21,6 +21,7 @@ const StepOne = ({ navigation }) => {
       <Card.Content>
         <View style={styles.picContainer}>
           <Card.Cover
+            resizeMode="contain"
             style={styles.cardPic}
             source={require("../../assets/icons/Search.png")}
           />
