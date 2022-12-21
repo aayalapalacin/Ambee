@@ -10,6 +10,7 @@ import { Button, Card, Title } from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
 import { Ionicons } from "@expo/vector-icons";
 import CountDown from "react-native-countdown-component";
+import Simple from "./CardList";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
@@ -29,7 +30,7 @@ const YesNoCard = ({ navigation }) => {
             size={17}
             until={30}
             onFinish={() => {
-              alert("Finished");
+              // alert("Finished");
               // setReset(Math.random());
               // console.log(reset);
             }}
@@ -53,11 +54,12 @@ const YesNoCard = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.picContainer}>
-          <Card.Cover
+          <Simple />
+          {/* <Card.Cover
             style={styles.cardPic}
             source={{ uri: "https://picsum.photos/700" }}
             resizeMode="contain"
-          />
+          /> */}
         </View>
         <View style={styles.swipeContainer}>
           <View style={styles.yesNoIcon}>
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 12,
+    marginBottom: 17,
   },
   cardPic: {
     height: 325,
@@ -123,6 +125,7 @@ const styles = StyleSheet.create({
   yesNoIcon: {
     flexDirection: "row",
     justifyContent: "center",
+    marginTop: 15,
     marginBottom: 25,
   },
   leftIconTxt: {
