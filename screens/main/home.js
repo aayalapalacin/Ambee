@@ -54,6 +54,10 @@ export default function Home({ navigation }) {
         title="Go to Chosen Card Page"
       />
       <Button
+        onPress={() => navigation.navigate("CardList")}
+        title="Go to Card List"
+      />
+      <Button
         onPress={() => navigation.navigate("Settings")}
         title="Go to Settings Page"
       />
