@@ -1,11 +1,20 @@
 import { StyleSheet, Text, View, Button } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import React, { useState } from "react";
 
-const Counter = () => {
-  const [optionCount, setOptionCount] = useState(0);
-  const [timerCount, setTimerCount] = useState(0);
+const Counter = ({ newTimer, setNewTimer, newLimit, setNewLimit }) => {
+  const [optionCount, setOptionCount] = useState(5);
+  const [timerCount, setTimerCount] = useState(30);
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem("@timerCount", value);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   function optionIncrement() {
     setOptionCount(function (prevCount) {
       return (prevCount += 1);
@@ -22,6 +31,7 @@ const Counter = () => {
     });
   }
   function timerIncrement() {
+    setNewTimer(timerCount + 1);
     setTimerCount(function (prevCount) {
       return (prevCount += 1);
     });
@@ -30,8 +40,10 @@ const Counter = () => {
   function timerDecrement() {
     setTimerCount(function (prevCount) {
       if (prevCount > 0) {
+        setNewTimer(timerCount - 1);
         return (prevCount -= 1);
       } else {
+        setNewTimer(0);
         return (prevCount = 0);
       }
     });
@@ -43,8 +55,8 @@ const Counter = () => {
         <View>
           <AntDesign
             style={styles.incrementIcons}
-            onPress={() => optionIncrement()}
-            name="plus"
+            onPress={() => optionDecrement()}
+            name="minus"
             size={21}
             color="black"
           />
@@ -57,8 +69,8 @@ const Counter = () => {
         <View>
           <AntDesign
             style={styles.incrementIcons}
-            onPress={() => optionDecrement()}
-            name="minus"
+            onPress={() => optionIncrement()}
+            name="plus"
             size={21}
             color="black"
           />
@@ -68,8 +80,8 @@ const Counter = () => {
         <View>
           <AntDesign
             style={styles.incrementIcons}
-            onPress={() => timerIncrement()}
-            name="plus"
+            onPress={() => timerDecrement()}
+            name="minus"
             size={21}
             color="black"
           />
@@ -82,14 +94,13 @@ const Counter = () => {
         <View>
           <AntDesign
             style={styles.incrementIcons}
-            onPress={() => timerDecrement()}
-            name="minus"
+            onPress={() => timerIncrement()}
+            name="plus"
             size={21}
             color="black"
           />
         </View>
       </View>
-      <View style={styles.btnContainer}></View>
     </View>
   );
 };

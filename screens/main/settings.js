@@ -1,13 +1,17 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { Checkbox, Switch, Title } from "react-native-paper";
-import { Feather } from "@expo/vector-icons";
-import React, { useState } from "react";
+import { Switch, Title } from "react-native-paper";
+import React, { useState, useEffect } from "react";
 import Counter from "../../components/counter";
 import HomeSettings from "../../components/homeSettings";
 
 const Settings = ({ navigation }) => {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
+  const [newTimer, setNewTimer] = useState(30);
+  const [newLimit, setNewLimit] = useState(5);
+  useEffect(() => {
+    console.log(newTimer, "settings timer");
+  }, [newTimer]);
   return (
     <View style={styles.settingsBox}>
       <Title style={styles.cardTitle}>Settings</Title>
@@ -16,7 +20,12 @@ const Settings = ({ navigation }) => {
           <Text style={styles.settingsTxt}>Limit your option</Text>
           <Text style={styles.settingsTxt}>Set a timer</Text>
         </View>
-        <Counter />
+        <Counter
+          newTimer={newTimer}
+          setNewTimer={setNewTimer}
+          newLimit={newLimit}
+          setNewLimit={setNewLimit}
+        />
       </View>
 
       <View style={styles.repeatContainer}>
