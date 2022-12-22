@@ -1,15 +1,5 @@
-// import React from "react";
-// import { FlatList } from "react-native";
-
-// export const CardList = () => {
-
-// }
-
 import React, { useState } from "react";
 import { ImageBackground, Text, View } from "react-native";
-
-import { Title } from "react-native-paper";
-import { SafeAreaView } from "react-native-safe-area-context";
 import TinderCard from "react-tinder-card";
 
 const styles = {
@@ -19,13 +9,9 @@ const styles = {
     justifyContent: "center",
     width: "100%",
   },
-  header: {
-    color: "#000",
-    fontSize: 30,
-    marginBottom: 30,
-  },
+
   cardContainer: {
-    top: 50,
+    // top: 50,
     width: "90%",
     maxWidth: 260,
     height: 300,
@@ -37,8 +23,8 @@ const styles = {
     maxWidth: 260,
     height: 300,
     shadowColor: "black",
-    shadowOpacity: 0.2,
-    shadowRadius: 20,
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
     borderRadius: 20,
     resizeMode: "cover",
   },
@@ -48,16 +34,10 @@ const styles = {
     overflow: "hidden",
     borderRadius: 20,
   },
-  cardTitle: {
-    // position: "absolute",
-    // bottom: 0,
-    // margin: 10,
-    top: 20,
-    // borderWidth: 5,
-    color: "black",
-  },
+
   infoText: {
     height: 28,
+    // marginTop: 10,
     justifyContent: "center",
     display: "flex",
     zIndex: -100,
@@ -93,6 +73,7 @@ function Simple() {
 
   const swiped = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
+    console.log("you swiped: " + direction);
     setLastDirection(direction);
   };
 
@@ -104,9 +85,7 @@ function Simple() {
     // <SafeAreaView>
     <View style={styles.container}>
       {/* <Text style={styles.header}>React Native Tinder Card</Text> */}
-      <Title style={styles.cardTitle}>
-        What kind of movie would you like to watch?
-      </Title>
+
       <View style={styles.cardContainer}>
         {characters.map((character) => (
           <TinderCard
@@ -122,11 +101,11 @@ function Simple() {
           </TinderCard>
         ))}
       </View>
-      {lastDirection ? (
+      {/* {lastDirection ? (
         <Text style={styles.infoText}>You swiped {lastDirection}</Text>
       ) : (
         <Text style={styles.infoText} />
-      )}
+      )} */}
     </View>
     // </SafeAreaView>
   );

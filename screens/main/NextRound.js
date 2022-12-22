@@ -42,6 +42,7 @@ const NextRound = ({ navigation }) => {
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
+            resizeMode="cover"
             source={require("../../assets/icons/Jump.png")}
           />
         </View>

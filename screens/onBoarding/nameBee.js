@@ -32,6 +32,7 @@ const NameBee = ({ navigation }) => {
           <View style={styles.picContainer}>
             <Card.Cover
               style={styles.cardPic}
+              resizeMode="contain"
               source={require("../../assets/icons/Question.png")}
             />
           </View>
