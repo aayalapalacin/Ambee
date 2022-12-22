@@ -5,6 +5,7 @@ import {
   View,
   Image,
   useWindowDimensions,
+  TouchableOpacity,
 } from "react-native";
 import { Button, Card, Title } from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
@@ -14,7 +15,7 @@ import Simple from "./CardList";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
-  const [reset, setReset] = useState("1");
+  const [reset, setReset] = useState("");
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
@@ -23,7 +24,14 @@ const YesNoCard = ({ navigation }) => {
         </Title>
         <View style={styles.cardTopIcons}>
           <View>
-            <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
+            <TouchableOpacity
+              onPress={() => {
+                setReset(Math.random().toString());
+                console.log(typeof reset, "Reset");
+              }}
+            >
+              <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
+            </TouchableOpacity>
           </View>
           <CountDown
             id={reset}
