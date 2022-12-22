@@ -49,20 +49,6 @@ const NextRound = ({ navigation }) => {
         <Title style={styles.cardTitle}>Next Round</Title>
         <Paragraph style={styles.cardParagraph}>
           {username}, You have {userNum} cards left! You're doing great!
-          {/* Genres are:{" "}
-          {/* {userGenre.map((item) => (
-            <View key={item.key}>
-              <Text style={styles.genreTxt}>{item.name}</Text>
-            </View>
-          ))} */}
-          {/* <FlatList
-            data={userGenre}
-            renderItem={({ item }) => (
-              <View>
-                <Text>{item.name}</Text>
-              </View>
-            )}
-          />  */}
         </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>

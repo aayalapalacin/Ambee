@@ -1,28 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Button } from "react-native-paper";
 import React, { useState, useEffect } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
-const genres = [
-  { name: "horror ", key: 1 },
-  { name: "comedy ", key: 2 },
-  { name: "doc ", key: 3 },
-  { name: "sci-fi ", key: 4 },
-  { name: "anime ", key: 5 },
-  { name: "musical ", key: 6 },
-  { name: "action ", key: 7 },
-  { name: "romantic ", key: 8 },
-];
-const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
-  useEffect(() => {
-    console.log(selectedGenres, "selectedGenres");
-  }, [selectedGenres]);
-  const deleteGenre = (key) => {
-    const newGenreList = selectedGenres.filter((genre) => {
-      return genre.key !== key;
-    });
-    setSelectedGenres(newGenreList);
-  };
 
+const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -60,9 +40,12 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
     <View style={styles.optionBtnContainer}>
       <DropDownPicker
         multiple={true}
+        // min={0}
+        // max={5}
         open={open}
         value={value}
         items={items}
+        onPress={() => setSelectedGenres(value)}
         setOpen={setOpen}
         setValue={setValue}
         setItems={setItems}
