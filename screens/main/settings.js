@@ -3,6 +3,8 @@ import { Switch, Title } from "react-native-paper";
 import React, { useState, useEffect } from "react";
 import Counter from "../../components/counter";
 import HomeSettings from "../../components/homeSettings";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import ContinueBtn from "../../components/continueBtn";
 
 const Settings = ({ navigation }) => {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
@@ -12,6 +14,13 @@ const Settings = ({ navigation }) => {
   useEffect(() => {
     console.log(newLimit, "settings limit");
   }, [newLimit]);
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem("@timerCount", value);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <View style={styles.settingsBox}>
       <Title style={styles.cardTitle}>Settings</Title>
@@ -20,12 +29,7 @@ const Settings = ({ navigation }) => {
           <Text style={styles.settingsTxt}>Limit your option</Text>
           <Text style={styles.settingsTxt}>Set a timer</Text>
         </View>
-        <Counter
-          newTimer={newTimer}
-          setNewTimer={setNewTimer}
-          newLimit={newLimit}
-          setNewLimit={setNewLimit}
-        />
+        <Counter setNewTimer={setNewTimer} setNewLimit={setNewLimit} />
       </View>
 
       <View style={styles.repeatContainer}>
@@ -35,7 +39,11 @@ const Settings = ({ navigation }) => {
           <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
         </View>
       </View>
-
+      <View style={styles.saveContainer}>
+        <TouchableOpacity>
+          <ContinueBtn text="Save Changes" />
+        </TouchableOpacity>
+      </View>
       <HomeSettings navigation={navigation} />
     </View>
   );
@@ -59,12 +67,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
-    marginBottom: 290,
+    marginBottom: 80,
   },
   homeSettingContainer: {
     flexDirection: "row",
     justifyContent: "center",
-
     marginTop: 200,
   },
   homeSettingBox: {
@@ -103,5 +110,8 @@ const styles = StyleSheet.create({
   homeSettingsTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 16,
+  },
+  saveContainer: {
+    marginBottom: 150,
   },
 });

@@ -1,19 +1,11 @@
 import { StyleSheet, Text, View, Button } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import React, { useState } from "react";
 
-const Counter = ({ newTimer, setNewTimer, newLimit, setNewLimit }) => {
+const Counter = ({ setNewTimer, setNewLimit }) => {
   const [optionCount, setOptionCount] = useState(5);
   const [timerCount, setTimerCount] = useState(30);
-  const storeData = async (value) => {
-    try {
-      await AsyncStorage.setItem("@timerCount", value);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   function optionIncrement() {
     setNewLimit(optionCount + 1);
