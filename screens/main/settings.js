@@ -10,8 +10,8 @@ const Settings = ({ navigation }) => {
   const [newTimer, setNewTimer] = useState(30);
   const [newLimit, setNewLimit] = useState(5);
   useEffect(() => {
-    console.log(newTimer, "settings timer");
-  }, [newTimer]);
+    console.log(newLimit, "settings limit");
+  }, [newLimit]);
   return (
     <View style={styles.settingsBox}>
       <Title style={styles.cardTitle}>Settings</Title>

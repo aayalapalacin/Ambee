@@ -16,6 +16,7 @@ const Counter = ({ newTimer, setNewTimer, newLimit, setNewLimit }) => {
   };
 
   function optionIncrement() {
+    setNewLimit(optionCount + 1);
     setOptionCount(function (prevCount) {
       return (prevCount += 1);
     });
@@ -24,8 +25,10 @@ const Counter = ({ newTimer, setNewTimer, newLimit, setNewLimit }) => {
   function optionDecrement() {
     setOptionCount(function (prevCount) {
       if (prevCount > 0) {
+        setOptionCount(optionCount - 1);
         return (prevCount -= 1);
       } else {
+        setOptionCount(0);
         return (prevCount = 0);
       }
     });
