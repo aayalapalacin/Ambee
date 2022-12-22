@@ -14,9 +14,10 @@ const Settings = ({ navigation }) => {
   useEffect(() => {
     console.log(newLimit, "settings limit");
   }, [newLimit]);
-  const storeData = async (value) => {
+  const storeData = async (newTimerValue, newLimitValue) => {
     try {
-      await AsyncStorage.setItem("@timerCount", value);
+      await AsyncStorage.setItem("@timerCount", newTimerValue);
+      await AsyncStorage.setItem("@userNum", newLimitValue);
     } catch (e) {
       console.log(e);
     }
@@ -40,7 +41,7 @@ const Settings = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.saveContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => storeData(newTimer, newLimit)}>
           <ContinueBtn text="Save Changes" />
         </TouchableOpacity>
       </View>

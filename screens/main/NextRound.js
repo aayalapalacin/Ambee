@@ -19,6 +19,7 @@ const NextRound = ({ navigation }) => {
       const usernameValue = await AsyncStorage.getItem("@username");
       const userGenreValue = await AsyncStorage.getItem("@userGenres");
       const userNumValue = await AsyncStorage.getItem("@userNum");
+      const userTimerValue = await AsyncStorage.getItem("@timerCount");
 
       if (usernameValue !== null) {
         setUsername(usernameValue);
@@ -35,7 +36,7 @@ const NextRound = ({ navigation }) => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(userGenre, "userGenreKey");
+
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content>

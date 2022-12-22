@@ -3,7 +3,6 @@ import { Button } from "react-native-paper";
 import React from "react";
 
 const ContinueBtn = (props, { navigation }) => {
-  let screen = props.screen;
   return (
     <View>
       <Button style={styles.continueBtn} mode="contained">

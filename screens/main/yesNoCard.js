@@ -16,6 +16,27 @@ import Simple from "./CardList";
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
   const [reset, setReset] = useState("");
+  const [username, setUsername] = useState("");
+  const [userGenre, setUserGenre] = useState("");
+  const [userNum, setUserNum] = useState("");
+  const [userTime, setUserTimer] = useState(30);
+  const getData = async () => {
+    try {
+      const usernameValue = await AsyncStorage.getItem("@username");
+      const userGenreValue = await AsyncStorage.getItem("@userGenres");
+      const userNumValue = await AsyncStorage.getItem("@userNum");
+      const userTimerValue = await AsyncStorage.getItem("@timerCount");
+
+      if (usernameValue !== null) {
+        setUsername(usernameValue);
+        setUserGenre(JSON.parse(userGenreValue));
+        setUserNum(userNumValue);
+        setUserTimer(userTimerValue);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
@@ -36,7 +57,7 @@ const YesNoCard = ({ navigation }) => {
           <CountDown
             id={reset}
             size={17}
-            until={30}
+            until={userTime}
             onFinish={() => {
               // alert("Finished");
               // setReset(Math.random());
