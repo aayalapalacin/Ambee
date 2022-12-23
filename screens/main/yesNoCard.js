@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -12,6 +12,7 @@ import HomeSettings from "../../components/homeSettings";
 import { Ionicons } from "@expo/vector-icons";
 import CountDown from "react-native-countdown-component";
 import Simple from "./CardList";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
@@ -37,6 +38,14 @@ const YesNoCard = ({ navigation }) => {
       console.log(e);
     }
   };
+  useEffect(() => {
+    getData();
+    console.log(userTime, "user time");
+    console.log(typeof userTime, "user time type");
+    console.log(userNum, "user Num");
+    console.log(typeof userNum, "user Num type");
+  }, []);
+
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
@@ -57,7 +66,7 @@ const YesNoCard = ({ navigation }) => {
           <CountDown
             id={reset}
             size={17}
-            until={userTime}
+            until={30}
             onFinish={() => {
               // alert("Finished");
               // setReset(Math.random());
