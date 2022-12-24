@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderColor: "#FF6033",
     paddingHorizontal: 20,
-    width: 330,
   },
   genreContainer: {
     flexDirection: "row",

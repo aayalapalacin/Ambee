@@ -28,17 +28,19 @@ const Options = ({ navigation }) => {
     <Card height={window.height} style={styles.container}>
       <Card.Content>
         <Title style={styles.cardTitle}>What type of movies do you like?</Title>
-        <View style={styles.picContainer}>
-          <Card.Cover
-            style={styles.cardPic}
-            resizeMode="contain"
-            source={require("../../assets/icons/Question.png")}
+        <View style={styles.cardContent}>
+          <View style={styles.picContainer}>
+            <Card.Cover
+              style={styles.cardPic}
+              resizeMode="contain"
+              source={require("../../assets/icons/Question.png")}
+            />
+          </View>
+          <OptionBtn
+            selectedGenres={selectedGenres}
+            setSelectedGenres={setSelectedGenres}
           />
         </View>
-        <OptionBtn
-          selectedGenres={selectedGenres}
-          setSelectedGenres={setSelectedGenres}
-        />
       </Card.Content>
       <TouchableOpacity
         onPress={() => {
@@ -58,7 +60,9 @@ const Options = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
-    marginHorizontal: 5,
+  },
+  cardContent: {
+    marginHorizontal: 40,
   },
   cardTitle: {
     textAlign: "center",
