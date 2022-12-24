@@ -39,9 +39,13 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
   return (
     <View style={styles.optionBtnContainer}>
       <DropDownPicker
+        style={styles.dropContainer}
         multiple={true}
+        dropDownDirection="TOP"
+        searchable={true}
         // min={0}
         // max={5}
+        maxHeight={550}
         open={open}
         value={value}
         items={items}
@@ -49,6 +53,14 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
         setOpen={setOpen}
         setValue={setValue}
         setItems={setItems}
+        dropDownContainerStyle={{ borderColor: "#FF6033" }}
+        listItemLabelStyle={{
+          color: "#6750A4",
+        }}
+        placeholderStyle={{
+          color: "#6750A4",
+          fontWeight: "bold",
+        }}
       />
     </View>
   );
@@ -57,9 +69,14 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
 export default OptionBtn;
 
 const styles = StyleSheet.create({
+  dropContainer: {
+    borderRadius: 50,
+    borderColor: "#FF6033",
+    paddingHorizontal: 20,
+    width: 330,
+  },
   genreContainer: {
     flexDirection: "row",
-    justifyContent: "center",
   },
   genreDiv: {
     wkeyth: 110,
@@ -71,6 +88,9 @@ const styles = StyleSheet.create({
     fontSize: 17,
   },
   optionBtnContainer: {
-    marginBottom: 80,
+    marginTop: 235,
+    marginBottom: 30,
+    justifyContent: "center",
+    alignContent: "center",
   },
 });

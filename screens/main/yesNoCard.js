@@ -6,6 +6,7 @@ import {
   Image,
   useWindowDimensions,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { Button, Card, Title } from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
@@ -16,7 +17,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
-  const [reset, setReset] = useState("");
+  const [reset, setReset] = useState("1");
   const [username, setUsername] = useState("");
   const [userGenre, setUserGenre] = useState("");
   const [userNum, setUserNum] = useState("");
@@ -31,8 +32,8 @@ const YesNoCard = ({ navigation }) => {
       if (usernameValue !== null) {
         setUsername(usernameValue);
         setUserGenre(JSON.parse(userGenreValue));
-        setUserNum(userNumValue);
-        setUserTimer(userTimerValue);
+        setUserNum(parseInt(userNumValue));
+        setUserTimer(parseInt(userTimerValue));
       }
     } catch (e) {
       console.log(e);
@@ -40,10 +41,10 @@ const YesNoCard = ({ navigation }) => {
   };
   useEffect(() => {
     getData();
+    console.log("success");
+    setReset(Math.random().toString());
     console.log(userTime, "user time");
     console.log(typeof userTime, "user time type");
-    console.log(userNum, "user Num");
-    console.log(typeof userNum, "user Num type");
   }, []);
 
   return (
@@ -57,7 +58,7 @@ const YesNoCard = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => {
                 setReset(Math.random().toString());
-                console.log(typeof reset, "Reset");
+                console.log(typeof reset, "reset");
               }}
             >
               <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
@@ -66,7 +67,7 @@ const YesNoCard = ({ navigation }) => {
           <CountDown
             id={reset}
             size={17}
-            until={30}
+            until={userTime}
             onFinish={() => {
               // alert("Finished");
               // setReset(Math.random());

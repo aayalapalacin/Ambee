@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Card, Title } from "react-native-paper";
 import {
+  View,
   StyleSheet,
   Alert,
   useWindowDimensions,
@@ -27,6 +28,13 @@ const Options = ({ navigation }) => {
     <Card height={window.height} style={styles.container}>
       <Card.Content>
         <Title style={styles.cardTitle}>What type of movies do you like?</Title>
+        <View style={styles.picContainer}>
+          <Card.Cover
+            style={styles.cardPic}
+            resizeMode="contain"
+            source={require("../../assets/icons/Question.png")}
+          />
+        </View>
         <OptionBtn
           selectedGenres={selectedGenres}
           setSelectedGenres={setSelectedGenres}
@@ -55,15 +63,15 @@ const styles = StyleSheet.create({
   cardTitle: {
     textAlign: "center",
     marginHorizontal: 10,
-    marginTop: 100,
-    marginBottom: 50,
+    marginTop: 50,
+    marginBottom: 45,
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
 
   continueBtn: {
     marginHorizontal: 90,
-    marginTop: 70,
+    // marginTop: 70,
   },
   btnTxt: {
     fontFamily: "Mali-Regular",

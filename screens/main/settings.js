@@ -42,7 +42,10 @@ const Settings = ({ navigation }) => {
       </View>
       <View style={styles.saveContainer}>
         <TouchableOpacity
-          onPress={() => storeData(newTimer.toString(), newLimit.toString())}
+          onPress={() => {
+            storeData(newTimer.toString(), newLimit.toString());
+            console.log("saved");
+          }}
         >
           <ContinueBtn text="Save Changes" />
         </TouchableOpacity>
