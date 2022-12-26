@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,20 +8,32 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
-import { Button, Card, Title } from "react-native-paper";
+import {
+  Button,
+  Card,
+  Title,
+  Dialog,
+  Portal,
+  Paragraph,
+} from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
 import { Ionicons } from "@expo/vector-icons";
 import CountDown from "react-native-countdown-component";
 import Simple from "./CardList";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useFocusEffect } from "@react-navigation/native";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
-  const [reset, setReset] = useState("1");
+  const [reset, setReset] = useState("");
   const [username, setUsername] = useState("");
   const [userGenre, setUserGenre] = useState("");
   const [userNum, setUserNum] = useState("");
   const [userTime, setUserTimer] = useState(30);
+  const [visible, setVisible] = useState(true);
+
+  const hideDialog = () => setVisible(false);
+
   const getData = async () => {
     try {
       const usernameValue = await AsyncStorage.getItem("@username");
@@ -39,16 +51,45 @@ const YesNoCard = ({ navigation }) => {
       console.log(e);
     }
   };
-  useEffect(() => {
-    getData();
-    console.log("success");
-    setReset(Math.random().toString());
-    console.log(userTime, "user time");
-    console.log(typeof userTime, "user time type");
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      console.log("focused yesNo");
+      getData();
+      setVisible(true);
+
+      return () => console.log("focues return");
+    }, [])
+  );
 
   return (
     <Card style={styles.container} height={window.height}>
+      <View>
+        <Portal>
+          <Dialog
+            visible={visible}
+            onDismiss={hideDialog}
+            style={styles.dialogParent}
+          >
+            <Dialog.Content style={styles.dialogContent}>
+              <Paragraph style={styles.dialogP}>Click OK when ready!</Paragraph>
+              {/* <Dialog.Actions> */}
+              <View style={styles.dialogBtnContainer}>
+                <Button
+                  style={styles.dialogBtn}
+                  onPress={() => {
+                    console.log("Ok");
+                    setReset(Math.random().toString());
+                    hideDialog();
+                  }}
+                >
+                  Ok
+                </Button>
+              </View>
+              {/* </Dialog.Actions> */}
+            </Dialog.Content>
+          </Dialog>
+        </Portal>
+      </View>
       <Card.Content style={styles.cardContainer}>
         <Title style={styles.cardTitle}>
           What kind of movie would you like to watch?
@@ -86,6 +127,7 @@ const YesNoCard = ({ navigation }) => {
             timeLabels={{ s: null }}
             showSeparator
           />
+
           <View style={styles.watchBtn}>
             <Button onPress={() => navigation.navigate("NextRound")}>
               Watch Now
@@ -124,6 +166,25 @@ const YesNoCard = ({ navigation }) => {
   );
 };
 const styles = StyleSheet.create({
+  dialogParent: {
+    marginHorizontal: 50,
+  },
+  dialogContent: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  dialogP: {
+    fontFamily: "Mali-Bold",
+  },
+  dialogBtnContainer: {
+    backgroundColor: "red",
+    borderRadius: 50,
+  },
+  dialogBtn: {
+    fontFamily: "Mali-Bold",
+  },
+
   container: {
     borderRadius: 0,
   },
