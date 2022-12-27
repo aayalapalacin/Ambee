@@ -19,6 +19,7 @@ const NextRound = ({ navigation }) => {
       const usernameValue = await AsyncStorage.getItem("@username");
       const userGenreValue = await AsyncStorage.getItem("@userGenres");
       const userNumValue = await AsyncStorage.getItem("@userNum");
+      const userTimerValue = await AsyncStorage.getItem("@timerCount");
 
       if (usernameValue !== null) {
         setUsername(usernameValue);
@@ -35,7 +36,7 @@ const NextRound = ({ navigation }) => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(userGenre, "userGenreKey");
+
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content>
@@ -49,20 +50,6 @@ const NextRound = ({ navigation }) => {
         <Title style={styles.cardTitle}>Next Round</Title>
         <Paragraph style={styles.cardParagraph}>
           {username}, You have {userNum} cards left! You're doing great!
-          {/* Genres are:{" "}
-          {/* {userGenre.map((item) => (
-            <View key={item.key}>
-              <Text style={styles.genreTxt}>{item.name}</Text>
-            </View>
-          ))} */}
-          {/* <FlatList
-            data={userGenre}
-            renderItem={({ item }) => (
-              <View>
-                <Text>{item.name}</Text>
-              </View>
-            )}
-          />  */}
         </Paragraph>
       </Card.Content>
       <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
