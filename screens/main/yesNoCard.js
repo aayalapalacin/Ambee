@@ -167,6 +167,8 @@ const YesNoCard = ({ navigation }) => {
 const styles = StyleSheet.create({
   dialogParent: {
     marginHorizontal: 50,
+    backgroundColor: "#8570D8",
+    opacity: 0.75,
   },
   dialogContent: {
     flexDirection: "row",
@@ -177,7 +179,7 @@ const styles = StyleSheet.create({
     fontFamily: "Mali-Bold",
   },
   dialogBtnContainer: {
-    backgroundColor: "red",
+    backgroundColor: "#FF6033",
     borderRadius: 50,
   },
   dialogBtn: {
