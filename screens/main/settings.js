@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { Switch, Title } from "react-native-paper";
+import { Switch, Title, Button } from "react-native-paper";
 import React, { useState, useEffect } from "react";
 import Counter from "../../components/counter";
 import HomeSettings from "../../components/homeSettings";
@@ -32,7 +32,16 @@ const Settings = ({ navigation }) => {
         </View>
         <Counter setNewTimer={setNewTimer} setNewLimit={setNewLimit} />
       </View>
+      {/* 
+      <View style={styles.resetContainer}>
+        <Title style={styles.settingsTxt}>Reset Data</Title>
 
+        <View style={styles.bottomSettingsIcons}>
+          <Button style={styles.resetBtn} mode="contained">
+            {" "}
+          </Button>
+        </View>
+      </View> */}
       <View style={styles.repeatContainer}>
         <Title style={styles.settingsTxt}>No repeating mode</Title>
 
@@ -74,6 +83,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     marginBottom: 80,
+  },
+  resetContainer: {
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  resetBtn: {
+    backgroundColor: "white",
   },
   homeSettingContainer: {
     flexDirection: "row",

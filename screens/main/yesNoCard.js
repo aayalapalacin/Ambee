@@ -29,30 +29,30 @@ const YesNoCard = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [userGenre, setUserGenre] = useState("");
   const [userNum, setUserNum] = useState("");
-  const [userTime, setUserTimer] = useState(0);
+  const [userTime, setUserTimer] = useState(30);
   const [visible, setVisible] = useState(true);
 
   const hideDialog = () => setVisible(false);
 
-  const getData = async () => {
-    try {
-      const usernameValue = await AsyncStorage.getItem("@username");
-      const userGenreValue = await AsyncStorage.getItem("@userGenres");
-      const userNumValue = await AsyncStorage.getItem("@userNum");
-      const userTimerValue = await AsyncStorage.getItem("@timerCount");
-
-      if (usernameValue !== null) {
-        setUsername(usernameValue);
-        setUserGenre(JSON.parse(userGenreValue));
-        setUserNum(parseInt(userNumValue));
-        setUserTimer(parseInt(userTimerValue));
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  };
   useFocusEffect(
     React.useCallback(() => {
+      const getData = async () => {
+        try {
+          const usernameValue = await AsyncStorage.getItem("@username");
+          const userGenreValue = await AsyncStorage.getItem("@userGenres");
+          const userNumValue = await AsyncStorage.getItem("@userNum");
+          const userTimerValue = await AsyncStorage.getItem("@timerCount");
+
+          if (usernameValue !== null) {
+            setUsername(usernameValue);
+            setUserGenre(JSON.parse(userGenreValue));
+            setUserNum(parseInt(userNumValue));
+            setUserTimer(parseInt(userTimerValue));
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      };
       setUserTimer(0);
       getData();
       setVisible(true);
