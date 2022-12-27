@@ -29,7 +29,7 @@ const YesNoCard = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [userGenre, setUserGenre] = useState("");
   const [userNum, setUserNum] = useState("");
-  const [userTime, setUserTimer] = useState(30);
+  const [userTime, setUserTimer] = useState(0);
   const [visible, setVisible] = useState(true);
 
   const hideDialog = () => setVisible(false);
@@ -53,7 +53,7 @@ const YesNoCard = ({ navigation }) => {
   };
   useFocusEffect(
     React.useCallback(() => {
-      console.log("focused yesNo");
+      setUserTimer(0);
       getData();
       setVisible(true);
 
@@ -99,7 +99,6 @@ const YesNoCard = ({ navigation }) => {
             <TouchableOpacity
               onPress={() => {
                 setReset(Math.random().toString());
-                console.log(typeof reset, "reset");
               }}
             >
               <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
