@@ -7,7 +7,6 @@ import {
   useWindowDimensions,
   TouchableOpacity,
 } from "react-native";
-import { LinearGradient } from "expo";
 const WelcomeCard = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
@@ -16,7 +15,7 @@ const WelcomeCard = ({ navigation }) => {
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
-            source={require("../../assets/icons/ambeeTest.png")}
+            source={require("../../assets/icons/AmbeeLogoTitleColor.png")}
             resizeMode="contain"
           />
         </View>
@@ -48,9 +47,9 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 60,
-    marginBottom: 40,
+    marginHorizontal: "5%",
+    marginTop: "15%",
+    marginBottom: "11%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
@@ -59,17 +58,19 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     fontFamily: "Mali-Regular",
     fontSize: 22,
-    marginBottom: 65,
-    paddingTop: 2,
+    marginBottom: "17%",
   },
   cardPic: {
-    height: 190,
-    width: 360,
-    tintColor: "white",
+    height: "52%",
+    width: "90%",
+    // tintColor: "white",
   },
   picContainer: {
+    justifyContent: "center",
     alignItems: "center",
-    marginTop: 80,
+    marginTop: "20%",
+    height: "30%",
+    // backgroundColor: "red",
   },
 
   arrowIcon: {
