@@ -21,7 +21,7 @@ const HelpOrSurprise = ({ navigation }) => {
         />
       </View>
       <View style={styles.btnContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("Options")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Genres")}>
           <ContinueBtn text="Help me choose" />
         </TouchableOpacity>
         <Text style={styles.orTxt} variant="titleLarge">

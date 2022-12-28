@@ -14,9 +14,9 @@ const StepThree = ({ navigation }) => {
   window = useWindowDimensions();
   return (
     <Card style={styles.container} height={window.height}>
-      <TouchableOpacity onPress={() => navigation.navigate("Options")}>
+      {/* <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
         <Skip />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <Card.Content>
         <View style={styles.picContainer}>
           <Card.Cover
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   picContainer: {
     alignItems: "center",
-    marginTop: "8%",
+    marginTop: "23%",
   },
   dotContainer: {
     flexDirection: "row",

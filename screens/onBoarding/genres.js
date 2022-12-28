@@ -7,11 +7,11 @@ import {
   useWindowDimensions,
   TouchableOpacity,
 } from "react-native";
-import OptionBtn from "../../components/optionBtn";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import GenreDropdown from "../../components/genreDropdown";
 
-const Options = ({ navigation }) => {
+const Genres = ({ navigation }) => {
   const window = useWindowDimensions();
   const [selectedGenres, setSelectedGenres] = useState([]);
 
@@ -36,7 +36,7 @@ const Options = ({ navigation }) => {
               source={require("../../assets/icons/Question.png")}
             />
           </View>
-          <OptionBtn
+          <GenreDropdown
             selectedGenres={selectedGenres}
             setSelectedGenres={setSelectedGenres}
           />
@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 });
-export default Options;
+export default Genres;

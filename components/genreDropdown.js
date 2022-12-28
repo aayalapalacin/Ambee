@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 
-const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
+const GenreDropdown = ({ selectedGenres, setSelectedGenres }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -66,7 +66,7 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
   );
 };
 
-export default OptionBtn;
+export default GenreDropdown;
 
 const styles = StyleSheet.create({
   dropContainer: {
