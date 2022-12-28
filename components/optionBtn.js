@@ -72,23 +72,15 @@ const styles = StyleSheet.create({
   dropContainer: {
     borderRadius: 50,
     borderColor: "#FF6033",
-    paddingHorizontal: 20,
+    paddingHorizontal: "6%",
   },
   genreContainer: {
     flexDirection: "row",
   },
-  genreDiv: {
-    wkeyth: 110,
-    marginVertical: 19,
-    marginHorizontal: 9,
-    paddingVertical: 7,
-  },
-  genreTxt: {
-    fontSize: 17,
-  },
+
   optionBtnContainer: {
-    marginTop: 235,
-    marginBottom: 30,
+    marginTop: "60%",
+    marginBottom: "9%",
     justifyContent: "center",
     alignContent: "center",
   },

@@ -62,20 +62,15 @@ const styles = StyleSheet.create({
     borderRadius: 0,
   },
   cardContent: {
-    marginHorizontal: 40,
+    marginHorizontal: "1%",
   },
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 50,
-    marginBottom: 45,
+    // marginHorizontal: 10,
+    marginTop: "12%",
+    marginBottom: "12%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
-  },
-
-  continueBtn: {
-    marginHorizontal: 90,
-    // marginTop: 70,
   },
   btnTxt: {
     fontFamily: "Mali-Regular",
@@ -83,9 +78,6 @@ const styles = StyleSheet.create({
   },
   genreContainer: {
     flexDirection: "row",
-  },
-  genreDiv: {
-    width: 100,
   },
 });
 export default Options;
