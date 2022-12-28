@@ -66,9 +66,9 @@ const styles = StyleSheet.create({
   cardContainer: { borderRadius: 0 },
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 40,
-    marginBottom: 50,
+    // marginHorizontal: 10,
+    marginTop: "12%",
+    marginBottom: "14%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
@@ -79,19 +79,16 @@ const styles = StyleSheet.create({
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 40,
+    marginTop: "13%",
   },
 
-  continueBtn: {
-    marginHorizontal: 90,
-  },
   btnTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 20,
   },
   input: {
-    marginHorizontal: 90,
-    marginBottom: 40,
+    marginHorizontal: "20%",
+    marginBottom: "10%",
     backgroundColor: "white",
     borderBottomWidth: 1,
     borderBottomColor: "#FF6033",

@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
 
   arrowIcon: {
     tintColor: "#FF6033",
-    width: 70,
-    height: 70,
+    width: 90,
+    height: 90,
   },
   arrowIconBox: {
     flexDirection: "row",
