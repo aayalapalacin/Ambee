@@ -27,7 +27,7 @@ const StepThree = ({ navigation }) => {
         </View>
         <Title style={styles.cardTitle}>Step Three</Title>
         <Paragraph style={styles.cardParagraph}>
-          You can use the app by swiping right for yes swiping left for no.
+          You'll also be able to limit the amount of cards to choose.
         </Paragraph>
         <View style={styles.dotContainer}>
           <Octicons
@@ -58,41 +58,43 @@ const StepThree = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { borderRadius: 0 },
+  container: {
+    borderRadius: 0,
+  },
 
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 40,
+    // marginHorizontal: 10,
+    marginTop: "14%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
   cardParagraph: {
     textAlign: "center",
-    marginHorizontal: 45,
+    // marginHorizontal: "1%",
     fontFamily: "Mali-Regular",
+    marginTop: "10%",
     fontSize: 23,
-    marginTop: 20,
-    paddingTop: 2,
+    paddingTop: "1%",
   },
   cardPic: {
-    height: 280,
-    width: 360,
+    height: 245,
+    width: 355,
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 30,
+    marginTop: "8%",
   },
   dotContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginVertical: 40,
+    marginVertical: "10%",
   },
   dotIcon: {
-    marginHorizontal: 4,
+    marginHorizontal: "1%",
   },
   dotFillIcon: {
-    marginHorizontal: 4,
+    marginHorizontal: "1%",
   },
 });
 
