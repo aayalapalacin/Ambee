@@ -71,19 +71,18 @@ const styles = StyleSheet.create({
 
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 40,
-    marginBottom: 40,
+    marginVertical: "10%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
   cardParagraph: {
     textAlign: "center",
-    marginHorizontal: 45,
+    marginHorizontal: "5%",
+    lineHeight: 30,
     fontFamily: "Mali-Regular",
     fontSize: 23,
-    marginBottom: 50,
-    paddingTop: 2,
+    marginBottom: "8%",
+    paddingTop: "1%",
   },
   cardPic: {
     height: 300,
@@ -91,7 +90,7 @@ const styles = StyleSheet.create({
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 70,
+    marginTop: "20%",
   },
 });
 
