@@ -65,18 +65,18 @@ const styles = StyleSheet.create({
 
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 50,
+    // marginHorizontal: 10,
+    marginTop: "14%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
   cardParagraph: {
     textAlign: "center",
-    marginHorizontal: 45,
+    // marginHorizontal: "1%",
     fontFamily: "Mali-Regular",
-    marginTop: 30,
+    marginTop: "10%",
     fontSize: 23,
-    paddingTop: 2,
+    paddingTop: "1%",
   },
   cardPic: {
     height: 245,
@@ -84,18 +84,18 @@ const styles = StyleSheet.create({
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 30,
+    marginTop: "8%",
   },
   dotContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginVertical: 40,
+    marginVertical: "10%",
   },
   dotIcon: {
     marginHorizontal: 4,
   },
   dotFillIcon: {
-    marginHorizontal: 4,
+    marginHorizontal: "1%",
   },
 });
 
