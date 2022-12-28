@@ -50,7 +50,7 @@ const StepThree = ({ navigation }) => {
           />
         </View>
       </Card.Content>
-      <TouchableOpacity onPress={() => navigation.navigate("Options")}>
+      <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
         <ContinueBtn text="Next" />
       </TouchableOpacity>
     </Card>

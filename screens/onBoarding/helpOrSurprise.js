@@ -3,6 +3,7 @@ import {
   View,
   useWindowDimensions,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import React from "react";
 import { Text } from "react-native-paper";
@@ -12,6 +13,13 @@ const HelpOrSurprise = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
     <View style={styles.helpContainer} height={window.height}>
+      <View style={styles.helpChooseImgContainer}>
+        <Image
+          style={styles.swipeIcons}
+          source={require("../../assets/icons/helpOrChoose.png")}
+          resizeMode="contain"
+        />
+      </View>
       <View style={styles.btnContainer}>
         <TouchableOpacity onPress={() => navigation.navigate("Options")}>
           <ContinueBtn text="Help me choose" />
@@ -34,10 +42,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   btnContainer: {
-    marginBottom: 100,
+    marginTop: "7%",
+    marginBottom: "52%",
   },
   orTxt: {
     textAlign: "center",
-    marginVertical: 20,
+    marginVertical: "6%",
+  },
+  helpChooseImgContainer: {
+    marginTop: "15%",
+    marginBottom: "8%",
+    alignItems: "center",
   },
 });
