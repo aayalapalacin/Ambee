@@ -21,13 +21,13 @@ const StepTwo = ({ navigation }) => {
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
-            resizeMode="cover"
+            resizeMode="contain"
             source={require("../../assets/icons/Phone1.png")}
           />
         </View>
         <Title style={styles.cardTitle}>Step Two</Title>
         <Paragraph style={styles.cardParagraph}>
-          Our app will recommend a movie based on your preferences.
+          You can use the app by swiping right for yes swiping left for no.
         </Paragraph>
         <View style={styles.dotContainer}>
           <Octicons
@@ -64,37 +64,37 @@ const styles = StyleSheet.create({
 
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 40,
+    // marginHorizontal: 10,
+    marginTop: "14%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
   cardParagraph: {
     textAlign: "center",
-    marginHorizontal: 45,
+    // marginHorizontal: "1%",
     fontFamily: "Mali-Regular",
+    marginTop: "10%",
     fontSize: 23,
-    marginTop: 20,
-    paddingTop: 2,
+    paddingTop: "1%",
   },
   cardPic: {
-    height: 300,
-    width: 260,
+    height: 245,
+    width: 355,
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 30,
+    marginTop: "8%",
   },
   dotContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginVertical: 30,
+    marginVertical: "10%",
   },
   dotIcon: {
-    marginHorizontal: 4,
+    marginHorizontal: "1%",
   },
   dotFillIcon: {
-    marginHorizontal: 4,
+    marginHorizontal: "1%",
   },
 });
 

@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     marginVertical: "10%",
   },
   dotIcon: {
-    marginHorizontal: 4,
+    marginHorizontal: "1%",
   },
   dotFillIcon: {
     marginHorizontal: "1%",
