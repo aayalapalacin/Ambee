@@ -32,36 +32,30 @@ const styles = StyleSheet.create({
     borderRadius: 0,
   },
   cardContainer: {
-    marginHorizontal: 10,
-    marginBottom: 40,
+    // marginHorizontal: "2%",
+    marginBottom: "10%",
   },
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginVertical: 30,
+    // marginHorizontal: "3%",
+    marginVertical: "9%",
     fontFamily: "Mali-Bold",
     fontSize: 29,
   },
-  cardTopIcons: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 12,
-  },
   cardPic: {
-    height: 300,
+    height: 350,
   },
   picContainer: {
-    marginHorizontal: 30,
+    marginHorizontal: "12%",
   },
   aboutTitleTxt: {
     fontFamily: "Mali-Bold",
-    paddingTop: 20,
+    paddingTop: "7%",
   },
   pTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 18,
-    paddingVertical: 20,
+    paddingVertical: "5%",
   },
 });
 
