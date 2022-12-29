@@ -75,16 +75,18 @@ const styles = StyleSheet.create({
 
   arrowIcon: {
     tintColor: "#FF6033",
-    width: 90,
-    height: 90,
+    width: "100%",
+    height: "100%",
   },
   arrowIconBox: {
+    height: "12.4%",
     flexDirection: "row",
     justifyContent: "center",
-    backgroundColor: "none",
   },
   arrowBorder: {
+    width: "22.5%",
     borderWidth: 1,
+    height: "100%",
     borderRadius: 50,
     borderColor: "#FF6033",
   },
