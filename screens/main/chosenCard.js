@@ -33,17 +33,17 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     // marginHorizontal: "2%",
-    marginBottom: "10%",
+    // marginBottom: "10%",
   },
   cardTitle: {
     textAlign: "center",
     // marginHorizontal: "3%",
-    marginVertical: "9%",
+    marginVertical: "8%",
     fontFamily: "Mali-Bold",
     fontSize: 29,
   },
   cardPic: {
-    height: 350,
+    height: 340,
   },
   picContainer: {
     marginHorizontal: "12%",
