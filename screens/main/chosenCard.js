@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     borderRadius: 0,
   },
   cardContainer: {
+    backgroundColor: "red",
     // marginHorizontal: "2%",
     // marginBottom: "10%",
   },
@@ -43,9 +44,10 @@ const styles = StyleSheet.create({
     fontSize: 29,
   },
   cardPic: {
-    height: 340,
+    height: "100%",
   },
   picContainer: {
+    height: "48%",
     marginHorizontal: "12%",
   },
   aboutTitleTxt: {

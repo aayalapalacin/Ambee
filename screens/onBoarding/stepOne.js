@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     width: 355,
   },
   picContainer: {
+    backgroundColor: "red",
     alignItems: "center",
     marginTop: "8%",
   },
