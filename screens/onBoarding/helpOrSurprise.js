@@ -15,7 +15,7 @@ const HelpOrSurprise = ({ navigation }) => {
     <View style={styles.helpContainer} height={window.height}>
       <View style={styles.helpChooseImgContainer}>
         <Image
-          style={styles.swipeIcons}
+          // style={styles.swipeIcons}
           source={require("../../assets/icons/helpOrChoose.png")}
           resizeMode="contain"
         />
