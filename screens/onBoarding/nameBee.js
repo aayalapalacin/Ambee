@@ -9,6 +9,7 @@ import {
   Keyboard,
   Alert,
   TextInput,
+  Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
@@ -28,10 +29,10 @@ const NameBee = ({ navigation }) => {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <Card style={styles.cardContainer} height={window.height}>
-        <Card.Content style={styles.cardContent}>
+      <View style={styles.cardContainer} height={window.height}>
+        <View style={styles.cardContent}>
           <View style={styles.picContainer}>
-            <Card.Cover
+            <Image
               style={styles.cardPic}
               resizeMode="contain"
               source={require("../../assets/icons/Question.png")}
@@ -41,16 +42,18 @@ const NameBee = ({ navigation }) => {
             <Title style={styles.cardTitle}>
               What is the name of your bee?
             </Title>
-            <TextInput
-              textAlign="center"
-              style={styles.input}
-              placeholder="Type here"
-              placeholderTextColor="black"
-              value={username}
-              onChangeText={(username) => setUsername(username)}
-            />
+            <View style={styles.inputContainer}>
+              <TextInput
+                textAlign="center"
+                style={styles.input}
+                placeholder="Type here"
+                placeholderTextColor="black"
+                value={username}
+                onChangeText={(username) => setUsername(username)}
+              />
+            </View>
           </View>
-        </Card.Content>
+        </View>
         <TouchableOpacity
           onPress={() => {
             if (username.length == 0) {
@@ -60,9 +63,10 @@ const NameBee = ({ navigation }) => {
               storeData(username);
             }
           }}
-        ></TouchableOpacity>
-        <ContinueBtn text="Continue" />
-      </Card>
+        >
+          <ContinueBtn text="Continue" />
+        </TouchableOpacity>
+      </View>
     </TouchableWithoutFeedback>
   );
 };
@@ -70,10 +74,11 @@ const NameBee = ({ navigation }) => {
 const styles = StyleSheet.create({
   cardContainer: {
     borderRadius: 0,
+    marginHorizontal: "1%",
   },
   cardContent: {
     alignItems: "center",
-    height: "70%",
+    height: "60%",
   },
   titleContainer: {
     height: "24%",
@@ -91,8 +96,8 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   picContainer: {
-    width: "76%",
-    height: "47%",
+    width: "80%",
+    height: "50%",
     alignItems: "center",
     marginTop: "13%",
   },
@@ -103,16 +108,18 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    marginHorizontal: "6%",
+    marginHorizontal: "9%",
     marginTop: "10%",
     marginBottom: "12%",
     backgroundColor: "white",
     borderWidth: 1,
     borderRadius: 50,
     fontSize: 20,
-    // width: "1%",
-    paddingVertical: "6%",
+    paddingVertical: "7%",
     borderColor: "#FF6033",
+  },
+  inputContainer: {
+    height: "72%",
   },
 });
 

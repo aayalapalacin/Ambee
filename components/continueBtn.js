@@ -4,7 +4,7 @@ import React from "react";
 
 const ContinueBtn = (props, { navigation }) => {
   return (
-    <View>
+    <View style={styles.btnContainer}>
       <Button style={styles.continueBtn} mode="contained">
         <Text style={styles.btnTxt}>{props.text}</Text>
       </Button>
@@ -16,7 +16,7 @@ export default ContinueBtn;
 
 const styles = StyleSheet.create({
   continueBtn: {
-    marginVertical: "5%",
+    marginVertical: "4%",
     marginHorizontal: "15%",
     paddingVertical: "2%",
     backgroundColor: "#FF6033",
