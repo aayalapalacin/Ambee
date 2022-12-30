@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
   useWindowDimensions,
+  Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
@@ -13,13 +14,13 @@ import { Octicons } from "@expo/vector-icons";
 const StepTwo = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
-    <Card height={window.height} style={styles.container}>
+    <View height={window.height} style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate("Options")}>
         <Skip />
       </TouchableOpacity>
-      <Card.Content>
+      <View style={styles.cardContent}>
         <View style={styles.picContainer}>
-          <Card.Cover
+          <Image
             style={styles.cardPic}
             resizeMode="contain"
             source={require("../../assets/icons/Phone1.png")}
@@ -49,11 +50,11 @@ const StepTwo = ({ navigation }) => {
             style={styles.dotIcon}
           />
         </View>
-      </Card.Content>
+      </View>
       <TouchableOpacity onPress={() => navigation.navigate("StepThree")}>
         <ContinueBtn text="Next" />
       </TouchableOpacity>
-    </Card>
+    </View>
   );
 };
 
@@ -61,7 +62,11 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
   },
-
+  cardContent: {
+    alignItems: "center",
+    // backgroundColor: "red",
+    height: "65%",
+  },
   cardTitle: {
     textAlign: "center",
     // marginHorizontal: 10,
@@ -78,12 +83,14 @@ const styles = StyleSheet.create({
     paddingTop: "1%",
   },
   cardPic: {
-    height: 245,
-    width: 355,
+    height: "100%",
+    width: "100%",
   },
   picContainer: {
     alignItems: "center",
     marginTop: "8%",
+    width: "87%",
+    height: "38.1%",
   },
   dotContainer: {
     flexDirection: "row",
