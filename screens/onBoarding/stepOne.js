@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   useWindowDimensions,
+  Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
@@ -14,13 +15,13 @@ const StepOne = ({ navigation }) => {
   const window = useWindowDimensions();
 
   return (
-    <Card style={styles.container} height={window.height}>
+    <View style={styles.container} height={window.height}>
       <TouchableOpacity onPress={() => navigation.navigate("Options")}>
         <Skip />
       </TouchableOpacity>
-      <Card.Content>
+      <View style={styles.cardContent}>
         <View style={styles.picContainer}>
-          <Card.Cover
+          <Image
             resizeMode="contain"
             style={styles.cardPic}
             source={require("../../assets/icons/Search.png")}
@@ -50,19 +51,23 @@ const StepOne = ({ navigation }) => {
             style={styles.dotIcon}
           />
         </View>
-      </Card.Content>
+      </View>
       <TouchableOpacity onPress={() => navigation.navigate("StepTwo")}>
         <ContinueBtn text="Next" />
       </TouchableOpacity>
-    </Card>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
+    marginHorizontal: "2%",
   },
-
+  cardContent: {
+    alignItems: "center",
+    height: "64%",
+  },
   cardTitle: {
     textAlign: "center",
     // marginHorizontal: 10,
@@ -70,22 +75,25 @@ const styles = StyleSheet.create({
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
+
   cardParagraph: {
     textAlign: "center",
-    // marginHorizontal: "1%",
+    marginHorizontal: "10%",
     fontFamily: "Mali-Regular",
     marginTop: "10%",
     fontSize: 23,
     paddingTop: "1%",
   },
   cardPic: {
-    height: 245,
-    width: 355,
+    height: "100%",
+    width: "100%",
   },
   picContainer: {
-    backgroundColor: "red",
+    // backgroundColor: "red",
     alignItems: "center",
     marginTop: "8%",
+    width: "93%",
+    height: "39.4%",
   },
   dotContainer: {
     flexDirection: "row",
