@@ -5,37 +5,29 @@ import {
   TouchableOpacity,
   View,
   useWindowDimensions,
+  Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
 import { Octicons } from "@expo/vector-icons";
 
 const StepThree = ({ navigation }) => {
-  window = useWindowDimensions();
+  const window = useWindowDimensions();
   return (
-    <Card style={styles.container} height={window.height}>
-      {/* <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
-        <Skip />
-      </TouchableOpacity> */}
-      <Card.Content>
+    <View height={window.height} style={styles.container}>
+      <View style={styles.cardContent}>
         <View style={styles.picContainer}>
-          <Card.Cover
+          <Image
             style={styles.cardPic}
-            resizeMode="cover"
+            resizeMode="contain"
             source={require("../../assets/icons/Phone2.png")}
           />
         </View>
         <Title style={styles.cardTitle}>Step Three</Title>
         <Paragraph style={styles.cardParagraph}>
-          You'll also be able to limit the amount of cards to choose.
+          You can use the app by swiping right for yes swiping left for no.
         </Paragraph>
         <View style={styles.dotContainer}>
-          <Octicons
-            name="dot"
-            size={24}
-            color="#6750A4"
-            style={styles.dotIcon}
-          />
           <Octicons
             name="dot"
             size={24}
@@ -48,12 +40,18 @@ const StepThree = ({ navigation }) => {
             color="#CF9FFF"
             style={styles.dotFillIcon}
           />
+          <Octicons
+            name="dot"
+            size={24}
+            color="#6750A4"
+            style={styles.dotIcon}
+          />
         </View>
-      </Card.Content>
+      </View>
       <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
         <ContinueBtn text="Next" />
       </TouchableOpacity>
-    </Card>
+    </View>
   );
 };
 
@@ -61,34 +59,39 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
   },
-
+  cardContent: {
+    alignItems: "center",
+    height: "76.2%",
+  },
   cardTitle: {
     textAlign: "center",
     // marginHorizontal: 10,
-    marginTop: "14%",
+    // marginTop: "3%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
   cardParagraph: {
     textAlign: "center",
-    // marginHorizontal: "1%",
+    marginHorizontal: "6%",
     fontFamily: "Mali-Regular",
     marginTop: "10%",
     fontSize: 23,
     paddingTop: "1%",
   },
   cardPic: {
-    height: 245,
-    width: 355,
+    height: "100%",
+    width: "100%",
   },
   picContainer: {
     alignItems: "center",
-    marginTop: "23%",
+    marginTop: "15%",
+    width: "99%",
+    height: "60%",
   },
   dotContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginVertical: "10%",
+    marginVertical: "6%",
   },
   dotIcon: {
     marginHorizontal: "1%",

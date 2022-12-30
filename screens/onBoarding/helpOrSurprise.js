@@ -20,13 +20,20 @@ const HelpOrSurprise = ({ navigation }) => {
           resizeMode="contain"
         />
       </View>
+      <View style={styles.btnDescrition}>
+        <Text style={styles.btnDescritionTxt}>
+          Want some options to choose from? We can help!
+        </Text>
+      </View>
       <View style={styles.btnContainer}>
         <TouchableOpacity onPress={() => navigation.navigate("Genres")}>
           <ContinueBtn text="Help me choose" />
         </TouchableOpacity>
-        <Text style={styles.orTxt} variant="titleLarge">
-          Or
-        </Text>
+        <View style={styles.btnDescrition}>
+          <Text style={styles.btnDescritionTxt}>
+            You don't want to pick? We got you with a random movie!{" "}
+          </Text>
+        </View>
         <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
           <ContinueBtn text="Surprise me" />
         </TouchableOpacity>
@@ -42,16 +49,22 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   btnContainer: {
-    marginTop: "7%",
+    marginTop: "2%",
     marginBottom: "52%",
   },
-  orTxt: {
-    textAlign: "center",
-    marginVertical: "6%",
-  },
+
   helpChooseImgContainer: {
     marginTop: "15%",
-    marginBottom: "8%",
+    marginBottom: "6%",
     alignItems: "center",
+  },
+  btnDescrition: {
+    alignItems: "center",
+    marginHorizontal: "25%",
+  },
+  btnDescritionTxt: {
+    textAlign: "center",
+    fontSize: 15,
+    fontFamily: "Mali-Regular",
   },
 });

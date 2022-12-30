@@ -64,19 +64,18 @@ const styles = StyleSheet.create({
   },
   cardContent: {
     alignItems: "center",
-    // backgroundColor: "red",
-    height: "65%",
+    height: "67%",
   },
   cardTitle: {
     textAlign: "center",
     // marginHorizontal: 10,
-    marginTop: "14%",
+    marginTop: "12%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
   cardParagraph: {
     textAlign: "center",
-    // marginHorizontal: "1%",
+    marginHorizontal: "6%",
     fontFamily: "Mali-Regular",
     marginTop: "10%",
     fontSize: 23,
@@ -90,12 +89,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: "8%",
     width: "87%",
-    height: "38.1%",
+    height: "50%",
   },
   dotContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginVertical: "10%",
+    marginVertical: "6%",
   },
   dotIcon: {
     marginHorizontal: "1%",
