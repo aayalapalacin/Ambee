@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
 
   optionBtnContainer: {
-    marginTop: "30%",
+    marginTop: "21%",
     // marginBottom: "3%",
     justifyContent: "center",
     alignContent: "center",

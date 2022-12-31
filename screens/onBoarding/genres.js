@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
     borderRadius: 0,
   },
   cardContent: {
-    // backgroundColor: "red",
     alignItems: "center",
     height: "55%",
     marginHorizontal: "5%",
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginHorizontal: "10%",
     marginTop: "12%",
-    marginBottom: "10%",
+    marginBottom: "4%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
@@ -82,13 +81,10 @@ const styles = StyleSheet.create({
   },
   picContainer: {
     width: "100%",
-    height: "85%",
+    height: "100%",
   },
   cardPic: {
     height: "100%",
-  },
-  genreContainer: {
-    flexDirection: "row",
   },
 });
 export default Genres;
