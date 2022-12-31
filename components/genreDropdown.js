@@ -45,10 +45,14 @@ const GenreDropdown = ({ selectedGenres, setSelectedGenres }) => {
         searchable={true}
         // min={0}
         // max={5}
-        maxHeight={550}
+        maxHeight={"42%"}
         open={open}
         value={value}
         items={items}
+        onSelectItem={(item) => {
+          console.log("item", item);
+          console.log("value", value);
+        }}
         onPress={() => setSelectedGenres(value)}
         setOpen={setOpen}
         setValue={setValue}
@@ -79,8 +83,8 @@ const styles = StyleSheet.create({
   },
 
   optionBtnContainer: {
-    marginTop: "60%",
-    marginBottom: "9%",
+    marginTop: "30%",
+    // marginBottom: "3%",
     justifyContent: "center",
     alignContent: "center",
   },

@@ -6,6 +6,7 @@ import {
   Alert,
   useWindowDimensions,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -25,15 +26,15 @@ const Genres = ({ navigation }) => {
   };
 
   return (
-    <Card height={window.height} style={styles.container}>
-      <Card.Content>
+    <View height={window.height} style={styles.container}>
+      <View>
         <Title style={styles.cardTitle}>What type of movies do you like?</Title>
         <View style={styles.cardContent}>
           <View style={styles.picContainer}>
-            <Card.Cover
+            <Image
               style={styles.cardPic}
-              resizeMode="contain"
-              source={require("../../assets/icons/Question.png")}
+              resizeMode="cover"
+              source={require("../../assets/icons/watchTV.png")}
             />
           </View>
           <GenreDropdown
@@ -41,7 +42,7 @@ const Genres = ({ navigation }) => {
             setSelectedGenres={setSelectedGenres}
           />
         </View>
-      </Card.Content>
+      </View>
       <TouchableOpacity
         onPress={() => {
           if (selectedGenres.length == 0) {
@@ -54,7 +55,7 @@ const Genres = ({ navigation }) => {
       >
         <ContinueBtn text="Continue" />
       </TouchableOpacity>
-    </Card>
+    </View>
   );
 };
 const styles = StyleSheet.create({
@@ -62,19 +63,29 @@ const styles = StyleSheet.create({
     borderRadius: 0,
   },
   cardContent: {
-    marginHorizontal: "1%",
+    // backgroundColor: "red",
+    alignItems: "center",
+    height: "55%",
+    marginHorizontal: "5%",
   },
   cardTitle: {
     textAlign: "center",
-    // marginHorizontal: 10,
+    marginHorizontal: "10%",
     marginTop: "12%",
-    marginBottom: "12%",
+    marginBottom: "10%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
   btnTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 20,
+  },
+  picContainer: {
+    width: "100%",
+    height: "85%",
+  },
+  cardPic: {
+    height: "100%",
   },
   genreContainer: {
     flexDirection: "row",
