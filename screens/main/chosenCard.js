@@ -31,14 +31,9 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
   },
-  cardContainer: {
-    backgroundColor: "red",
-    // marginHorizontal: "2%",
-    // marginBottom: "10%",
-  },
+  cardContainer: {},
   cardTitle: {
     textAlign: "center",
-    // marginHorizontal: "3%",
     marginVertical: "8%",
     fontFamily: "Mali-Bold",
     fontSize: 29,

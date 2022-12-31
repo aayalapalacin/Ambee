@@ -68,13 +68,12 @@ export default Settings;
 
 const styles = StyleSheet.create({
   settingsBox: {
-    marginHorizontal: 30,
+    marginHorizontal: "8%",
   },
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 60,
-    marginBottom: 50,
+    marginTop: "20%",
+    marginBottom: "10%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
@@ -82,7 +81,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
-    marginBottom: 80,
+    marginBottom: "23%",
   },
   resetContainer: {
     justifyContent: "space-between",
@@ -92,21 +91,7 @@ const styles = StyleSheet.create({
   resetBtn: {
     backgroundColor: "white",
   },
-  homeSettingContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: 200,
-  },
-  homeSettingBox: {
-    alignItems: "center",
-  },
-  homeSettingsTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 16,
-  },
-  homeContainer: {
-    marginRight: 32,
-  },
+
   pickBoxContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -115,26 +100,14 @@ const styles = StyleSheet.create({
   settingsTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 19,
-    marginVertical: 18,
+    marginVertical: "9%",
   },
   counterLabel: {
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  bottomSettingsIcons: {
-    marginRight: 33,
-  },
-  check: {
-    // borderWidth: 1,
-    backgroundColor: "white",
-    borderRadius: 10,
-    marginRight: 6,
-  },
-  homeSettingsTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 16,
-  },
+
   saveContainer: {
-    marginBottom: 150,
+    marginBottom: "45%",
   },
 });
