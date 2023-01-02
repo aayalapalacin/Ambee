@@ -91,9 +91,6 @@ const YesNoCard = ({ navigation }) => {
         </Portal>
       </View>
       <Card.Content style={styles.cardContainer}>
-        <Title style={styles.cardTitle}>
-          What kind of movie would you like to watch?
-        </Title>
         <View style={styles.cardTopIcons}>
           <View>
             <TouchableOpacity
@@ -166,7 +163,7 @@ const YesNoCard = ({ navigation }) => {
 };
 const styles = StyleSheet.create({
   dialogParent: {
-    marginHorizontal: 50,
+    marginHorizontal: "12%",
     backgroundColor: "#8570D8",
     opacity: 0.75,
   },
@@ -190,18 +187,10 @@ const styles = StyleSheet.create({
     borderRadius: 0,
   },
   cardContainer: {
+    marginTop: "15%",
     marginHorizontal: 10,
   },
-  picContainer: {
-    marginHorizontal: 15,
-  },
-  cardTitle: {
-    textAlign: "center",
-    marginHorizontal: 10,
-    marginVertical: 30,
-    fontFamily: "Mali-Bold",
-    fontSize: 27.9,
-  },
+
   watchBtn: {
     marginHorizontal: 0,
     borderWidth: 1.5,
@@ -212,7 +201,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 17,
+    marginBottom: "15%",
   },
   cardPic: {
     height: 325,

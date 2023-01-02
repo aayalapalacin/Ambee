@@ -5,6 +5,7 @@ import {
   View,
   useWindowDimensions,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -38,10 +39,10 @@ const NextRound = ({ navigation }) => {
   }, []);
 
   return (
-    <Card style={styles.container} height={window.height}>
-      <Card.Content>
+    <View style={styles.container} height={window.height}>
+      <View style={styles.cardContent}>
         <View style={styles.picContainer}>
-          <Card.Cover
+          <Image
             style={styles.cardPic}
             resizeMode="cover"
             source={require("../../assets/icons/Jump.png")}
@@ -51,18 +52,22 @@ const NextRound = ({ navigation }) => {
         <Paragraph style={styles.cardParagraph}>
           {username}, You have {userNum} cards left! You're doing great!
         </Paragraph>
-      </Card.Content>
+      </View>
       <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
         <ContinueBtn text="Continue" />
       </TouchableOpacity>
       {/* <HomeSettings navigation={navigation} /> */}
-    </Card>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
+  },
+  cardContent: {
+    alignItems: "center",
+    height: "70%",
   },
   genreTxt: {
     fontFamily: "Mali-Regular",
@@ -71,27 +76,28 @@ const styles = StyleSheet.create({
 
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 40,
-    marginBottom: 40,
+    marginVertical: "10%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
   cardParagraph: {
     textAlign: "center",
-    marginHorizontal: 45,
+    marginHorizontal: "5%",
+    lineHeight: 30,
     fontFamily: "Mali-Regular",
     fontSize: 23,
-    marginBottom: 50,
-    paddingTop: 2,
+    marginBottom: "8%",
+    paddingTop: "1%",
   },
   cardPic: {
-    height: 300,
-    width: 270,
+    height: "100%",
+    width: "100%",
   },
   picContainer: {
+    height: "44.5%",
+    width: "66%",
     alignItems: "center",
-    marginTop: 70,
+    marginTop: "20%",
   },
 });
 

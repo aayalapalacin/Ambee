@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { Provider as PaperProvider } from "react-native-paper";
 import { AppRegistry } from "react-native";
@@ -6,7 +5,7 @@ import NextRound from "./screens/main/NextRound";
 import YesNoCard from "./screens/main/yesNoCard";
 import ChosenCard from "./screens/main/chosenCard";
 import Settings from "./screens/main/settings";
-import Options from "./screens/onBoarding/options";
+import Genres from "./screens/onBoarding/genres";
 import WelcomeCard from "./screens/onBoarding/welcomeCard";
 import StepOne from "./screens/onBoarding/stepOne";
 import StepTwo from "./screens/onBoarding/stepTwo";
@@ -101,8 +100,8 @@ export default function App() {
             options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
           />
           <Stack.Screen
-            name="Options"
-            component={Options}
+            name="Genres"
+            component={Genres}
             options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
           />
           <Stack.Screen

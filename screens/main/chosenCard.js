@@ -31,37 +31,28 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
   },
-  cardContainer: {
-    marginHorizontal: 10,
-    marginBottom: 40,
-  },
+  cardContainer: {},
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginVertical: 30,
+    marginVertical: "8%",
     fontFamily: "Mali-Bold",
     fontSize: 29,
   },
-  cardTopIcons: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 12,
-  },
   cardPic: {
-    height: 300,
+    height: "100%",
   },
   picContainer: {
-    marginHorizontal: 30,
+    height: "48%",
+    marginHorizontal: "12%",
   },
   aboutTitleTxt: {
     fontFamily: "Mali-Bold",
-    paddingTop: 20,
+    paddingTop: "7%",
   },
   pTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 18,
-    paddingVertical: 20,
+    paddingVertical: "5%",
   },
 });
 

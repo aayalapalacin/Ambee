@@ -6,12 +6,13 @@ import {
   Alert,
   useWindowDimensions,
   TouchableOpacity,
+  Image,
 } from "react-native";
-import OptionBtn from "../../components/optionBtn";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import GenreDropdown from "../../components/genreDropdown";
 
-const Options = ({ navigation }) => {
+const Genres = ({ navigation }) => {
   const window = useWindowDimensions();
   const [selectedGenres, setSelectedGenres] = useState([]);
 
@@ -25,23 +26,23 @@ const Options = ({ navigation }) => {
   };
 
   return (
-    <Card height={window.height} style={styles.container}>
-      <Card.Content>
+    <View height={window.height} style={styles.container}>
+      <View>
         <Title style={styles.cardTitle}>What type of movies do you like?</Title>
         <View style={styles.cardContent}>
           <View style={styles.picContainer}>
-            <Card.Cover
+            <Image
               style={styles.cardPic}
-              resizeMode="contain"
-              source={require("../../assets/icons/Question.png")}
+              resizeMode="cover"
+              source={require("../../assets/icons/watchTV.png")}
             />
           </View>
-          <OptionBtn
+          <GenreDropdown
             selectedGenres={selectedGenres}
             setSelectedGenres={setSelectedGenres}
           />
         </View>
-      </Card.Content>
+      </View>
       <TouchableOpacity
         onPress={() => {
           if (selectedGenres.length == 0) {
@@ -54,7 +55,7 @@ const Options = ({ navigation }) => {
       >
         <ContinueBtn text="Continue" />
       </TouchableOpacity>
-    </Card>
+    </View>
   );
 };
 const styles = StyleSheet.create({
@@ -62,30 +63,28 @@ const styles = StyleSheet.create({
     borderRadius: 0,
   },
   cardContent: {
-    marginHorizontal: 40,
+    alignItems: "center",
+    height: "55%",
+    marginHorizontal: "5%",
   },
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 50,
-    marginBottom: 45,
+    marginHorizontal: "10%",
+    marginTop: "12%",
+    marginBottom: "4%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
-  },
-
-  continueBtn: {
-    marginHorizontal: 90,
-    // marginTop: 70,
   },
   btnTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 20,
   },
-  genreContainer: {
-    flexDirection: "row",
+  picContainer: {
+    width: "100%",
+    height: "100%",
   },
-  genreDiv: {
-    width: 100,
+  cardPic: {
+    height: "100%",
   },
 });
-export default Options;
+export default Genres;

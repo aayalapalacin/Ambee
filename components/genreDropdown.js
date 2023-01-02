@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 
-const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
+const GenreDropdown = ({ selectedGenres, setSelectedGenres }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -45,10 +45,14 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
         searchable={true}
         // min={0}
         // max={5}
-        maxHeight={550}
+        maxHeight={"42%"}
         open={open}
         value={value}
         items={items}
+        onSelectItem={(item) => {
+          console.log("item", item);
+          console.log("value", value);
+        }}
         onPress={() => setSelectedGenres(value)}
         setOpen={setOpen}
         setValue={setValue}
@@ -66,29 +70,21 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
   );
 };
 
-export default OptionBtn;
+export default GenreDropdown;
 
 const styles = StyleSheet.create({
   dropContainer: {
     borderRadius: 50,
     borderColor: "#FF6033",
-    paddingHorizontal: 20,
+    paddingHorizontal: "6%",
   },
   genreContainer: {
     flexDirection: "row",
   },
-  genreDiv: {
-    wkeyth: 110,
-    marginVertical: 19,
-    marginHorizontal: 9,
-    paddingVertical: 7,
-  },
-  genreTxt: {
-    fontSize: 17,
-  },
+
   optionBtnContainer: {
-    marginTop: 235,
-    marginBottom: 30,
+    marginTop: "21%",
+    // marginBottom: "3%",
     justifyContent: "center",
     alignContent: "center",
   },
