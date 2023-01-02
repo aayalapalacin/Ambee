@@ -2,9 +2,9 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 
-const GenreDropdown = ({ selectedGenres, setSelectedGenres }) => {
+const GenreDropdown = (props) => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState([]);
   const [items, setItems] = useState([
     { label: "Biography", value: "biography", key: "1" },
     { label: "Film Noir", value: "Film Noir", key: "2" },
@@ -50,10 +50,9 @@ const GenreDropdown = ({ selectedGenres, setSelectedGenres }) => {
         value={value}
         items={items}
         onSelectItem={(item) => {
-          console.log("item", item);
-          console.log("value", value);
+          props.setSelectedGenres(item);
         }}
-        onPress={() => setSelectedGenres(value)}
+        // onPress={() => console.log("pressed")}
         setOpen={setOpen}
         setValue={setValue}
         setItems={setItems}
