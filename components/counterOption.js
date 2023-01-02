@@ -86,11 +86,11 @@ const styles = StyleSheet.create({
 
   countBorder: {
     textAlign: "center",
-    borderWidth: 1,
+    borderWidth: 2,
     paddingHorizontal: 22,
     paddingVertical: 3.5,
     borderRadius: 13,
-    backgroundColor: "white",
+    borderColor: "#8570D8",
   },
   countBackground: {
     // height: "140%",

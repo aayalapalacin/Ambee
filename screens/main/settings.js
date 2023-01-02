@@ -49,7 +49,11 @@ const Settings = ({ navigation }) => {
               <Text style={styles.settingsTxt}>No repeat mode</Text>
             </DataTable.Cell>
             <DataTable.Cell style={styles.dataCellCounter}>
-              <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
+              <Switch
+                value={isSwitchOn}
+                color="#8570D8"
+                onValueChange={onToggleSwitch}
+              />
             </DataTable.Cell>
           </DataTable.Row>
         </DataTable>
