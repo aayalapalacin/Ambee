@@ -13,7 +13,7 @@ import StepThree from "./screens/onBoarding/stepThree";
 import HelpOrSurprise from "./screens/onBoarding/helpOrSurprise";
 import NameBee from "./screens/onBoarding/nameBee";
 import HowManyCards from "./screens/onBoarding/howManyCards";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/main/home";
 import { useFonts } from "expo-font";
@@ -35,6 +35,8 @@ export default function App() {
   if (!fontsLoaded) {
     return undefined;
   }
+  // const navTheme = DefaultTheme;
+  // navTheme.colors.background = "white";
 
   function Logo() {
     return (

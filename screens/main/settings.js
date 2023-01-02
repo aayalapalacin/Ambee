@@ -26,47 +26,34 @@ const Settings = ({ navigation }) => {
   return (
     <View style={styles.settingsBox}>
       <Title style={styles.cardTitle}>Settings</Title>
-      <View style={styles.counterLabel}>
-        <View>
-          <Text style={styles.settingsTxt}>Limit your option</Text>
-          <Text style={styles.settingsTxt}>Set a timer</Text>
-        </View>
-        {/* <Counter setNewTimer={setNewTimer} setNewLimit={setNewLimit} /> */}
+      <View style={styles.dataView}>
+        <DataTable>
+          <DataTable.Row style={styles.dataRow}>
+            <DataTable.Cell style={styles.dataCellText}>
+              <Text style={styles.settingsTxt}>Limit your option</Text>
+            </DataTable.Cell>
+            <DataTable.Cell style={styles.dataCellCounter}>
+              <CounterOption setNewLimit={setNewLimit} />
+            </DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row style={styles.dataRow}>
+            <DataTable.Cell style={styles.dataCellText}>
+              <Text style={styles.settingsTxt}>Set a Timer</Text>
+            </DataTable.Cell>
+            <DataTable.Cell style={styles.dataCellCounter}>
+              <CounterTimer setNewTimer={setNewTimer} />
+            </DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row style={styles.dataRow}>
+            <DataTable.Cell style={styles.dataCellText}>
+              <Text style={styles.settingsTxt}>No repeat mode</Text>
+            </DataTable.Cell>
+            <DataTable.Cell style={styles.dataCellCounter}>
+              <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
+            </DataTable.Cell>
+          </DataTable.Row>
+        </DataTable>
       </View>
-
-      <View style={styles.repeatContainer}>
-        <Title style={styles.settingsTxt}>No repeating mode</Title>
-
-        <View style={styles.bottomSettingsIcons}>
-          <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
-        </View>
-      </View>
-      <DataTable>
-        <DataTable.Row style={styles.dataRow}>
-          <DataTable.Cell style={styles.dataCellText}>
-            <Text style={styles.settingsTxt}>Limit your option</Text>
-          </DataTable.Cell>
-          <DataTable.Cell style={styles.dataCellCounter}>
-            <CounterOption setNewLimit={setNewLimit} />
-          </DataTable.Cell>
-        </DataTable.Row>
-        <DataTable.Row style={styles.dataRow}>
-          <DataTable.Cell style={styles.dataCellText}>
-            <Text style={styles.settingsTxt}>Set a Timer</Text>
-          </DataTable.Cell>
-          <DataTable.Cell style={styles.dataCellCounter}>
-            <CounterTimer setNewTimer={setNewTimer} />
-          </DataTable.Cell>
-        </DataTable.Row>
-        <DataTable.Row style={styles.dataRow}>
-          <DataTable.Cell style={styles.dataCellText}>
-            <Text style={styles.settingsTxt}>No repeat mode</Text>
-          </DataTable.Cell>
-          <DataTable.Cell style={styles.dataCellCounter}>
-            <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
-          </DataTable.Cell>
-        </DataTable.Row>
-      </DataTable>
 
       <View style={styles.saveContainer}>
         <TouchableOpacity
@@ -86,19 +73,7 @@ const Settings = ({ navigation }) => {
 export default Settings;
 
 const styles = StyleSheet.create({
-  settingsBox: {
-    // marginHorizontal: "8%",
-  },
-  dataCellText: {
-    flex: 2,
-    paddingLeft: "1%",
-    // justifyContent: "center",
-    // backgroundColor: "red",
-  },
-  dataCellCounter: {
-    justifyContent: "center",
-    // backgroundColor: "red",
-  },
+  settingsBox: {},
   cardTitle: {
     textAlign: "center",
     marginTop: "20%",
@@ -128,7 +103,7 @@ const styles = StyleSheet.create({
   },
   settingsTxt: {
     fontFamily: "Mali-Regular",
-    fontSize: 20,
+    fontSize: 15,
 
     // marginVertical: "9%",
     // borderBottomWidth: 0.5,
@@ -146,6 +121,21 @@ const styles = StyleSheet.create({
   },
   dataRow: {
     backgroundColor: "white",
-    marginBottom: ".7%",
+    marginBottom: ".9%",
+    paddingVertical: "1%",
+    borderRadius: 5,
+  },
+  settingsBox: {},
+  dataCellText: {
+    marginBottom: "1%",
+    flex: 1,
+    paddingLeft: "1%",
+  },
+  dataCellCounter: {
+    justifyContent: "center",
+  },
+  dataView: {
+    marginHorizontal: "5%",
+    marginBottom: "20%",
   },
 });
