@@ -57,7 +57,7 @@ const NextRound = ({ navigation }) => {
         <Paragraph style={styles.cardParagraph}>
           {username}, You have {userNum} cards left! You're doing great!
         </Paragraph>
-      </Card.Content>
+      </View>
       <TouchableOpacity onPress={() => navigation.dispatch(pushAction)}>
         <ContinueBtn text="Continue" />
       </TouchableOpacity>
