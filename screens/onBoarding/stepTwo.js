@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
   useWindowDimensions,
+  Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
@@ -13,21 +14,21 @@ import { Octicons } from "@expo/vector-icons";
 const StepTwo = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
-    <Card height={window.height} style={styles.container}>
+    <View height={window.height} style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate("Options")}>
         <Skip />
       </TouchableOpacity>
-      <Card.Content>
+      <View style={styles.cardContent}>
         <View style={styles.picContainer}>
-          <Card.Cover
+          <Image
             style={styles.cardPic}
-            resizeMode="cover"
+            resizeMode="contain"
             source={require("../../assets/icons/Phone1.png")}
           />
         </View>
         <Title style={styles.cardTitle}>Step Two</Title>
         <Paragraph style={styles.cardParagraph}>
-          Our app will recommend a movie based on your preferences.
+          You can use the app by swiping right for yes swiping left for no.
         </Paragraph>
         <View style={styles.dotContainer}>
           <Octicons
@@ -49,11 +50,11 @@ const StepTwo = ({ navigation }) => {
             style={styles.dotIcon}
           />
         </View>
-      </Card.Content>
+      </View>
       <TouchableOpacity onPress={() => navigation.navigate("StepThree")}>
         <ContinueBtn text="Next" />
       </TouchableOpacity>
-    </Card>
+    </View>
   );
 };
 
@@ -61,40 +62,45 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
   },
-
+  cardContent: {
+    alignItems: "center",
+    height: "67%",
+  },
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 40,
+    // marginHorizontal: 10,
+    marginTop: "12%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
   cardParagraph: {
     textAlign: "center",
-    marginHorizontal: 45,
+    marginHorizontal: "6%",
     fontFamily: "Mali-Regular",
+    marginTop: "10%",
     fontSize: 23,
-    marginTop: 20,
-    paddingTop: 2,
+    paddingTop: "1%",
   },
   cardPic: {
-    height: 300,
-    width: 260,
+    height: "100%",
+    width: "100%",
   },
   picContainer: {
     alignItems: "center",
-    marginTop: 30,
+    marginTop: "8%",
+    width: "87%",
+    height: "50%",
   },
   dotContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginVertical: 30,
+    marginVertical: "6%",
   },
   dotIcon: {
-    marginHorizontal: 4,
+    marginHorizontal: "1%",
   },
   dotFillIcon: {
-    marginHorizontal: 4,
+    marginHorizontal: "1%",
   },
 });
 

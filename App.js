@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { Provider as PaperProvider } from "react-native-paper";
 import { AppRegistry } from "react-native";
@@ -6,7 +5,7 @@ import NextRound from "./screens/main/NextRound";
 import YesNoCard from "./screens/main/yesNoCard";
 import ChosenCard from "./screens/main/chosenCard";
 import Settings from "./screens/main/settings";
-import Options from "./screens/onBoarding/options";
+import Genres from "./screens/onBoarding/genres";
 import WelcomeCard from "./screens/onBoarding/welcomeCard";
 import StepOne from "./screens/onBoarding/stepOne";
 import StepTwo from "./screens/onBoarding/stepTwo";
@@ -14,7 +13,7 @@ import StepThree from "./screens/onBoarding/stepThree";
 import HelpOrSurprise from "./screens/onBoarding/helpOrSurprise";
 import NameBee from "./screens/onBoarding/nameBee";
 import HowManyCards from "./screens/onBoarding/howManyCards";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/main/home";
 import { useFonts } from "expo-font";
@@ -37,12 +36,14 @@ export default function App() {
   if (!fontsLoaded) {
     return undefined;
   }
+  // const navTheme = DefaultTheme;
+  // navTheme.colors.background = "white";
 
   function Logo() {
     return (
       <Image
         resizeMode="contain"
-        style={{ height: 50, marginBottom: 5, marginLeft: 230 }}
+        style={{ height: 40, marginBottom: "1%", marginLeft: 230 }}
         source={require("./assets/icons/ambeeColor.png")}
       />
     );
@@ -51,7 +52,7 @@ export default function App() {
     return (
       <Image
         resizeMode="contain"
-        style={{ height: 40, marginBottom: 5, marginRight: 130 }}
+        style={{ height: 40, marginBottom: "1%", marginRight: 130 }}
         source={require("./assets/icons/ambeeTest.png")}
       />
     );
@@ -103,8 +104,8 @@ export default function App() {
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
             />
             <Stack.Screen
-              name="Options"
-              component={Options}
+              name="Genres"
+              component={Genres}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
             />
             <Stack.Screen

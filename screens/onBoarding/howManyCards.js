@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Alert, TouchableOpacity } from "react-native";
-import { Button, Card, Title, RadioButton } from "react-native-paper";
+import { Button, Card, Title } from "react-native-paper";
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -53,7 +53,7 @@ const HowManyCards = ({ navigation }) => {
         <View style={styles.btnContainer}>
           <View style={styles.top}>
             <Button
-              style={styles.genreBtn}
+              style={styles.numOfMovie}
               mode={checked7Status()}
               onPress={() => {
                 if (checked7 == true) {
@@ -66,12 +66,12 @@ const HowManyCards = ({ navigation }) => {
                 }
               }}
             >
-              <Text style={styles.genreBtnTxt}>{numOfMovies[2]}</Text>
+              <Text style={styles.numOfMovieTxt}>{numOfMovies[2]}</Text>
             </Button>
           </View>
           <View style={styles.mid}>
             <Button
-              style={styles.genreBtn}
+              style={styles.numOfMovie}
               mode={checked5Status()}
               onPress={() => {
                 if (checked5 == true) {
@@ -84,12 +84,12 @@ const HowManyCards = ({ navigation }) => {
                 }
               }}
             >
-              <Text style={styles.genreBtnTxt}>{numOfMovies[1]}</Text>
+              <Text style={styles.numOfMovieTxt}>{numOfMovies[1]}</Text>
             </Button>
           </View>
           <View style={styles.low}>
             <Button
-              style={styles.genreBtn}
+              style={styles.numOfMovie}
               mode={checked3Status()}
               onPress={() => {
                 if (checked3 == true) {
@@ -102,7 +102,7 @@ const HowManyCards = ({ navigation }) => {
                 }
               }}
             >
-              <Text style={styles.genreBtnTxt}>{numOfMovies[0]}</Text>
+              <Text style={styles.numOfMovieTxt}>{numOfMovies[0]}</Text>
             </Button>
           </View>
         </View>
@@ -130,31 +130,29 @@ const HowManyCards = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
-    marginHorizontal: 5,
+    marginHorizontal: "1%",
   },
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 5,
-    marginTop: 60,
-    marginBottom: 50,
+    marginHorizontal: "1%",
+    marginTop: "18%",
+    marginBottom: "14%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
 
-  genreBtn: {
-    marginTop: 20,
-    padding: 23,
+  numOfMovie: {
+    marginTop: "7%",
+    padding: "10%",
   },
 
-  genreBtnTxt: {
+  numOfMovieTxt: {
     fontSize: 20,
   },
   genreContainer: {
     flexDirection: "row",
   },
-  genreDiv: {
-    width: 100,
-  },
+
   top: {
     alignItems: "flex-start",
   },
@@ -163,17 +161,10 @@ const styles = StyleSheet.create({
   },
   low: {
     alignItems: "flex-start",
-    marginBottom: 75,
+    marginBottom: "33%",
   },
   btnContainer: {
-    marginHorizontal: 55,
-  },
-  validationContainer: {
-    justifyContent: "center",
-    textAlign: "center",
-  },
-  validationTxt: {
-    color: "red",
+    marginHorizontal: "12%",
   },
 });
 export default HowManyCards;

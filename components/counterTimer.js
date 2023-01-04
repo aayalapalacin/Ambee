@@ -3,25 +3,12 @@ import { AntDesign } from "@expo/vector-icons";
 
 import React, { useState } from "react";
 
-const Counter = () => {
-  const [optionCount, setOptionCount] = useState(0);
-  const [timerCount, setTimerCount] = useState(0);
-  function optionIncrement() {
-    setOptionCount(function (prevCount) {
-      return (prevCount += 1);
-    });
-  }
+const CounterTimer = ({ setNewTimer, setNewLimit }) => {
+  const [optionCount, setOptionCount] = useState(5);
+  const [timerCount, setTimerCount] = useState(30);
 
-  function optionDecrement() {
-    setOptionCount(function (prevCount) {
-      if (prevCount > 0) {
-        return (prevCount -= 1);
-      } else {
-        return (prevCount = 0);
-      }
-    });
-  }
   function timerIncrement() {
+    setNewTimer(timerCount + 1);
     setTimerCount(function (prevCount) {
       return (prevCount += 1);
     });
@@ -30,8 +17,10 @@ const Counter = () => {
   function timerDecrement() {
     setTimerCount(function (prevCount) {
       if (prevCount > 0) {
+        setNewTimer(timerCount - 1);
         return (prevCount -= 1);
       } else {
+        setNewTimer(0);
         return (prevCount = 0);
       }
     });
@@ -43,33 +32,8 @@ const Counter = () => {
         <View>
           <AntDesign
             style={styles.incrementIcons}
-            onPress={() => optionIncrement()}
-            name="plus"
-            size={21}
-            color="black"
-          />
-        </View>
-        <View>
-          <Text style={styles.countBorder} variant="displaySmall">
-            {optionCount}
-          </Text>
-        </View>
-        <View>
-          <AntDesign
-            style={styles.incrementIcons}
-            onPress={() => optionDecrement()}
+            onPress={() => timerDecrement()}
             name="minus"
-            size={21}
-            color="black"
-          />
-        </View>
-      </View>
-      <View style={styles.countContainer}>
-        <View>
-          <AntDesign
-            style={styles.incrementIcons}
-            onPress={() => timerIncrement()}
-            name="plus"
             size={21}
             color="black"
           />
@@ -79,37 +43,40 @@ const Counter = () => {
             {timerCount}
           </Text>
         </View>
-        <View>
+        <View style={styles.countBackground}>
           <AntDesign
             style={styles.incrementIcons}
-            onPress={() => timerDecrement()}
-            name="minus"
+            onPress={() => timerIncrement()}
+            name="plus"
             size={21}
             color="black"
           />
         </View>
       </View>
-      <View style={styles.btnContainer}></View>
     </View>
   );
 };
 
-export default Counter;
+export default CounterTimer;
 
 const styles = StyleSheet.create({
   countContainer: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 18,
   },
+
   countBorder: {
     textAlign: "center",
-    borderWidth: 1,
+    borderWidth: 2,
     paddingHorizontal: 22,
     paddingVertical: 3.5,
     borderRadius: 13,
-    backgroundColor: "white",
+    borderColor: "#8570D8",
+  },
+  countBackground: {
+    // height: "140%",
+    // borderBottomWidth: 0.5,
   },
   settingsTxt: {
     fontFamily: "Mali-Regular",

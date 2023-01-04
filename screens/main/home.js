@@ -33,7 +33,7 @@ export default function Home({ navigation }) {
         title="Go to HelpOrSurprise"
       />
       <Button
-        onPress={() => navigation.navigate("Options")}
+        onPress={() => navigation.navigate("Genres")}
         title="See Genre Options"
       />
       <Button

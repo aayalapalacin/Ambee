@@ -1,32 +1,74 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { Checkbox, Switch, Title } from "react-native-paper";
-import { Feather } from "@expo/vector-icons";
-import React, { useState } from "react";
-import Counter from "../../components/counter";
+import { Switch, Title, DataTable } from "react-native-paper";
+import React, { useState, useEffect } from "react";
+import CounterOption from "../../components/counterOption";
+import CounterTimer from "../../components/counterTimer";
 import HomeSettings from "../../components/homeSettings";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import ContinueBtn from "../../components/continueBtn";
 
 const Settings = ({ navigation }) => {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
+  const [newTimer, setNewTimer] = useState(30);
+  const [newLimit, setNewLimit] = useState(5);
+  useEffect(() => {
+    console.log(newLimit, "settings limit");
+  }, [newLimit]);
+  const storeData = async (newTimerValue, newLimitValue) => {
+    try {
+      await AsyncStorage.setItem("@timerCount", newTimerValue);
+      await AsyncStorage.setItem("@userNum", newLimitValue);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <View style={styles.settingsBox}>
       <Title style={styles.cardTitle}>Settings</Title>
-      <View style={styles.counterLabel}>
-        <View>
-          <Text style={styles.settingsTxt}>Limit your option</Text>
-          <Text style={styles.settingsTxt}>Set a timer</Text>
-        </View>
-        <Counter />
+      <View style={styles.dataView}>
+        <DataTable>
+          <DataTable.Row style={styles.dataRow}>
+            <DataTable.Cell style={styles.dataCellText}>
+              <Text style={styles.settingsTxt}>Limit your option</Text>
+            </DataTable.Cell>
+            <DataTable.Cell style={styles.dataCellCounter}>
+              <CounterOption setNewLimit={setNewLimit} />
+            </DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row style={styles.dataRow}>
+            <DataTable.Cell style={styles.dataCellText}>
+              <Text style={styles.settingsTxt}>Set a Timer</Text>
+            </DataTable.Cell>
+            <DataTable.Cell style={styles.dataCellCounter}>
+              <CounterTimer setNewTimer={setNewTimer} />
+            </DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row style={styles.dataRow}>
+            <DataTable.Cell style={styles.dataCellText}>
+              <Text style={styles.settingsTxt}>No repeat mode</Text>
+            </DataTable.Cell>
+            <DataTable.Cell style={styles.dataCellCounter}>
+              <Switch
+                value={isSwitchOn}
+                color="#8570D8"
+                onValueChange={onToggleSwitch}
+              />
+            </DataTable.Cell>
+          </DataTable.Row>
+        </DataTable>
       </View>
 
-      <View style={styles.repeatContainer}>
-        <Title style={styles.settingsTxt}>No repeating mode</Title>
-
-        <View style={styles.bottomSettingsIcons}>
-          <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
-        </View>
+      <View style={styles.saveContainer}>
+        <TouchableOpacity
+          onPress={() => {
+            storeData(newTimer.toString(), newLimit.toString());
+            console.log("saved");
+          }}
+        >
+          <ContinueBtn text="Save Changes" />
+        </TouchableOpacity>
       </View>
-
       <HomeSettings navigation={navigation} />
     </View>
   );
@@ -35,14 +77,11 @@ const Settings = ({ navigation }) => {
 export default Settings;
 
 const styles = StyleSheet.create({
-  settingsBox: {
-    marginHorizontal: 30,
-  },
+  settingsBox: {},
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 60,
-    marginBottom: 50,
+    marginTop: "20%",
+    marginBottom: "10%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
@@ -50,24 +89,17 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
-    marginBottom: 290,
+    marginBottom: "23%",
   },
-  homeSettingContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-
-    marginTop: 200,
-  },
-  homeSettingBox: {
+  resetContainer: {
+    justifyContent: "space-between",
     alignItems: "center",
+    flexDirection: "row",
   },
-  homeSettingsTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 16,
+  resetBtn: {
+    backgroundColor: "white",
   },
-  homeContainer: {
-    marginRight: 32,
-  },
+
   pickBoxContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -75,24 +107,39 @@ const styles = StyleSheet.create({
   },
   settingsTxt: {
     fontFamily: "Mali-Regular",
-    fontSize: 19,
-    marginVertical: 18,
+    fontSize: 15,
+
+    // marginVertical: "9%",
+    // borderBottomWidth: 0.5,
   },
   counterLabel: {
     flexDirection: "row",
     justifyContent: "space-between",
   },
   bottomSettingsIcons: {
-    marginRight: 33,
+    marginRight: "10%",
   },
-  check: {
-    // borderWidth: 1,
+
+  saveContainer: {
+    marginBottom: "45%",
+  },
+  dataRow: {
     backgroundColor: "white",
-    borderRadius: 10,
-    marginRight: 6,
+    marginBottom: ".9%",
+    paddingVertical: "1%",
+    borderRadius: 5,
   },
-  homeSettingsTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 16,
+  settingsBox: {},
+  dataCellText: {
+    marginBottom: "1%",
+    flex: 1,
+    paddingLeft: "1%",
+  },
+  dataCellCounter: {
+    justifyContent: "center",
+  },
+  dataView: {
+    marginHorizontal: "5%",
+    marginBottom: "20%",
   },
 });

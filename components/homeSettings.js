@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 30,
+    // marginTop: 30,
   },
   homeSettingBox: {
     alignItems: "center",
@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
   },
   homeContainer: {
     alignItems: "center",
-    marginRight: 32,
+    // justifyContent: "space-around",
+    marginRight: "9%",
   },
   undo: {
     // marginLeft: 13,

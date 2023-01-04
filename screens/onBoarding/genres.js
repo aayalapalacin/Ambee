@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { Card, Title } from "react-native-paper";
 import {
+  View,
   StyleSheet,
   Alert,
   useWindowDimensions,
   TouchableOpacity,
+  Image,
 } from "react-native";
-import OptionBtn from "../../components/optionBtn";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import GenreDropdown from "../../components/genreDropdown";
 
-const Options = ({ navigation }) => {
+const Genres = ({ navigation }) => {
   const window = useWindowDimensions();
   const [selectedGenres, setSelectedGenres] = useState([]);
 
@@ -24,16 +26,26 @@ const Options = ({ navigation }) => {
   };
 
   return (
-    <Card height={window.height} style={styles.container}>
-      <Card.Content>
+    <View height={window.height} style={styles.container}>
+      <View>
         <Title style={styles.cardTitle}>What type of movies do you like?</Title>
-        <OptionBtn
-          selectedGenres={selectedGenres}
-          setSelectedGenres={setSelectedGenres}
-        />
-      </Card.Content>
+        <View style={styles.cardContent}>
+          <View style={styles.picContainer}>
+            <Image
+              style={styles.cardPic}
+              resizeMode="cover"
+              source={require("../../assets/icons/watchTV.png")}
+            />
+          </View>
+          <GenreDropdown
+            selectedGenres={selectedGenres}
+            setSelectedGenres={setSelectedGenres}
+          />
+        </View>
+      </View>
       <TouchableOpacity
         onPress={() => {
+          console.log(selectedGenres, "on press selecGenr");
           if (selectedGenres.length == 0) {
             Alert.alert("Please Choose At Least One Genre");
           } else {
@@ -44,36 +56,36 @@ const Options = ({ navigation }) => {
       >
         <ContinueBtn text="Continue" />
       </TouchableOpacity>
-    </Card>
+    </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
-    marginHorizontal: 5,
+  },
+  cardContent: {
+    alignItems: "center",
+    height: "55%",
+    marginHorizontal: "5%",
   },
   cardTitle: {
     textAlign: "center",
-    marginHorizontal: 10,
-    marginTop: 100,
-    marginBottom: 50,
+    marginHorizontal: "10%",
+    marginTop: "12%",
+    marginBottom: "4%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
-  },
-
-  continueBtn: {
-    marginHorizontal: 90,
-    marginTop: 70,
   },
   btnTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 20,
   },
-  genreContainer: {
-    flexDirection: "row",
+  picContainer: {
+    width: "100%",
+    height: "100%",
   },
-  genreDiv: {
-    width: 100,
+  cardPic: {
+    height: "100%",
   },
 });
-export default Options;
+export default Genres;

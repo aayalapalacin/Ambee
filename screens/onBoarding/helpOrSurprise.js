@@ -3,6 +3,7 @@ import {
   View,
   useWindowDimensions,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import React from "react";
 import { Text } from "react-native-paper";
@@ -12,13 +13,27 @@ const HelpOrSurprise = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
     <View style={styles.helpContainer} height={window.height}>
+      <View style={styles.helpChooseImgContainer}>
+        <Image
+          // style={styles.swipeIcons}
+          source={require("../../assets/icons/helpOrChoose.png")}
+          resizeMode="contain"
+        />
+      </View>
+      <View style={styles.btnDescrition}>
+        <Text style={styles.btnDescritionTxt}>
+          Want some options to choose from? We can help!
+        </Text>
+      </View>
       <View style={styles.btnContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("Options")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Genres")}>
           <ContinueBtn text="Help me choose" />
         </TouchableOpacity>
-        <Text style={styles.orTxt} variant="titleLarge">
-          Or
-        </Text>
+        <View style={styles.btnDescrition}>
+          <Text style={styles.btnDescritionTxt}>
+            You don't want to pick? We got you with a random movie!{" "}
+          </Text>
+        </View>
         <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
           <ContinueBtn text="Surprise me" />
         </TouchableOpacity>
@@ -34,10 +49,22 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   btnContainer: {
-    marginBottom: 100,
+    marginTop: "2%",
+    marginBottom: "52%",
   },
-  orTxt: {
+
+  helpChooseImgContainer: {
+    marginTop: "15%",
+    marginBottom: "6%",
+    alignItems: "center",
+  },
+  btnDescrition: {
+    alignItems: "center",
+    marginHorizontal: "25%",
+  },
+  btnDescritionTxt: {
     textAlign: "center",
-    marginVertical: 20,
+    fontSize: 15,
+    fontFamily: "Mali-Regular",
   },
 });

@@ -1,30 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Button } from "react-native-paper";
 import React, { useState, useEffect } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
-const genres = [
-  { name: "horror ", key: 1 },
-  { name: "comedy ", key: 2 },
-  { name: "doc ", key: 3 },
-  { name: "sci-fi ", key: 4 },
-  { name: "anime ", key: 5 },
-  { name: "musical ", key: 6 },
-  { name: "action ", key: 7 },
-  { name: "romantic ", key: 8 },
-];
-const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
-  useEffect(() => {
-    console.log(selectedGenres, "selectedGenres");
-  }, [selectedGenres]);
-  const deleteGenre = (key) => {
-    const newGenreList = selectedGenres.filter((genre) => {
-      return genre.key !== key;
-    });
-    setSelectedGenres(newGenreList);
-  };
 
+const GenreDropdown = (props) => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState([]);
   const [items, setItems] = useState([
     { label: "Biography", value: "biography", key: "1" },
     { label: "Film Noir", value: "Film Noir", key: "2" },
@@ -59,35 +39,52 @@ const OptionBtn = ({ selectedGenres, setSelectedGenres }) => {
   return (
     <View style={styles.optionBtnContainer}>
       <DropDownPicker
+        style={styles.dropContainer}
         multiple={true}
+        dropDownDirection="TOP"
+        searchable={true}
+        // min={0}
+        // max={5}
+        maxHeight={"42%"}
         open={open}
         value={value}
         items={items}
+        onSelectItem={(item) => {
+          props.setSelectedGenres(item);
+        }}
+        // onPress={() => console.log("pressed")}
         setOpen={setOpen}
         setValue={setValue}
         setItems={setItems}
+        dropDownContainerStyle={{ borderColor: "#FF6033" }}
+        listItemLabelStyle={{
+          color: "#6750A4",
+        }}
+        placeholderStyle={{
+          color: "#6750A4",
+          fontWeight: "bold",
+        }}
       />
     </View>
   );
 };
 
-export default OptionBtn;
+export default GenreDropdown;
 
 const styles = StyleSheet.create({
+  dropContainer: {
+    borderRadius: 50,
+    borderColor: "#FF6033",
+    paddingHorizontal: "6%",
+  },
   genreContainer: {
     flexDirection: "row",
-    justifyContent: "center",
   },
-  genreDiv: {
-    wkeyth: 110,
-    marginVertical: 19,
-    marginHorizontal: 9,
-    paddingVertical: 7,
-  },
-  genreTxt: {
-    fontSize: 17,
-  },
+
   optionBtnContainer: {
-    marginBottom: 80,
+    marginTop: "21%",
+    // marginBottom: "3%",
+    justifyContent: "center",
+    alignContent: "center",
   },
 });
