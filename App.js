@@ -23,8 +23,9 @@ import { enableScreens } from "react-native-screens";
 const Stack = createNativeStackNavigator();
 enableScreens();
 
-import Simple from "./screens/main/CardList";
+import CardList from "./screens/main/CardList";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { MovieContextProvider } from "./src/services/movies/movies.context";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -59,84 +60,86 @@ export default function App() {
   return (
     // <SafeAreaProvider>
     <PaperProvider>
-      <NavigationContainer>
-        <Stack.Navigator
-        // screenOptions={{
-        //   headerTitle: (props) => <Logo {...props} />,
-        // }}
-        >
-          <Stack.Screen
-            name="Home"
-            component={Home}
-            // options={{ headerTitle: (props) => <Logo {...props} /> }}
-          />
-          <Stack.Screen
-            name="WelcomeCard"
-            component={WelcomeCard}
-            options={{ headerTitle: (props) => <Logo {...props} /> }}
-          />
-          <Stack.Screen
-            name="NameBee"
-            component={NameBee}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-          <Stack.Screen
-            name="StepOne"
-            component={StepOne}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-          <Stack.Screen
-            name="StepTwo"
-            component={StepTwo}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-          <Stack.Screen
-            name="StepThree"
-            component={StepThree}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-          <Stack.Screen
-            name="HelpOrSurprise"
-            component={HelpOrSurprise}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-          <Stack.Screen
-            name="Options"
-            component={Options}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-          <Stack.Screen
-            name="HowManyCards"
-            component={HowManyCards}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-          <Stack.Screen
-            name="YesNoCard"
-            component={YesNoCard}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-          <Stack.Screen
-            name="NextRound"
-            component={NextRound}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-          <Stack.Screen
-            name="ChosenCard"
-            component={ChosenCard}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-          <Stack.Screen
-            name="CardList"
-            component={Simple}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-          <Stack.Screen
-            name="Settings"
-            component={Settings}
-            options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <MovieContextProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+          // screenOptions={{
+          //   headerTitle: (props) => <Logo {...props} />,
+          // }}
+          >
+            <Stack.Screen
+              name="Home"
+              component={Home}
+              // options={{ headerTitle: (props) => <Logo {...props} /> }}
+            />
+            <Stack.Screen
+              name="WelcomeCard"
+              component={WelcomeCard}
+              options={{ headerTitle: (props) => <Logo {...props} /> }}
+            />
+            <Stack.Screen
+              name="NameBee"
+              component={NameBee}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="StepOne"
+              component={StepOne}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="StepTwo"
+              component={StepTwo}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="StepThree"
+              component={StepThree}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="HelpOrSurprise"
+              component={HelpOrSurprise}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="Options"
+              component={Options}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="HowManyCards"
+              component={HowManyCards}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="YesNoCard"
+              component={YesNoCard}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="NextRound"
+              component={NextRound}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="ChosenCard"
+              component={ChosenCard}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="CardList"
+              component={CardList}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="Settings"
+              component={Settings}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </MovieContextProvider>
     </PaperProvider>
     // </SafeAreaProvider>
   );

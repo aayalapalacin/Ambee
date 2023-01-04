@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Card, Title, Paragraph } from "react-native-paper";
 import {
   StyleSheet,
@@ -8,12 +8,17 @@ import {
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { MovieContext } from "../../src/services/movies/movies.context";
+import { StackActions } from "@react-navigation/native";
 
 const NextRound = ({ navigation }) => {
   const window = useWindowDimensions();
   const [username, setUsername] = useState("");
   const [userGenre, setUserGenre] = useState("");
   const [userNum, setUserNum] = useState("");
+  const { movies, isLoading, onNextRound, isNextRoundReady } =
+    useContext(MovieContext);
+  const pushAction = StackActions.push("YesNoCard", { movies: movies });
   const getData = async () => {
     try {
       const usernameValue = await AsyncStorage.getItem("@username");
@@ -65,7 +70,7 @@ const NextRound = ({ navigation }) => {
           />  */}
         </Paragraph>
       </Card.Content>
-      <TouchableOpacity onPress={() => navigation.navigate("ChosenCard")}>
+      <TouchableOpacity onPress={() => navigation.dispatch(pushAction)}>
         <ContinueBtn text="Continue" />
       </TouchableOpacity>
       {/* <HomeSettings navigation={navigation} /> */}

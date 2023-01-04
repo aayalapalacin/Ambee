@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -10,11 +10,13 @@ import { Button, Card, Title } from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
 import { Ionicons } from "@expo/vector-icons";
 import CountDown from "react-native-countdown-component";
-import Simple from "./CardList";
+import CardList from "./CardList";
+import { movieService } from "../../src/services/movies/movies.service";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
   const [reset, setReset] = useState("1");
+
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
@@ -54,12 +56,7 @@ const YesNoCard = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.picContainer}>
-          <Simple />
-          {/* <Card.Cover
-            style={styles.cardPic}
-            source={{ uri: "https://picsum.photos/700" }}
-            resizeMode="contain"
-          /> */}
+          <CardList navigation={navigation} />
         </View>
         <View style={styles.swipeContainer}>
           <View style={styles.yesNoIcon}>

@@ -36,7 +36,9 @@
     "react-tinder-card": "^1.6.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "babel-eslint": "^10.1.0",
+    "eslint-plugin-react-hooks": "^4.6.0"
   },
   "private": true
 }
