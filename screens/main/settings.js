@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { Switch, Title, Button } from "react-native-paper";
+import { Switch, Title, DataTable } from "react-native-paper";
 import React, { useState, useEffect } from "react";
-import Counter from "../../components/counter";
+import CounterOption from "../../components/counterOption";
+import CounterTimer from "../../components/counterTimer";
 import HomeSettings from "../../components/homeSettings";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ContinueBtn from "../../components/continueBtn";
@@ -25,30 +26,39 @@ const Settings = ({ navigation }) => {
   return (
     <View style={styles.settingsBox}>
       <Title style={styles.cardTitle}>Settings</Title>
-      <View style={styles.counterLabel}>
-        <View>
-          <Text style={styles.settingsTxt}>Limit your option</Text>
-          <Text style={styles.settingsTxt}>Set a timer</Text>
-        </View>
-        <Counter setNewTimer={setNewTimer} setNewLimit={setNewLimit} />
+      <View style={styles.dataView}>
+        <DataTable>
+          <DataTable.Row style={styles.dataRow}>
+            <DataTable.Cell style={styles.dataCellText}>
+              <Text style={styles.settingsTxt}>Limit your option</Text>
+            </DataTable.Cell>
+            <DataTable.Cell style={styles.dataCellCounter}>
+              <CounterOption setNewLimit={setNewLimit} />
+            </DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row style={styles.dataRow}>
+            <DataTable.Cell style={styles.dataCellText}>
+              <Text style={styles.settingsTxt}>Set a Timer</Text>
+            </DataTable.Cell>
+            <DataTable.Cell style={styles.dataCellCounter}>
+              <CounterTimer setNewTimer={setNewTimer} />
+            </DataTable.Cell>
+          </DataTable.Row>
+          <DataTable.Row style={styles.dataRow}>
+            <DataTable.Cell style={styles.dataCellText}>
+              <Text style={styles.settingsTxt}>No repeat mode</Text>
+            </DataTable.Cell>
+            <DataTable.Cell style={styles.dataCellCounter}>
+              <Switch
+                value={isSwitchOn}
+                color="#8570D8"
+                onValueChange={onToggleSwitch}
+              />
+            </DataTable.Cell>
+          </DataTable.Row>
+        </DataTable>
       </View>
-      {/* 
-      <View style={styles.resetContainer}>
-        <Title style={styles.settingsTxt}>Reset Data</Title>
 
-        <View style={styles.bottomSettingsIcons}>
-          <Button style={styles.resetBtn} mode="contained">
-            {" "}
-          </Button>
-        </View>
-      </View> */}
-      <View style={styles.repeatContainer}>
-        <Title style={styles.settingsTxt}>No repeating mode</Title>
-
-        <View style={styles.bottomSettingsIcons}>
-          <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
-        </View>
-      </View>
       <View style={styles.saveContainer}>
         <TouchableOpacity
           onPress={() => {
@@ -67,9 +77,7 @@ const Settings = ({ navigation }) => {
 export default Settings;
 
 const styles = StyleSheet.create({
-  settingsBox: {
-    marginHorizontal: "8%",
-  },
+  settingsBox: {},
   cardTitle: {
     textAlign: "center",
     marginTop: "20%",
@@ -99,15 +107,39 @@ const styles = StyleSheet.create({
   },
   settingsTxt: {
     fontFamily: "Mali-Regular",
-    fontSize: 19,
-    marginVertical: "9%",
+    fontSize: 15,
+
+    // marginVertical: "9%",
+    // borderBottomWidth: 0.5,
   },
   counterLabel: {
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  bottomSettingsIcons: {
+    marginRight: "10%",
+  },
 
   saveContainer: {
     marginBottom: "45%",
+  },
+  dataRow: {
+    backgroundColor: "white",
+    marginBottom: ".9%",
+    paddingVertical: "1%",
+    borderRadius: 5,
+  },
+  settingsBox: {},
+  dataCellText: {
+    marginBottom: "1%",
+    flex: 1,
+    paddingLeft: "1%",
+  },
+  dataCellCounter: {
+    justifyContent: "center",
+  },
+  dataView: {
+    marginHorizontal: "5%",
+    marginBottom: "20%",
   },
 });

@@ -45,6 +45,7 @@ const Genres = ({ navigation }) => {
       </View>
       <TouchableOpacity
         onPress={() => {
+          console.log(selectedGenres, "on press selecGenr");
           if (selectedGenres.length == 0) {
             Alert.alert("Please Choose At Least One Genre");
           } else {

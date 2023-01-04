@@ -60,7 +60,7 @@ const YesNoCard = ({ navigation }) => {
       return () => console.log("focues return");
     }, [])
   );
-
+  console.log(userGenre, "genre updated");
   return (
     <Card style={styles.container} height={window.height}>
       <View>
