@@ -16,7 +16,7 @@ export default ContinueBtn;
 
 const styles = StyleSheet.create({
   continueBtn: {
-    marginVertical: "4%",
+    marginTop: "4%",
     marginHorizontal: "15%",
     paddingVertical: "2%",
     backgroundColor: "#FF6033",

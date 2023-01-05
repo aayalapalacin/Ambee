@@ -134,24 +134,6 @@ const YesNoCard = ({ navigation }) => {
         <View style={styles.picContainer}>
           <CardList navigation={navigation} />
         </View>
-        <View style={styles.swipeContainer}>
-          <View style={styles.yesNoIcon}>
-            <Image
-              style={styles.swipeIcons}
-              source={require("../../assets/icons/swipe-left.png")}
-              resizeMode="contain"
-            />
-            <Text style={styles.leftIconTxt}>No</Text>
-          </View>
-          <View style={styles.yesNoIcon}>
-            <Text style={styles.rightIconText}>Yes</Text>
-            <Image
-              style={styles.swipeIcons}
-              source={require("../../assets/icons/swipe-right.png")}
-              resizeMode="contain"
-            />
-          </View>
-        </View>
       </Card.Content>
       <HomeSettings navigation={navigation} />
     </Card>
@@ -184,7 +166,9 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     marginTop: "15%",
-    marginHorizontal: 10,
+    height: "78%",
+
+    // marginHorizontal: 10,
   },
 
   watchBtn: {
@@ -197,37 +181,39 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: "15%",
+    marginBottom: "13%",
   },
-  cardPic: {
-    height: 325,
-  },
+  // cardPic: {
+  //   height: 325,
+  // },
   swipeContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 20,
-    marginBottom: 30,
+    marginTop: "18%",
   },
   yesNoIcon: {
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 15,
-    marginBottom: 25,
+    // marginBottom: "5%",
+  },
+  picContainer: {
+    height: "65%",
   },
   leftIconTxt: {
-    marginEnd: 40,
+    marginEnd: "12%",
     fontSize: 28,
-    paddingStart: 8.5,
+    paddingStart: "2%",
   },
   rightIconText: {
     fontSize: 28,
-    paddingEnd: 5,
+    paddingEnd: "1.5%",
   },
 
   swipeIcons: {
     width: 33,
     height: 33,
-    marginTop: 3,
+    // marginTop: 3,
     tintColor: "#8570D8",
   },
 });
