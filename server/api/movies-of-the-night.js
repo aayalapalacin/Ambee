@@ -1,7 +1,8 @@
 import axios from "axios";
+import env from "../../config/env";
 
 export function get() {
-  const api_key = `${process.env.MOVIES_OF_THE_NIGHT_API_KEY}`;
+  const api_key = env.MOVIES_OF_THE_NIGHT_API_KEY;
   const options = {
     headers: {
       "X-RapidAPI-Key": api_key,
