@@ -23,12 +23,13 @@ const StepTwo = ({ navigation }) => {
           <Image
             style={styles.cardPic}
             resizeMode="contain"
-            source={require("../../assets/icons/Phone1.png")}
+            source={require("../../assets/icons/Search.png")}
           />
         </View>
-        <Title style={styles.cardTitle}>Step Two</Title>
+        <Title style={styles.cardTitle}>Pick a genre</Title>
         <Paragraph style={styles.cardParagraph}>
-          You can use the app by swiping right for yes swiping left for no.
+          Our app will give you movies to choose from from the genres you
+          select!
         </Paragraph>
         <View style={styles.dotContainer}>
           <Octicons
