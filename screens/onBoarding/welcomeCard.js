@@ -16,7 +16,7 @@ const WelcomeCard = ({ navigation }) => {
           <Card.Cover
             style={styles.cardPic}
             source={require("../../assets/icons/AmbeeLogoTitleColor.png")}
-            resizeMode="contain"
+            resizeMode="cover"
           />
         </View>
 
@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
   cardPic: {
     height: "52%",
     width: "90%",
-    // tintColor: "white",
+    // backgroundColor: "#FFFBFE",
+    backgroundColor: "transparent",
   },
   picContainer: {
     justifyContent: "center",

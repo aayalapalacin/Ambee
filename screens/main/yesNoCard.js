@@ -107,7 +107,7 @@ const YesNoCard = ({ navigation }) => {
             size={17}
             until={userTime}
             onFinish={() => {
-              // alert("Finished");
+              // alert("Choose your damn card!");
               // setReset(Math.random());
               // console.log(reset);
             }}

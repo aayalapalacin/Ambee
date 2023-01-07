@@ -24,12 +24,12 @@ const StepOne = ({ navigation }) => {
           <Image
             resizeMode="contain"
             style={styles.cardPic}
-            source={require("../../assets/icons/Search.png")}
+            source={require("../../assets/icons/choice.png")}
           />
         </View>
-        <Title style={styles.cardTitle}>Step One</Title>
+        <Title style={styles.cardTitle}>Your Choice Matters</Title>
         <Paragraph style={styles.cardParagraph}>
-          Our app will recommend a movie based on preferences.
+          We can help you choose or you can get a random movie.
         </Paragraph>
         <View style={styles.dotContainer}>
           <Octicons
