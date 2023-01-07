@@ -32,7 +32,6 @@ const movieGenresToID = {
 };
 
 export const movieService = async () => {
-  console.log("env", env.MOVIES_OF_THE_NIGHT_API_KEY);
   const api_key = env.MOVIES_OF_THE_NIGHT_API_KEY;
   const service = "netflix";
   const genreID = "18";

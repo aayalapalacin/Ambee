@@ -3,25 +3,24 @@ import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
 
-const ChosenCard = ({ navigation }) => {
+const ChosenCard = (props, { navigation }) => {
   const window = useWindowDimensions();
+  const movie = props.route.params.movie;
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
-        <Title style={styles.cardTitle}>Awesome! You chose: John Wick!</Title>
+        <Title style={styles.cardTitle}>
+          Awesome! You chose: {movie.title}
+        </Title>
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
-            source={{ uri: "https://picsum.photos/700" }}
+            source={{ uri: `${movie.posterURLs.original}` }}
             resizeMode="contain"
           />
         </View>
         <Title style={styles.aboutTitleTxt}>About this movie</Title>
-        <Paragraph style={styles.pTxt}>
-          Lorem ipsum dolor sit amet consectetur. Volutpat euismod varius
-          consectetur blandit nisl enim. Congue nibh leo turpis viverra ut
-          dolor.
-        </Paragraph>
+        <Paragraph style={styles.pTxt}>{movie.overview}</Paragraph>
       </Card.Content>
       <HomeSettings navigation={navigation} />
     </Card>
