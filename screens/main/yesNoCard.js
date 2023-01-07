@@ -93,7 +93,7 @@ const YesNoCard = ({ navigation }) => {
       </View>
       <Card.Content style={styles.cardContainer}>
         <View style={styles.cardTopIcons}>
-          <View>
+          {/* <View>
             <TouchableOpacity
               onPress={() => {
                 setReset(Math.random().toString());
@@ -101,7 +101,7 @@ const YesNoCard = ({ navigation }) => {
             >
               <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
             </TouchableOpacity>
-          </View>
+          </View> */}
           <CountDown
             id={reset}
             size={17}
@@ -125,11 +125,11 @@ const YesNoCard = ({ navigation }) => {
             showSeparator
           />
 
-          <View style={styles.watchBtn}>
+          {/* <View style={styles.watchBtn}>
             <Button onPress={() => navigation.navigate("NextRound")}>
               Watch Now
             </Button>
-          </View>
+          </View> */}
         </View>
         <View style={styles.picContainer}>
           <CardList navigation={navigation} />
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
   cardTopIcons: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     marginBottom: "13%",
   },
