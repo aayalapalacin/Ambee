@@ -1,11 +1,20 @@
 import * as React from "react";
-import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+  TouchableOpacity,
+} from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
+import { Feather } from "@expo/vector-icons";
+import { EvilIcons } from "@expo/vector-icons";
 import HomeSettings from "../../components/homeSettings";
 
-const ChosenCard = (props, { navigation }) => {
+const ChosenCard = ({ navigation, route }) => {
   const window = useWindowDimensions();
-  const movie = props.route.params.movie;
+  const movie = route.params.movie;
+  console.log(route.params.movie.title, "route");
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
@@ -30,7 +39,10 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
   },
-  cardContainer: {},
+  cardContainer: {
+    height: "85%",
+    // backgroundColor: "red",
+  },
   cardTitle: {
     textAlign: "center",
     marginVertical: "8%",
@@ -51,7 +63,28 @@ const styles = StyleSheet.create({
   pTxt: {
     fontFamily: "Mali-Regular",
     fontSize: 18,
-    paddingVertical: "5%",
+    paddingTop: "5%",
+  },
+  homeSettingContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: "5%",
+  },
+  homeSettingBox: {
+    alignItems: "center",
+  },
+  homeSettingsTxt: {
+    fontFamily: "Mali-Regular",
+    fontSize: 16,
+  },
+  homeContainer: {
+    alignItems: "center",
+    // justifyContent: "space-around",
+    marginRight: "9%",
+  },
+  undo: {
+    // marginLeft: 13,
   },
 });
 

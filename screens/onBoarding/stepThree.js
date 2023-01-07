@@ -25,8 +25,8 @@ const StepThree = ({ navigation }) => {
         </View>
         <Title style={styles.cardTitle}>Limit your cards</Title>
         <Paragraph style={styles.cardParagraph}>
-          To help you make a decision, our app will prompt you to select a movie
-          out 7, 5 , or 3 that you are interested in.
+          By process of elimination we will help you choose a movie. You'll
+          select out of 7, 5 , or 3 that you are interested in.
         </Paragraph>
         <View style={styles.dotContainer}>
           <Octicons
