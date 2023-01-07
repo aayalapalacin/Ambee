@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   dotContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginVertical: "6%",
+    marginTop: "6%",
   },
   dotIcon: {
     marginHorizontal: "1%",

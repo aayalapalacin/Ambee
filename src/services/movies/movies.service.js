@@ -1,3 +1,5 @@
+import env from "../../../config/env";
+
 const movieGenresToID = {
   Biography: "1",
   "Film Noir": "2",
@@ -30,7 +32,8 @@ const movieGenresToID = {
 };
 
 export const movieService = async () => {
-  const api_key = `${process.env.MOVIES_OF_THE_NIGHT_API_KEY}`;
+  console.log("env", env.MOVIES_OF_THE_NIGHT_API_KEY);
+  const api_key = env.MOVIES_OF_THE_NIGHT_API_KEY;
   const service = "netflix";
   const genreID = "18";
   const country = "us";
