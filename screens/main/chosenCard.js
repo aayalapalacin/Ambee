@@ -1,20 +1,12 @@
 import * as React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, useWindowDimensions } from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
-import { Feather } from "@expo/vector-icons";
-import { EvilIcons } from "@expo/vector-icons";
 import HomeSettings from "../../components/homeSettings";
 
 const ChosenCard = ({ navigation, route }) => {
   const window = useWindowDimensions();
   const movie = route.params.movie;
-  console.log(route.params.movie.title, "route");
+  console.log(route.params.movie.streamingInfo.netflix.us.link, "netflix link");
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
