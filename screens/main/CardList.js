@@ -8,6 +8,7 @@ import {
   Image,
 } from "react-native";
 import TinderCard from "react-tinder-card";
+import { StackActions } from "@react-navigation/native";
 
 // import { movieService } from "../../src/services/movies/movies.service";
 import { MovieContext } from "../../src/services/movies/movies.context";
@@ -44,6 +45,11 @@ function CardList({ navigation, data, onFinish }) {
 
   if (isLoading) {
     return null;
+  }
+
+  if (movies.length === 1) {
+    const pushAction = StackActions.push("ChosenCard", { movie: movies[0] });
+    navigation.dispatch(pushAction);
   }
 
   return (
