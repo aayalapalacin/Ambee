@@ -75,16 +75,8 @@ export default function App() {
     <PaperProvider>
       <MovieContextProvider>
         <NavigationContainer>
-          <Stack.Navigator
-          // screenOptions={{
-          //   headerTitle: (props) => <Logo {...props} />,
-          // }}
-          >
-            <Stack.Screen
-              name="Home"
-              component={Home}
-              // options={{ headerTitle: (props) => <Logo {...props} /> }}
-            />
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={Home} />
             <Stack.Screen
               name="WelcomeCard"
               component={WelcomeCard}
@@ -104,45 +96,26 @@ export default function App() {
               name="StepTwo"
               component={StepTwo}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-              // options={({ navigation }) => ({
-              //   // headerLeft: () => (
-              //   //   <Button title="nbut" onPress={() => console.log("pressed")} />
-              //   // ),
-              //   // headerTitle:
-              //   headerRight: () => <LogoTitle navigation={navigation} />,
-              // })}
             />
             <Stack.Screen
               name="StepThree"
               component={StepThree}
-              // options={({ navigation }) => ({
-              //   headerRight: () => <LogoTitle navigation={navigation} />,
-              // })}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
             />
             <Stack.Screen
               name="StepFour"
               component={StepFour}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-              // options={({ navigation }) => ({
-              //   headerRight: () => <LogoTitle navigation={navigation} />,
-              // })}
             />
             <Stack.Screen
               name="HelpOrSurprise"
               component={HelpOrSurprise}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-              // options={({ navigation }) => ({
-              //   headerRight: () => <LogoTitle navigation={navigation} />,
-              // })}
             />
             <Stack.Screen
               name="Genres"
               component={Genres}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-              // options={({ navigation }) => ({
-              //   headerRight: () => <LogoTitle navigation={navigation} />,
-              // })}
             />
             <Stack.Screen
               name="HowManyCards"
@@ -153,27 +126,11 @@ export default function App() {
               name="YesNoCard"
               component={YesNoCard}
               options={{ headerTitle: (props) => <Logo {...props} /> }}
-              // options={({ navigation }) => ({
-              //   headerRight: () => <LogoTitle navigation={navigation} />,
-              // })}
             />
             <Stack.Screen
               name="NextRound"
               component={NextRound}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
-              // options={({ navigation }) => ({
-              //   title: "Home",
-              //   headerStyle: {
-              //     backgroundColor: "#273469",
-              //   },
-              //   headerTintColor: "#EBF2FA",
-              //   headerRight: () => (
-              //     <Button // a button in the header!
-              //       onPress={() => navigation.navigate("WelcomeCard")}
-              //       title="Account"
-              //     />
-              //   ),
-              // })}
             />
             <Stack.Screen
               name="ChosenCard"

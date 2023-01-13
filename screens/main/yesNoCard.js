@@ -111,12 +111,6 @@ const YesNoCard = ({ navigation }) => {
             timeLabels={{ s: null }}
             showSeparator
           />
-
-          {/* <View style={styles.watchBtn}>
-            <Button onPress={() => navigation.navigate("NextRound")}>
-              Watch Now
-            </Button>
-          </View> */}
         </View>
         <View style={styles.picContainer}>
           <CardList navigation={navigation} />
@@ -158,12 +152,6 @@ const styles = StyleSheet.create({
     // marginHorizontal: 10,
   },
 
-  watchBtn: {
-    marginHorizontal: 0,
-    borderWidth: 1.5,
-    borderRadius: 13,
-    borderColor: "#8570D8",
-  },
   cardTopIcons: {
     flexDirection: "row",
     justifyContent: "center",

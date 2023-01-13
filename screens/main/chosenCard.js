@@ -1,26 +1,43 @@
 import * as React from "react";
-import { StyleSheet, View, useWindowDimensions } from "react-native";
-import { Card, Title, Paragraph } from "react-native-paper";
+import { StyleSheet, View, useWindowDimensions, Text } from "react-native";
+import { Card, Title, Paragraph, Button } from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
-
+import { Linking } from "react-native";
 const ChosenCard = ({ navigation, route }) => {
   const window = useWindowDimensions();
   const movie = route.params.movie;
+  const netflixLink = route.params.movie.streamingInfo.netflix.us.link;
+  console.log(movie, "movie");
   console.log(route.params.movie.streamingInfo.netflix.us.link, "netflix link");
+  // let netflix = "https://www.google.com";
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
         <Title style={styles.cardTitle}>
+          {/* Awesome! You chose: */}
           Awesome! You chose: {movie.title}
         </Title>
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
+            // source={require("../../assets/icons/Swipe.png")}
             source={{ uri: `${movie.posterURLs.original}` }}
             resizeMode="contain"
           />
         </View>
-        <Title style={styles.aboutTitleTxt}>About this movie</Title>
+        <View style={styles.aboutTitleContainer}>
+          <Title style={styles.aboutTitleTxt}>About this movie</Title>
+          <View style={styles.watchContainer}>
+            <Button
+              style={styles.watchBtn}
+              textColor="black"
+              onPress={() => Linking.openURL(netflixLink)}
+              // onPress={() => Linking.openURL(netflix)}
+            >
+              Watch Now
+            </Button>
+          </View>
+        </View>
         <Paragraph style={styles.pTxt}>{movie.overview}</Paragraph>
       </Card.Content>
       <HomeSettings navigation={navigation} />
@@ -33,7 +50,20 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     height: "85%",
-    // backgroundColor: "red",
+  },
+  aboutTitleContainer: {
+    flexDirection: "row",
+  },
+  watchContainer: {
+    marginLeft: "8%",
+    marginTop: "5%",
+  },
+  watchBtn: {
+    borderColor: "#6750A4",
+    borderWidth: 4,
+    justifyContent: "center",
+    borderRadius: 13,
+    backgroundColor: "#FF6033",
   },
   cardTitle: {
     textAlign: "center",
