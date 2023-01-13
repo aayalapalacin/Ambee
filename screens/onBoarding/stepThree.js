@@ -15,6 +15,9 @@ const StepThree = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
     <View height={window.height} style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
+        <Skip />
+      </TouchableOpacity>
       <View style={styles.cardContent}>
         <View style={styles.picContainer}>
           <Image
@@ -36,6 +39,12 @@ const StepThree = ({ navigation }) => {
             style={styles.dotIcon}
           />
           <Octicons
+            name="dot"
+            size={24}
+            color="#6750A4"
+            style={styles.dotIcon}
+          />
+          <Octicons
             name="dot-fill"
             size={24}
             color="#CF9FFF"
@@ -49,7 +58,7 @@ const StepThree = ({ navigation }) => {
           />
         </View>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
+      <TouchableOpacity onPress={() => navigation.navigate("StepFour")}>
         <ContinueBtn text="Next" />
       </TouchableOpacity>
     </View>
@@ -62,7 +71,7 @@ const styles = StyleSheet.create({
   },
   cardContent: {
     alignItems: "center",
-    height: "76.2%",
+    height: "67%",
   },
   cardTitle: {
     textAlign: "center",
@@ -85,7 +94,7 @@ const styles = StyleSheet.create({
   },
   picContainer: {
     alignItems: "center",
-    marginTop: "15%",
+    // marginTop: "2%",
     width: "99%",
     height: "60%",
   },

@@ -1,5 +1,5 @@
 // import { is } from "@react-spring/shared";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   ImageBackground,
   Text,
@@ -8,7 +8,7 @@ import {
   Image,
 } from "react-native";
 import TinderCard from "react-tinder-card";
-import { StackActions } from "@react-navigation/native";
+import { StackActions, useFocusEffect } from "@react-navigation/native";
 
 // import { movieService } from "../../src/services/movies/movies.service";
 import { MovieContext } from "../../src/services/movies/movies.context";
@@ -18,9 +18,9 @@ function CardList({ navigation, data, onFinish }) {
   const { movies, isLoading, onNextRound, isNextRoundReady } =
     useContext(MovieContext);
   const nextRoundMovies = [];
-
+  const [nextRender, setNextRender] = useState(true);
   const swiped = (direction, movie, index) => {
-    console.log(direction, index, movies.length);
+    console.log(index, "index");
     if (direction.toLowerCase() === "right") {
       nextRoundMovies.push({ ...movie });
 
@@ -36,6 +36,29 @@ function CardList({ navigation, data, onFinish }) {
       onNextRound(nextRoundMovies);
     }
   };
+  useFocusEffect(
+    React.useCallback(() => {
+      // if(movies.length == numberOfMovies){
+      //   setNextBtnReveal(false)
+      // }
+      // console.log(nextRoundMovies.length, "next round load");
+      // console.log(movies.length, "movies LOAD");
+      return () => console.log("focues return card,jst");
+    }, [])
+  );
+
+  useEffect(() => {
+    // if(movies.length < numberOfMovies){
+    //   setNextBtnReveal(true)
+    // }
+    // if (isNextRoundReady == false) {
+    //   console.log("next round false");
+    // } else {
+    //   console.log("set test to true");
+    // }
+    setNextRender(!nextRender);
+    console.log("run");
+  }, [onNextRound]);
 
   const outOfFrame = (title) => {
     console.log(title + " left the screen!");
@@ -77,7 +100,7 @@ function CardList({ navigation, data, onFinish }) {
               </View>
             </TinderCard>
           ))}
-          {isNextRoundReady && (
+          {nextRender && (
             <>
               <TouchableOpacity
                 onPress={() => navigation.navigate("NextRound")}

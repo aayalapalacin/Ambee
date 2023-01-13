@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Button,
+} from "react-native";
 import { Provider as PaperProvider } from "react-native-paper";
 import { AppRegistry } from "react-native";
 import NextRound from "./screens/main/NextRound";
@@ -10,6 +17,7 @@ import WelcomeCard from "./screens/onBoarding/welcomeCard";
 import StepOne from "./screens/onBoarding/stepOne";
 import StepTwo from "./screens/onBoarding/stepTwo";
 import StepThree from "./screens/onBoarding/stepThree";
+import StepFour from "./screens/onBoarding/stepFour";
 import HelpOrSurprise from "./screens/onBoarding/helpOrSurprise";
 import NameBee from "./screens/onBoarding/nameBee";
 import HowManyCards from "./screens/onBoarding/howManyCards";
@@ -43,8 +51,8 @@ export default function App() {
     return (
       <Image
         resizeMode="contain"
-        style={{ height: 40, marginBottom: "1%", marginLeft: 230 }}
-        source={require("./assets/icons/ambeeColor.png")}
+        style={{ height: 65, marginBottom: "1%", marginLeft: "56%" }}
+        source={require("./assets/icons/ambeeLogoTransparent.png")}
       />
     );
   }
@@ -52,7 +60,11 @@ export default function App() {
     return (
       <Image
         resizeMode="contain"
-        style={{ height: 40, marginBottom: "1%", marginRight: 130 }}
+        style={{
+          height: 40,
+          marginBottom: "1%",
+          marginRight: "19%",
+        }}
         source={require("./assets/icons/ambeeTest.png")}
       />
     );
@@ -92,21 +104,45 @@ export default function App() {
               name="StepTwo"
               component={StepTwo}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              // options={({ navigation }) => ({
+              //   // headerLeft: () => (
+              //   //   <Button title="nbut" onPress={() => console.log("pressed")} />
+              //   // ),
+              //   // headerTitle:
+              //   headerRight: () => <LogoTitle navigation={navigation} />,
+              // })}
             />
             <Stack.Screen
               name="StepThree"
               component={StepThree}
+              // options={({ navigation }) => ({
+              //   headerRight: () => <LogoTitle navigation={navigation} />,
+              // })}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+            />
+            <Stack.Screen
+              name="StepFour"
+              component={StepFour}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              // options={({ navigation }) => ({
+              //   headerRight: () => <LogoTitle navigation={navigation} />,
+              // })}
             />
             <Stack.Screen
               name="HelpOrSurprise"
               component={HelpOrSurprise}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              // options={({ navigation }) => ({
+              //   headerRight: () => <LogoTitle navigation={navigation} />,
+              // })}
             />
             <Stack.Screen
               name="Genres"
               component={Genres}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              // options={({ navigation }) => ({
+              //   headerRight: () => <LogoTitle navigation={navigation} />,
+              // })}
             />
             <Stack.Screen
               name="HowManyCards"
@@ -116,12 +152,28 @@ export default function App() {
             <Stack.Screen
               name="YesNoCard"
               component={YesNoCard}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <Logo {...props} /> }}
+              // options={({ navigation }) => ({
+              //   headerRight: () => <LogoTitle navigation={navigation} />,
+              // })}
             />
             <Stack.Screen
               name="NextRound"
               component={NextRound}
               options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              // options={({ navigation }) => ({
+              //   title: "Home",
+              //   headerStyle: {
+              //     backgroundColor: "#273469",
+              //   },
+              //   headerTintColor: "#EBF2FA",
+              //   headerRight: () => (
+              //     <Button // a button in the header!
+              //       onPress={() => navigation.navigate("WelcomeCard")}
+              //       title="Account"
+              //     />
+              //   ),
+              // })}
             />
             <Stack.Screen
               name="ChosenCard"

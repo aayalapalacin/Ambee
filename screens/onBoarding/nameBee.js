@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Card, Title } from "react-native-paper";
+import { Card, Title, TextInput } from "react-native-paper";
 import {
   StyleSheet,
   View,
@@ -8,7 +8,6 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
-  TextInput,
   Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
@@ -44,11 +43,10 @@ const NameBee = ({ navigation }) => {
             </Title>
             <View style={styles.inputContainer}>
               <TextInput
-                textAlign="center"
-                style={styles.input}
-                placeholder="Type here"
-                placeholderTextColor="black"
+                label="Type here"
+                underlineColor="white"
                 value={username}
+                style={styles.input}
                 onChangeText={(username) => setUsername(username)}
               />
             </View>
@@ -102,20 +100,17 @@ const styles = StyleSheet.create({
     marginTop: "13%",
   },
 
-  btnTxt: {
-    fontFamily: "Mali-Regular",
-    fontSize: 20,
-  },
-
   input: {
     marginHorizontal: "9%",
     marginTop: "10%",
     marginBottom: "12%",
     backgroundColor: "white",
     borderWidth: 1,
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
     borderRadius: 50,
     fontSize: 20,
-    paddingVertical: "7%",
+    paddingLeft: "3%",
     borderColor: "#FF6033",
   },
   inputContainer: {

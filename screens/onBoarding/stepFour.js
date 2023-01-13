@@ -1,9 +1,9 @@
-import React from "react";
-import { Card, Title, Paragraph } from "react-native-paper";
+import * as React from "react";
+import { Card, Title, Paragraph, Text } from "react-native-paper";
 import {
   StyleSheet,
-  View,
   TouchableOpacity,
+  View,
   useWindowDimensions,
   Image,
 } from "react-native";
@@ -11,54 +11,51 @@ import ContinueBtn from "../../components/continueBtn";
 import Skip from "../../components/skip";
 import { Octicons } from "@expo/vector-icons";
 
-const StepOne = ({ navigation }) => {
+const StepFour = ({ navigation }) => {
   const window = useWindowDimensions();
-
   return (
-    <View style={styles.container} height={window.height}>
-      <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
-        <Skip />
-      </TouchableOpacity>
+    <View height={window.height} style={styles.container}>
       <View style={styles.cardContent}>
         <View style={styles.picContainer}>
           <Image
-            resizeMode="contain"
             style={styles.cardPic}
-            source={require("../../assets/icons/choice.png")}
+            resizeMode="contain"
+            source={require("../../assets/icons/Swipe.png")}
           />
         </View>
-        <Title style={styles.cardTitle}>Your Choice Matters</Title>
+        <Title style={styles.cardTitle}>Swipe</Title>
         <Paragraph style={styles.cardParagraph}>
-          We can help you choose or you can get a random movie.
+          Swipe left for movies you don't want to see, swipe right to narrow
+          down your choices and move to next round.
         </Paragraph>
         <View style={styles.dotContainer}>
+          <Octicons
+            name="dot"
+            size={24}
+            color="#6750A4"
+            style={styles.dotIcon}
+          />
+          <Octicons
+            name="dot"
+            size={24}
+            color="#6750A4"
+            style={styles.dotIcon}
+          />
+          <Octicons
+            name="dot"
+            size={24}
+            color="#6750A4"
+            style={styles.dotIcon}
+          />
           <Octicons
             name="dot-fill"
             size={24}
             color="#CF9FFF"
             style={styles.dotFillIcon}
           />
-          <Octicons
-            name="dot"
-            size={24}
-            color="#6750A4"
-            style={styles.dotIcon}
-          />
-          <Octicons
-            name="dot"
-            size={24}
-            color="#6750A4"
-            style={styles.dotIcon}
-          />
-          <Octicons
-            name="dot"
-            size={24}
-            color="#6750A4"
-            style={styles.dotIcon}
-          />
         </View>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate("StepTwo")}>
+      <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
         <ContinueBtn text="Next" />
       </TouchableOpacity>
     </View>
@@ -68,25 +65,23 @@ const StepOne = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     borderRadius: 0,
-    marginHorizontal: "2%",
   },
   cardContent: {
     alignItems: "center",
-    height: "67%",
+    height: "76.2%",
   },
   cardTitle: {
     textAlign: "center",
     // marginHorizontal: 10,
-    marginTop: "12%",
+    // marginTop: "3%",
     fontFamily: "Mali-Bold",
     fontSize: 32,
   },
-
   cardParagraph: {
     textAlign: "center",
-    marginHorizontal: "10%",
+    marginHorizontal: "6%",
     fontFamily: "Mali-Regular",
-    marginTop: "10%",
+    marginTop: "7%",
     fontSize: 23,
     paddingTop: "1%",
   },
@@ -95,16 +90,15 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   picContainer: {
-    // backgroundColor: "red",
     alignItems: "center",
-    marginTop: "8%",
-    width: "93%",
-    height: "50%",
+    marginTop: "15%",
+    width: "99%",
+    height: "60%",
   },
   dotContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: "6%",
+    marginVertical: "6%",
   },
   dotIcon: {
     marginHorizontal: "1%",
@@ -114,4 +108,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StepOne;
+export default StepFour;

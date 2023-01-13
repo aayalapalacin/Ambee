@@ -1,8 +1,16 @@
 {
   "expo": {
     "name": "Ambee",
-    "slug": "Ambee",
+    "slug": "ambee",
+    "privacy": "public",
+    "description": "An application to help users select a movie to stream.",
     "version": "1.0.0",
+    "icon": "./assets/icons/ambeeColor.png",
+    "splash": {
+      "image": "./assets/icons/ambeeColor.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "updates": {
@@ -10,10 +18,24 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.alexayala91.Ambee"
+    },
+    "android": {
+      "package": "com.alexayala91.ambee",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icons/ambeeColor.png",
+        "backgroundColor": "#FFFFFF"
+      }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icons/ambeeColor.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "34e2f80f-b3eb-4381-9720-a86fa9449cf6"
+      }
     }
   }
 }

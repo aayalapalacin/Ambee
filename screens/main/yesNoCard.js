@@ -1,23 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  useWindowDimensions,
-  TouchableOpacity,
-  Alert,
-} from "react-native";
-import {
-  Button,
-  Card,
-  Title,
-  Dialog,
-  Portal,
-  Paragraph,
-} from "react-native-paper";
+import React, { useState } from "react";
+import { StyleSheet, View, useWindowDimensions } from "react-native";
+import { Button, Card, Dialog, Portal, Paragraph } from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
-import { Ionicons } from "@expo/vector-icons";
 import CountDown from "react-native-countdown-component";
 import CardList from "./CardList";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -55,13 +39,16 @@ const YesNoCard = ({ navigation }) => {
         }
       };
       setUserTimer(0);
-      getData();
       setVisible(true);
 
+      getData();
       return () => console.log("focues return");
     }, [])
   );
-  console.log(userGenre, "genre updated");
+  // console.log(username, "name updated");
+  // console.log(userGenre, "genre updated");
+  // console.log(userNum, "num updated");
+  // console.log(userTime, "time updated");
   return (
     <Card style={styles.container} height={window.height}>
       <View>
@@ -106,11 +93,11 @@ const YesNoCard = ({ navigation }) => {
             id={reset}
             size={17}
             until={userTime}
-            onFinish={() => {
-              // alert("Choose your damn card!");
-              // setReset(Math.random());
-              // console.log(reset);
-            }}
+            // onFinish={() => {
+            //   // alert("Choose your damn card!");
+            //   // setReset(Math.random());
+            //   // console.log(reset);
+            // }}
             digitStyle={{
               backgroundColor: "#8570D8",
               width: 46,

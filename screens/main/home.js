@@ -29,6 +29,10 @@ export default function Home({ navigation }) {
         title="Go to StepThree"
       />
       <Button
+        onPress={() => navigation.navigate("StepFour")}
+        title="Go to StepFour"
+      />
+      <Button
         onPress={() => navigation.navigate("HelpOrSurprise")}
         title="Go to HelpOrSurprise"
       />

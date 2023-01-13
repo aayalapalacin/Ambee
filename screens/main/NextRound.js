@@ -42,6 +42,7 @@ const NextRound = ({ navigation }) => {
   useEffect(() => {
     getData();
   }, []);
+  console.log(movies.length, "true?");
 
   return (
     <View style={styles.container} height={window.height}>
@@ -55,7 +56,7 @@ const NextRound = ({ navigation }) => {
         </View>
         <Title style={styles.cardTitle}>Next Round</Title>
         <Paragraph style={styles.cardParagraph}>
-          {username}, You have {userNum} cards left! You're doing great!
+          {username}, You have {movies.length} cards left! You're doing great!
         </Paragraph>
       </View>
       <TouchableOpacity onPress={() => navigation.dispatch(pushAction)}>

@@ -15,7 +15,7 @@ const StepTwo = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
     <View height={window.height} style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate("Options")}>
+      <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
         <Skip />
       </TouchableOpacity>
       <View style={styles.cardContent}>
@@ -43,6 +43,12 @@ const StepTwo = ({ navigation }) => {
             size={24}
             color="#CF9FFF"
             style={styles.dotFillIcon}
+          />
+          <Octicons
+            name="dot"
+            size={24}
+            color="#6750A4"
+            style={styles.dotIcon}
           />
           <Octicons
             name="dot"
