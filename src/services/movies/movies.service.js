@@ -1,60 +1,29 @@
 import env from "../../../config/env";
-
-const movieGenresToID = {
-  Biography: "1",
-  "Film Noir": "2",
-  "Game Show": "3",
-  Musical: "4",
-  Sport: "5",
-  Short: "6",
-  Adult: "7",
-  Adventure: "12",
-  Fantasy: "14",
-  Animation: "16",
-  Drama: "18",
-  Horror: "27",
-  Action: "28",
-  Comedy: "35",
-  History: "36",
-  Western: "37",
-  Thriller: "53",
-  Crime: "80",
-  Documentary: "99",
-  "Science Fiction": "878",
-  Mystery: "9648",
-  Music: "10402",
-  Romance: "10749",
-  Family: "10751",
-  War: "10752",
-  News: "10763",
-  Reality: "10764",
-  "Talk Show": "10767",
-};
+import React, { useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const movieService = async () => {
+  const usernameValue = await AsyncStorage.getItem("@username");
+  const userGenreValue = await AsyncStorage.getItem("@userGenres");
+
+  console.log(JSON.parse(userGenreValue)[0].key, "genre!!!!!!");
+
   const api_key = env.MOVIES_OF_THE_NIGHT_API_KEY;
   const service = "netflix";
-  const genreID = "18";
+  const genreID = JSON.parse(userGenreValue)[0].key;
   const country = "us";
   const type = "movie";
   const initialRequestURL = `https://streaming-availability.p.rapidapi.com/search/basic?rapidapi-key=${api_key}&service=${service}&genre=${genreID}&country=${country}&type=${type}`; //&keyword=${movie}`;
 
-  const initalPromise = await fetch(initialRequestURL);
-  const response = await initalPromise.json();
-  // const totalPages = response.total_pages;
-  const results = response.results;
-  // const results = [];
+  try {
+    const resp = await fetch(initialRequestURL);
 
-  // for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
-  // const currentRequestURL = initialRequestURL + `&page=${currentPage}`;
-  // const currentPromise = await fetch(currentRequestURL);
-  // const currentResponse = await currentPromise.json();
-  // const pageOfMovies = currentResponse.results;
-  // results.push(...pageOfMovies);
-  // }
-  // console.log("herro");
-  // console.log("results.length: ", results.length);
-  // console.log("totalPages: ", totalPages);
+    const data = await resp.json();
+
+    return data.results;
+  } catch (error) {
+    console.error("there has been an error during  log in");
+  }
 
   return results;
 };

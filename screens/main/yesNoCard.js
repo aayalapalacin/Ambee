@@ -10,7 +10,7 @@ import { movieService } from "../../src/services/movies/movies.service";
 
 const YesNoCard = ({ navigation }) => {
   const window = useWindowDimensions();
-  const [reset, setReset] = useState("");
+  const [reset, setReset] = useState("h");
   const [username, setUsername] = useState("");
   const [userGenre, setUserGenre] = useState("");
   const [userNum, setUserNum] = useState("");
@@ -42,7 +42,7 @@ const YesNoCard = ({ navigation }) => {
       setVisible(true);
 
       getData();
-      return () => console.log("focues return");
+      return () => console.log("focues returnnnn");
     }, [])
   );
   // console.log(username, "name updated");

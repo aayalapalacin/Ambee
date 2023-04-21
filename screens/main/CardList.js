@@ -1,4 +1,3 @@
-// import { is } from "@react-spring/shared";
 import React, { useContext, useEffect, useState } from "react";
 import {
   ImageBackground,
@@ -36,33 +35,30 @@ function CardList({ navigation, data, onFinish }) {
       onNextRound(nextRoundMovies);
     }
   };
-  useFocusEffect(
-    React.useCallback(() => {
-      // if(movies.length == numberOfMovies){
-      //   setNextBtnReveal(false)
-      // }
-      // console.log(nextRoundMovies.length, "next round load");
-      // console.log(movies.length, "movies LOAD");
-      return () => console.log("focues return card,jst");
-    }, [])
-  );
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     console.log("runner");
+  //     if(movies.length == numberOfMovies){
+  //       setNextBtnReveal(false)
+  //     }
+  //     console.log(nextRoundMovies.length, "next round load");
+  //     console.log(movies.length, "movies LOAD");
+  //     return () => console.log("focues return card,jst");
+  //   }, [])
+  // );
 
-  useEffect(() => {
-    // if(movies.length < numberOfMovies){
-    //   setNextBtnReveal(true)
-    // }
-    // if (isNextRoundReady == false) {
-    //   console.log("next round false");
-    // } else {
-    //   console.log("set test to true");
-    // }
+  const handleNextRender = () => {
+    console.log("test");
     setNextRender(!nextRender);
-    console.log("run");
+  };
+  useEffect(() => {
+    console.log("run", onNextRound);
+    handleNextRender();
   }, [onNextRound]);
 
   const outOfFrame = (title) => {
     console.log(title + " left the screen!");
-    nextRoundMovies = movies.filter((movie) => movie.title !== title);
+    nextRoundMovies = movies?.filter((movie) => movie.title !== title);
     setMovies(nextRoundMovies);
   };
 
@@ -70,7 +66,7 @@ function CardList({ navigation, data, onFinish }) {
     return null;
   }
 
-  if (movies.length === 1) {
+  if (movies?.length === 1) {
     const pushAction = StackActions.push("ChosenCard", { movie: movies[0] });
     navigation.dispatch(pushAction);
   }
@@ -80,7 +76,7 @@ function CardList({ navigation, data, onFinish }) {
     <View style={styles.container}>
       {!isLoading && (
         <View style={styles.cardContainer}>
-          {movies.map((movie, index) => (
+          {movies?.map((movie, index) => (
             <TinderCard
               flickOnSwipe={true}
               key={index}

@@ -7,9 +7,7 @@ const ChosenCard = ({ navigation, route }) => {
   const window = useWindowDimensions();
   const movie = route.params.movie;
   const netflixLink = route.params.movie.streamingInfo.netflix.us.link;
-  console.log(movie, "movie");
-  console.log(route.params.movie.streamingInfo.netflix.us.link, "netflix link");
-  // let netflix = "https://www.google.com";
+
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>

@@ -10,7 +10,7 @@ export default function Home({ navigation }) {
       </Title>
       <Button
         onPress={() => navigation.navigate("WelcomeCard")}
-        title="Go to WelcomeCard"
+        title="Go to WelcoeCard"
       />
       <Button
         onPress={() => navigation.navigate("NameBee")}

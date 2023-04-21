@@ -7,12 +7,10 @@ const GenreDropdown = (props) => {
   const [value, setValue] = useState([]);
   const [items, setItems] = useState([
     { label: "Biography", value: "biography", key: "1" },
-    { label: "Film Noir", value: "Film Noir", key: "2" },
     { label: "Game Show", value: "Game Show", key: "3" },
     { label: " Musical", value: "Musical", key: "4" },
     { label: " Sport", value: "Sport", key: "5" },
     { label: " Short", value: "Short", key: "6" },
-    { label: " Adult", value: "Adult", key: "7" },
     { label: " Fantasy", value: "Fantasy", key: "14" },
     { label: " Adventure", value: "Adventure", key: "12" },
     { label: " Animation", value: "Animation", key: "16" },

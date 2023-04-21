@@ -4,7 +4,7 @@ import { movieService } from "./movies.service";
 export const MovieContext = createContext();
 
 export const MovieContextProvider = ({ children }) => {
-  const [movies, setMovies] = useState([], () => console.log(movies));
+  const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isNextRoundReady, setIsNextRoundReady] = useState(false);
   // const [error, setError] = useState(null);
@@ -13,6 +13,7 @@ export const MovieContextProvider = ({ children }) => {
     setIsLoading(true);
     movieService()
       .then((results) => {
+        console.log("results", results);
         setMovies(results);
         setIsLoading(false);
       })
@@ -29,10 +30,12 @@ export const MovieContextProvider = ({ children }) => {
     console.log("we're in the context provider");
     setIsLoading(false);
   };
-
+  const nextRoundFunc = () => {
+    setIsNextRoundReady(false);
+  };
   useEffect(() => {
     retrieveMovies();
-    setIsNextRoundReady(false);
+    nextRoundFunc();
   }, []);
 
   return (
