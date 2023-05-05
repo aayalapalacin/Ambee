@@ -4,6 +4,8 @@ import { movieService } from "./movies.service";
 export const MovieContext = createContext();
 
 export const MovieContextProvider = ({ children }) => {
+  console.log("moviesContext!!!!!!!!!!!111");
+
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isNextRoundReady, setIsNextRoundReady] = useState(false);
@@ -13,7 +15,6 @@ export const MovieContextProvider = ({ children }) => {
     setIsLoading(true);
     movieService()
       .then((results) => {
-        console.log("results", results);
         setMovies(results);
         setIsLoading(false);
       })

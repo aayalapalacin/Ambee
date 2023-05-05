@@ -35,17 +35,6 @@ function CardList({ navigation, data, onFinish }) {
       onNextRound(nextRoundMovies);
     }
   };
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     console.log("runner");
-  //     if(movies.length == numberOfMovies){
-  //       setNextBtnReveal(false)
-  //     }
-  //     console.log(nextRoundMovies.length, "next round load");
-  //     console.log(movies.length, "movies LOAD");
-  //     return () => console.log("focues return card,jst");
-  //   }, [])
-  // );
 
   const handleNextRender = () => {
     console.log("test");

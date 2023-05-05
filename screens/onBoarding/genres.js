@@ -17,7 +17,6 @@ const Genres = ({ navigation }) => {
   const [selectedGenres, setSelectedGenres] = useState([]);
 
   const storeData = async (value) => {
-    console.log(value, "value");
     try {
       await AsyncStorage.setItem("@userGenres", JSON.stringify(value));
     } catch (e) {
@@ -45,7 +44,6 @@ const Genres = ({ navigation }) => {
       </View>
       <TouchableOpacity
         onPress={() => {
-          console.log(selectedGenres, "on press selecGenr");
           if (selectedGenres.length == 0) {
             Alert.alert("Please Choose At Least One Genre");
           } else {

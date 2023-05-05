@@ -13,6 +13,8 @@ import { MovieContext } from "../../src/services/movies/movies.context";
 import { StackActions } from "@react-navigation/native";
 
 const NextRound = ({ navigation }) => {
+  console.log("NextRound!!!!!!!!!!!111");
+
   const window = useWindowDimensions();
   const [username, setUsername] = useState("");
   const [userGenre, setUserGenre] = useState("");
@@ -34,15 +36,12 @@ const NextRound = ({ navigation }) => {
       } else {
         setUsername("You");
       }
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
 
   useEffect(() => {
     getData();
   }, []);
-  console.log(movies.length, "true?");
 
   return (
     <View style={styles.container} height={window.height}>

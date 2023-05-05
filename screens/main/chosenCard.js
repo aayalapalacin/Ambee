@@ -5,21 +5,29 @@ import HomeSettings from "../../components/homeSettings";
 import { Linking } from "react-native";
 const ChosenCard = ({ navigation, route }) => {
   const window = useWindowDimensions();
-  const movie = route.params.movie;
-  const netflixLink = route.params.movie.streamingInfo.netflix.us.link;
-
+  const movie = route.params.movie == undefined ? false : route.params.movie;
+  const netflixLink =
+    route.params.movie.streamingInfo.netflix.us.link == undefined
+      ? false
+      : route.params.movie.streamingInfo.netflix.us.link;
+  console.log(movie, "movie chosen");
+  console.log(netflixLink, "netflixLink chosen");
   return (
     <Card style={styles.container} height={window.height}>
       <Card.Content style={styles.cardContainer}>
         <Title style={styles.cardTitle}>
           {/* Awesome! You chose: */}
-          Awesome! You chose: {movie.title}
+          Awesome! You chose: {movie.title ? movie.title : "40 year old virgin"}
         </Title>
         <View style={styles.picContainer}>
           <Card.Cover
             style={styles.cardPic}
             // source={require("../../assets/icons/Swipe.png")}
-            source={{ uri: `${movie.posterURLs.original}` }}
+            source={{
+              uri: `${
+                movie.posterURLs.original ? movie.posterURLs.original : ""
+              }`,
+            }}
             resizeMode="contain"
           />
         </View>
@@ -29,14 +37,16 @@ const ChosenCard = ({ navigation, route }) => {
             <Button
               style={styles.watchBtn}
               textColor="black"
-              onPress={() => Linking.openURL(netflixLink)}
+              onPress={() => Linking.openURL(netflixLink ? netflixLink : "")}
               // onPress={() => Linking.openURL(netflix)}
             >
               Watch Now
             </Button>
           </View>
         </View>
-        <Paragraph style={styles.pTxt}>{movie.overview}</Paragraph>
+        <Paragraph style={styles.pTxt}>
+          {movie.overview ? movie.overview : ""}
+        </Paragraph>
       </Card.Content>
       <HomeSettings navigation={navigation} />
     </Card>

@@ -15,7 +15,7 @@ const StepThree = ({ navigation }) => {
   const window = useWindowDimensions();
   return (
     <View height={window.height} style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Genres")}>
         <Skip />
       </TouchableOpacity>
       <View style={styles.cardContent}>

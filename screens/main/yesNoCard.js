@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, useWindowDimensions } from "react-native";
+import { StyleSheet, View, useWindowDimensions, Text } from "react-native";
 import { Button, Card, Dialog, Portal, Paragraph } from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
 import CountDown from "react-native-countdown-component";
@@ -19,36 +19,32 @@ const YesNoCard = ({ navigation }) => {
 
   const hideDialog = () => setVisible(false);
 
-  useFocusEffect(
-    React.useCallback(() => {
-      const getData = async () => {
-        try {
-          const usernameValue = await AsyncStorage.getItem("@username");
-          const userGenreValue = await AsyncStorage.getItem("@userGenres");
-          const userNumValue = await AsyncStorage.getItem("@userNum");
-          const userTimerValue = await AsyncStorage.getItem("@timerCount");
+  React.useCallback(() => {
+    const getData = async () => {
+      try {
+        const usernameValue = await AsyncStorage.getItem("@username");
+        const userTimerValue = AsyncStorage.getItem("@timerCount");
+        const userGenreValue = await AsyncStorage.getItem("@userGenres");
+        const userNumValue = await AsyncStorage.getItem("@userNum");
 
-          if (usernameValue !== null) {
-            setUsername(usernameValue);
-            setUserGenre(JSON.parse(userGenreValue));
-            setUserNum(parseInt(userNumValue));
-            setUserTimer(parseInt(userTimerValue));
-          }
-        } catch (e) {
-          console.log(e);
+        if (usernameValue !== null) {
+          setUsername(usernameValue);
+          setUserGenre(JSON.parse(userGenreValue));
+          setUserNum(parseInt(userNumValue));
+          setUserTimer(parseInt(userTimerValue));
         }
-      };
-      setUserTimer(0);
-      setVisible(true);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    setUserTimer(0);
+    setVisible(true);
 
-      getData();
-      return () => console.log("focues returnnnn");
-    }, [])
-  );
-  // console.log(username, "name updated");
-  // console.log(userGenre, "genre updated");
-  // console.log(userNum, "num updated");
-  // console.log(userTime, "time updated");
+    getData();
+    return () => console.log("focues returnnnn");
+  }, []);
+
+  console.log(userTime, "time updated");
   return (
     <Card style={styles.container} height={window.height}>
       <View>

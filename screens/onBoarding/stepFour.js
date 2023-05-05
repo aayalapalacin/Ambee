@@ -55,7 +55,7 @@ const StepFour = ({ navigation }) => {
           />
         </View>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Genres")}>
         <ContinueBtn text="Next" />
       </TouchableOpacity>
     </View>
