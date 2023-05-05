@@ -80,7 +80,8 @@ export default function App() {
             <Stack.Screen
               name="WelcomeCard"
               component={WelcomeCard}
-              options={{ headerTitle: (props) => <Logo {...props} /> }}
+              options={{ title: "" }}
+              // options={{ headerTitle: <Text>test</Text> }}
             />
             <Stack.Screen
               name="NameBee"
