@@ -19,7 +19,9 @@ const ChosenCard = ({ navigation, route }) => {
           <Card.Cover
             style={styles.cardPic}
             // source={require("../../assets/icons/Swipe.png")}
-            source={{ uri: `${movie.posterURLs.original}` }}
+            source={{
+              uri: `${movie.posterURLs.original}`,
+            }}
             resizeMode="contain"
           />
         </View>

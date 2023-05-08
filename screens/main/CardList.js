@@ -8,22 +8,40 @@ import {
 } from "react-native";
 import TinderCard from "react-tinder-card";
 import { StackActions, useFocusEffect } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // import { movieService } from "../../src/services/movies/movies.service";
 import { MovieContext } from "../../src/services/movies/movies.context";
 import ContinueBtn from "../../components/continueBtn";
 
 function CardList({ navigation, data, onFinish }) {
+  const [userNum, setUserNum] = useState(0);
+
+  const getData = async () => {
+    try {
+      const userNumValue = await AsyncStorage.getItem("@userNum");
+
+      setUserNum(parseInt(userNumValue));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  getData();
+  console.log(userNum, "userNum");
   const { movies, isLoading, onNextRound, isNextRoundReady } =
     useContext(MovieContext);
+  let cardMovies = [];
+  for (let i = 0; i < userNum; i++) {
+    cardMovies.push(movies[i]);
+    console.log(movies[i]?.title, "cardMovies");
+  }
   const nextRoundMovies = [];
   const [nextRender, setNextRender] = useState(true);
   const swiped = (direction, movie, index) => {
     console.log(index, "index");
     if (direction.toLowerCase() === "right") {
       nextRoundMovies.push({ ...movie });
-
-      console.log("next movies", nextRoundMovies.length);
     }
     if (index === 0) {
       // setNextRoundMovies([...movies]);
@@ -35,17 +53,6 @@ function CardList({ navigation, data, onFinish }) {
       onNextRound(nextRoundMovies);
     }
   };
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     console.log("runner");
-  //     if(movies.length == numberOfMovies){
-  //       setNextBtnReveal(false)
-  //     }
-  //     console.log(nextRoundMovies.length, "next round load");
-  //     console.log(movies.length, "movies LOAD");
-  //     return () => console.log("focues return card,jst");
-  //   }, [])
-  // );
 
   const handleNextRender = () => {
     console.log("test");
@@ -76,7 +83,7 @@ function CardList({ navigation, data, onFinish }) {
     <View style={styles.container}>
       {!isLoading && (
         <View style={styles.cardContainer}>
-          {movies?.map((movie, index) => (
+          {cardMovies?.map((movie, index) => (
             <TinderCard
               flickOnSwipe={true}
               key={index}
@@ -90,7 +97,7 @@ function CardList({ navigation, data, onFinish }) {
                   resizeMode="contain"
                   style={styles.cardImage}
                   source={{
-                    uri: movie.posterURLs.original,
+                    uri: movie?.posterURLs.original,
                   }}
                 ></ImageBackground>
               </View>

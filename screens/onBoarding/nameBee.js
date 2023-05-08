@@ -57,7 +57,7 @@ const NameBee = ({ navigation }) => {
             if (username.length == 0) {
               Alert.alert("Please Enter UserName");
             } else {
-              navigation.navigate("StepOne");
+              navigation.navigate("StepTwo");
               storeData(username);
             }
           }}

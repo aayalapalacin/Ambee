@@ -16,7 +16,7 @@ const StepOne = ({ navigation }) => {
 
   return (
     <View style={styles.container} height={window.height}>
-      <TouchableOpacity onPress={() => navigation.navigate("HelpOrSurprise")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Genres")}>
         <Skip />
       </TouchableOpacity>
       <View style={styles.cardContent}>

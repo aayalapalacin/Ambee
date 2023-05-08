@@ -13,7 +13,6 @@ export const MovieContextProvider = ({ children }) => {
     setIsLoading(true);
     movieService()
       .then((results) => {
-        console.log("results", results);
         setMovies(results);
         setIsLoading(false);
       })

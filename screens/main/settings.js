@@ -12,16 +12,12 @@ const Settings = ({ navigation }) => {
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
   const [newTimer, setNewTimer] = useState(30);
   const [newLimit, setNewLimit] = useState(5);
-  useEffect(() => {
-    console.log(newLimit, "settings limit");
-  }, [newLimit]);
+  useEffect(() => {}, [newLimit]);
   const storeData = async (newTimerValue, newLimitValue) => {
     try {
       await AsyncStorage.setItem("@timerCount", newTimerValue);
       await AsyncStorage.setItem("@userNum", newLimitValue);
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
   return (
     <View style={styles.settingsBox}>
@@ -63,7 +59,6 @@ const Settings = ({ navigation }) => {
         <TouchableOpacity
           onPress={() => {
             storeData(newTimer.toString(), newLimit.toString());
-            console.log("saved");
           }}
         >
           <ContinueBtn text="Save Changes" />
