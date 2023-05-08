@@ -2,7 +2,6 @@ import env from "../../../config/env";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const movieService = async () => {
-  const usernameValue = await AsyncStorage.getItem("@username");
   const userGenreValue = await AsyncStorage.getItem("@userGenres");
 
   const api_key = env.MOVIES_OF_THE_NIGHT_API_KEY;

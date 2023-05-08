@@ -39,12 +39,6 @@ const StepThree = ({ navigation }) => {
             style={styles.dotIcon}
           />
           <Octicons
-            name="dot"
-            size={24}
-            color="#6750A4"
-            style={styles.dotIcon}
-          />
-          <Octicons
             name="dot-fill"
             size={24}
             color="#CF9FFF"
