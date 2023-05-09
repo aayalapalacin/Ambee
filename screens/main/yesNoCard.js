@@ -44,7 +44,6 @@ const YesNoCard = ({ navigation }) => {
     return () => console.log("focues returnnnn");
   }, []);
 
-  console.log(userTime, "time updated");
   return (
     <Card style={styles.container} height={window.height}>
       <View>
