@@ -20,7 +20,11 @@ const ChosenCard = ({ navigation, route }) => {
             style={styles.cardPic}
             // source={require("../../assets/icons/Swipe.png")}
             source={{
-              uri: `${movie.posterURLs.original}`,
+              uri: `${
+                movie?.posterURLs["original"] == undefined
+                  ? "https://image.tmdb.org/t/p/original/j18021qCeRi3yUBtqd2UFj1c0RQ.jpg"
+                  : movie?.posterURLs["original"]
+              }`,
             }}
             resizeMode="contain"
           />

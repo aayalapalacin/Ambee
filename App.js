@@ -47,15 +47,6 @@ export default function App() {
   // const navTheme = DefaultTheme;
   // navTheme.colors.background = "white";
 
-  function Logo() {
-    return (
-      <Image
-        resizeMode="contain"
-        style={{ height: 65, marginBottom: "1%", marginLeft: "56%" }}
-        source={require("./assets/icons/ambeeLogoTransparent.png")}
-      />
-    );
-  }
   function LogoTitle() {
     return (
       <Image
@@ -126,7 +117,7 @@ export default function App() {
             <Stack.Screen
               name="YesNoCard"
               component={YesNoCard}
-              options={{ headerTitle: (props) => <Logo {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
             />
             <Stack.Screen
               name="NextRound"

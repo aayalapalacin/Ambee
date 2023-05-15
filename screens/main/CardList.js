@@ -28,20 +28,26 @@ function CardList({ navigation, data, onFinish }) {
   };
 
   getData();
+
   console.log(userNum, "userNum");
   const { movies, isLoading, onNextRound, isNextRoundReady } =
     useContext(MovieContext);
-  let cardMovies = [];
-  for (let i = 0; i < userNum; i++) {
-    cardMovies.push(movies[i]);
-    console.log(movies[i]?.title, "cardMovies");
+
+  for (let i = 0; i < movies.length; i++) {
+    // console.log(movies.length, "pop before");
+
+    if (movies.length > userNum && userNum != 0) {
+      movies.pop();
+    }
   }
   const nextRoundMovies = [];
   const [nextRender, setNextRender] = useState(true);
   const swiped = (direction, movie, index) => {
-    console.log(index, "index");
+    // console.log(direction.toLowerCase(), "movie swiped");
     if (direction.toLowerCase() === "right") {
       nextRoundMovies.push({ ...movie });
+    } else {
+      // console.log(movie + " swiped left");
     }
     if (index === 0) {
       // setNextRoundMovies([...movies]);
@@ -83,26 +89,33 @@ function CardList({ navigation, data, onFinish }) {
     <View style={styles.container}>
       {!isLoading && (
         <View style={styles.cardContainer}>
-          {cardMovies?.map((movie, index) => (
-            <TinderCard
-              flickOnSwipe={true}
-              key={index}
-              // onSwipe={(dir) => swiped(dir, movie.title)}
-              // onSwipe={(dir) => swiped(dir, movie.title, movie, index)}
-              onSwipe={(dir) => swiped(dir, movie, index)}
-              preventSwipe={["up", "down"]}
-            >
-              <View style={styles.card}>
-                <ImageBackground
-                  resizeMode="contain"
-                  style={styles.cardImage}
-                  source={{
-                    uri: movie?.posterURLs.original,
-                  }}
-                ></ImageBackground>
-              </View>
-            </TinderCard>
-          ))}
+          {movies?.map((peli, index) => {
+            if (peli && peli.posterURLs) {
+              return (
+                <TinderCard
+                  flickOnSwipe={true}
+                  key={index}
+                  // onSwipe={(dir) => swiped(dir, peli.title, peli, index)}
+                  onSwipe={(dir) => swiped(dir, peli, index)}
+                  preventSwipe={["up", "down"]}
+                >
+                  <View style={styles.card}>
+                    <ImageBackground
+                      resizeMode="contain"
+                      style={styles.cardImage}
+                      source={{
+                        uri:
+                          peli?.posterURLs["original"] == undefined
+                            ? "https://image.tmdb.org/t/p/original/j18021qCeRi3yUBtqd2UFj1c0RQ.jpg"
+                            : peli?.posterURLs["original"],
+                      }}
+                    ></ImageBackground>
+                  </View>
+                </TinderCard>
+              );
+            }
+          })}
+
           {nextRender && (
             <>
               <TouchableOpacity
