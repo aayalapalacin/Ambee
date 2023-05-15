@@ -11,12 +11,15 @@ import {
 import ContinueBtn from "../../components/continueBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import GenreDropdown from "../../components/genreDropdown";
+import { movieService } from "../../src/services/movies/movies.service";
 
 const Genres = ({ navigation }) => {
   const window = useWindowDimensions();
   const [selectedGenres, setSelectedGenres] = useState([]);
 
   const storeData = async (value) => {
+    console.log(value, "store value genre");
+    movieService();
     try {
       await AsyncStorage.setItem("@userGenres", JSON.stringify(value));
     } catch (e) {

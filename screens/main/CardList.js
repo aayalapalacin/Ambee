@@ -34,11 +34,10 @@ function CardList({ navigation, data, onFinish }) {
     useContext(MovieContext);
 
   for (let i = 0; i < movies.length; i++) {
-    console.log(movies.length, "pop before");
+    // console.log(movies.length, "pop before");
 
     if (movies.length > userNum && userNum != 0) {
       movies.pop();
-      console.log(movies.length, "pop after");
     }
   }
   const nextRoundMovies = [];
