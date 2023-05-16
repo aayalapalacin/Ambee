@@ -13,6 +13,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 // import { movieService } from "../../src/services/movies/movies.service";
 import { MovieContext } from "../../src/services/movies/movies.context";
 import ContinueBtn from "../../components/continueBtn";
+import HomeSettings from "../../components/homeSettings";
 
 function CardList({ navigation, data, onFinish }) {
   const [userNum, setUserNum] = useState(0);
@@ -127,24 +128,8 @@ function CardList({ navigation, data, onFinish }) {
           )}
         </View>
       )}
-      <View style={styles.swipeContainer}>
-        <View style={styles.yesNoIcon}>
-          <Image
-            style={styles.swipeIcons}
-            source={require("../../assets/icons/swipe-left.png")}
-            resizeMode="contain"
-          />
-          <Text style={styles.leftIconTxt}>No</Text>
-        </View>
-        <View style={styles.yesNoIcon}>
-          <Text style={styles.rightIconText}>Yes</Text>
-          <Image
-            style={styles.swipeIcons}
-            source={require("../../assets/icons/swipe-right.png")}
-            resizeMode="contain"
-          />
-        </View>
-      </View>
+      <View style={styles.swipeContainer}></View>
+      <HomeSettings />
     </View>
     // </SafeAreaView>
   );
@@ -163,14 +148,13 @@ const styles = {
   swipeContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    // marginTop: "18%",
+    // marginTop: "5%",
   },
+
   yesNoIcon: {
     flexDirection: "row",
     justifyContent: "center",
     marginRight: "5%",
-    // marginTop: 15,
-    // marginBottom: "5%",
   },
   leftIconTxt: {
     marginEnd: "12%",
@@ -192,7 +176,7 @@ const styles = {
     // top: 50,
     width: "100%",
     maxWidth: "87%",
-    height: "103%",
+    height: "104%",
   },
   card: {
     position: "absolute",

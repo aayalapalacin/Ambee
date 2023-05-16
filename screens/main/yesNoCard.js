@@ -111,7 +111,6 @@ const YesNoCard = ({ navigation }) => {
           <CardList navigation={navigation} />
         </View>
       </Card.Content>
-      <HomeSettings navigation={navigation} />
     </Card>
   );
 };
@@ -151,7 +150,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: "13%",
+    marginBottom: "24%",
   },
   // cardPic: {
   //   height: 325,

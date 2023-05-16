@@ -64,7 +64,6 @@ const Settings = ({ navigation }) => {
           <ContinueBtn text="Save Changes" />
         </TouchableOpacity>
       </View>
-      <HomeSettings navigation={navigation} />
     </View>
   );
 };

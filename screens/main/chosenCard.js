@@ -44,7 +44,6 @@ const ChosenCard = ({ navigation, route }) => {
         </View>
         <Paragraph style={styles.pTxt}>{movie.overview}</Paragraph>
       </Card.Content>
-      <HomeSettings navigation={navigation} />
     </Card>
   );
 };

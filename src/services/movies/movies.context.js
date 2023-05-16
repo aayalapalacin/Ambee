@@ -41,6 +41,7 @@ export const MovieContextProvider = ({ children }) => {
     <MovieContext.Provider
       value={{
         movies,
+        setMovies,
         isLoading,
         isNextRoundReady,
         onNextRound: updateMovieCards,
