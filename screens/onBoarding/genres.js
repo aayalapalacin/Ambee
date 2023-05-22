@@ -19,12 +19,12 @@ const Genres = ({ navigation }) => {
 
   const storeData = async (value) => {
     console.log(value, "store value genre");
-    movieService();
     try {
       await AsyncStorage.setItem("@userGenres", JSON.stringify(value));
     } catch (e) {
       console.log(e);
     }
+    movieService();
   };
 
   return (
