@@ -18,11 +18,9 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.alexayala91.Ambee"
+      "supportsTablet": true
     },
     "android": {
-      "package": "com.alexayala91.ambee",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icons/ambeeColor.png",

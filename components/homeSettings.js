@@ -6,14 +6,14 @@ import { EvilIcons } from "@expo/vector-icons";
 const HomeSettings = ({ navigation }) => {
   return (
     <View style={styles.homeSettingContainer}>
-      <TouchableOpacity onPress={() => navigation.navigate("WelcomeCard")}>
+      <TouchableOpacity>
         <View style={styles.homeContainer}>
           <EvilIcons name="undo" size={54} color="black" style={styles.undo} />
           {/* <Feather name="home" size={37} color="black" title="No" /> */}
           <Text style={styles.homeSettingsTxt}>Start Over</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+      <TouchableOpacity>
         <View style={styles.homeSettingBox}>
           <Feather name="settings" size={37} color="black" />
           <Text style={styles.homeSettingsTxt}>Settings</Text>

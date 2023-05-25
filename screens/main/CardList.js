@@ -32,7 +32,6 @@ function CardList({ navigation, data, onFinish }) {
   console.log(userNum, "userNum");
   const { movies, isLoading, onNextRound, isNextRoundReady } =
     useContext(MovieContext);
-
   for (let i = 0; i < movies.length; i++) {
     // console.log(movies.length, "pop before");
 

@@ -67,7 +67,6 @@ export default function App() {
       <MovieContextProvider>
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home} />
             <Stack.Screen
               name="WelcomeCard"
               component={WelcomeCard}

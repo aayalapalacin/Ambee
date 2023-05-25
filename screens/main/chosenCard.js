@@ -1,5 +1,10 @@
 import * as React from "react";
-import { StyleSheet, View, useWindowDimensions, Text } from "react-native";
+import {
+  StyleSheet,
+  View,
+  useWindowDimensions,
+  ScrollView,
+} from "react-native";
 import { Card, Title, Paragraph, Button } from "react-native-paper";
 import HomeSettings from "../../components/homeSettings";
 import { Linking } from "react-native";
@@ -42,7 +47,9 @@ const ChosenCard = ({ navigation, route }) => {
             </Button>
           </View>
         </View>
-        <Paragraph style={styles.pTxt}>{movie.overview}</Paragraph>
+        <ScrollView style={styles.pContainer}>
+          <Paragraph style={styles.pTxt}>{movie.overview}</Paragraph>
+        </ScrollView>
       </Card.Content>
       <HomeSettings navigation={navigation} />
     </Card>
@@ -91,6 +98,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingTop: "5%",
   },
+  pContainer: {
+    marginTop: "3%",
+    height: "50%",
+  },
+
   homeSettingContainer: {
     flexDirection: "row",
     justifyContent: "center",
