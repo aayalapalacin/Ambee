@@ -20,27 +20,6 @@ const HowManyCards = ({ navigation }) => {
   const [checked5, setChecked5] = useState(false);
   const [checked7, setChecked7] = useState(false);
 
-  const checked3Status = () => {
-    if (checked3 == false) {
-      return "contained-tonal";
-    } else {
-      return "contained";
-    }
-  };
-  const checked5Status = () => {
-    if (checked5 == false) {
-      return "contained-tonal";
-    } else {
-      return "contained";
-    }
-  };
-  const checked7Status = () => {
-    if (checked7 == false) {
-      return "contained-tonal";
-    } else {
-      return "contained";
-    }
-  };
   useEffect(() => {
     console.log(userNumOfMovies, "userNumOfMovies");
   }, [userNumOfMovies]);
@@ -54,11 +33,11 @@ const HowManyCards = ({ navigation }) => {
           <View style={styles.top}>
             <Button
               style={styles.numOfMovie}
-              mode={checked7Status()}
+              mode={!checked7 ? "contained-tonal" : "contained"}
               onPress={() => {
-                if (checked7 == true) {
+                if (checked7) {
                   setChecked7(false);
-                } else if (checked7 == false) {
+                } else if (!checked7) {
                   setChecked7(true);
                   setChecked3(false);
                   setChecked5(false);
@@ -72,11 +51,11 @@ const HowManyCards = ({ navigation }) => {
           <View style={styles.mid}>
             <Button
               style={styles.numOfMovie}
-              mode={checked5Status()}
+              mode={!checked5 ? "contained-tonal" : "contained"}
               onPress={() => {
-                if (checked5 == true) {
+                if (checked5) {
                   setChecked5(false);
-                } else if (checked5 == false) {
+                } else if (!checked5) {
                   setChecked5(true);
                   setChecked3(false);
                   setChecked7(false);
@@ -90,11 +69,11 @@ const HowManyCards = ({ navigation }) => {
           <View style={styles.low}>
             <Button
               style={styles.numOfMovie}
-              mode={checked3Status()}
+              mode={!checked3 ? "contained-tonal" : "contained"}
               onPress={() => {
-                if (checked3 == true) {
+                if (checked3) {
                   setChecked3(false);
-                } else if (checked3 == false) {
+                } else if (!checked3) {
                   setChecked3(true);
                   setChecked5(false);
                   setChecked7(false);
@@ -113,7 +92,7 @@ const HowManyCards = ({ navigation }) => {
           if (userNumOfMovies == "") {
             Alert.alert("Please Choose One");
           } else {
-            if (checked3 == false && checked5 == false && checked7 == false) {
+            if (!checked3 && !checked5 && !checked7) {
               Alert.alert("Please Choose One");
             } else {
               navigation.navigate("YesNoCard");
