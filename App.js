@@ -76,67 +76,67 @@ export default function App() {
             <Stack.Screen
               name="NameBee"
               component={NameBee}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="StepOne"
               component={StepOne}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="StepTwo"
               component={StepTwo}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="StepThree"
               component={StepThree}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="StepFour"
               component={StepFour}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="HelpOrSurprise"
               component={HelpOrSurprise}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="Genres"
               component={Genres}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="HowManyCards"
               component={HowManyCards}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="YesNoCard"
               component={YesNoCard}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="NextRound"
               component={NextRound}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="ChosenCard"
               component={ChosenCard}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="CardList"
               component={CardList}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
             <Stack.Screen
               name="Settings"
               component={Settings}
-              options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+              options={{ headerTitle: (props) => <LogoTitle /> }}
             />
           </Stack.Navigator>
         </NavigationContainer>
