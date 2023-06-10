@@ -6,6 +6,8 @@ import {
   Alert,
   useWindowDimensions,
   TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
   Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
@@ -28,36 +30,40 @@ const Genres = ({ navigation }) => {
   };
 
   return (
-    <View height={window.height} style={styles.container}>
-      <View>
-        <Title style={styles.cardTitle}>What type of movies do you like?</Title>
-        <View style={styles.cardContent}>
-          <View style={styles.picContainer}>
-            <Image
-              style={styles.cardPic}
-              resizeMode="cover"
-              source={require("../../assets/icons/watchTV.png")}
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View height={window.height} style={styles.container}>
+        <View>
+          <Title style={styles.cardTitle}>
+            What type of movies do you like?
+          </Title>
+          <View style={styles.cardContent}>
+            <View style={styles.picContainer}>
+              <Image
+                style={styles.cardPic}
+                resizeMode="cover"
+                source={require("../../assets/icons/watchTV.png")}
+              />
+            </View>
+            <GenreDropdown
+              selectedGenres={selectedGenres}
+              setSelectedGenres={setSelectedGenres}
             />
           </View>
-          <GenreDropdown
-            selectedGenres={selectedGenres}
-            setSelectedGenres={setSelectedGenres}
-          />
         </View>
+        <TouchableOpacity
+          onPress={() => {
+            if (selectedGenres.length == 0) {
+              Alert.alert("Please Choose At Least One Genre");
+            } else {
+              navigation.navigate("HowManyCards");
+              storeData(selectedGenres);
+            }
+          }}
+        >
+          <ContinueBtn text="Continue" />
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        onPress={() => {
-          if (selectedGenres.length == 0) {
-            Alert.alert("Please Choose At Least One Genre");
-          } else {
-            navigation.navigate("HowManyCards");
-            storeData(selectedGenres);
-          }
-        }}
-      >
-        <ContinueBtn text="Continue" />
-      </TouchableOpacity>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 const styles = StyleSheet.create({

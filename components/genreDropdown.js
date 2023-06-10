@@ -38,7 +38,7 @@ const GenreDropdown = (props) => {
     <View style={styles.optionBtnContainer}>
       <DropDownPicker
         style={styles.dropContainer}
-        multiple={true}
+        multiple={false}
         dropDownDirection="TOP"
         searchable={true}
         // min={0}
