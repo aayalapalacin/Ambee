@@ -11,7 +11,7 @@ import {
   Image,
 } from "react-native";
 import ContinueBtn from "../../components/continueBtn";
-import Skip from "../../components/skip";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const NameBee = ({ navigation }) => {
@@ -22,7 +22,7 @@ const NameBee = ({ navigation }) => {
     try {
       await AsyncStorage.setItem("@username", value);
     } catch (e) {
-      console.log(e);
+      console.log(e, "error username async storage");
     }
   };
 
@@ -43,7 +43,7 @@ const NameBee = ({ navigation }) => {
             </Title>
             <View style={styles.inputContainer}>
               <TextInput
-                label="Type here"
+                label="Name"
                 underlineColor="white"
                 value={username}
                 style={styles.input}

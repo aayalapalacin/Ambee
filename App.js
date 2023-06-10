@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  Button,
-} from "react-native";
+import { StyleSheet, Image } from "react-native";
 import { Provider as PaperProvider } from "react-native-paper";
 import { AppRegistry } from "react-native";
 import NextRound from "./screens/main/NextRound";
