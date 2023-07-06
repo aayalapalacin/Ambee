@@ -3,10 +3,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const movieService = async () => {
   const userGenreValue = await AsyncStorage.getItem("@userGenres");
-  const api_key = env.MOVIES_OF_THE_NIGHT_API_KEY;
+  const api_key = "390d260a15msh99ee0c80f355f45p121bf0jsna9c7cfa5147c";
   const service = "netflix";
-  const genreID = JSON.parse(userGenreValue)[0].key;
-  console.log(api_key, "api_key");
+
+  const genreID = JSON.parse(userGenreValue).key;
+
   const country = "us";
   const type = "movie";
   const initialRequestURL = `https://streaming-availability.p.rapidapi.com/search/basic?rapidapi-key=${api_key}&service=${service}&genre=${genreID}&country=${country}&type=${type}`; //&keyword=${movie}`;

@@ -75,15 +75,6 @@ const YesNoCard = ({ navigation }) => {
       </View>
       <Card.Content style={styles.cardContainer}>
         <View style={styles.cardTopIcons}>
-          {/* <View>
-            <TouchableOpacity
-              onPress={() => {
-                setReset(Math.random().toString());
-              }}
-            >
-              <Ionicons name="arrow-undo-outline" size={33} color="#8570D8" />
-            </TouchableOpacity>
-          </View> */}
           <CountDown
             id={reset}
             size={17}

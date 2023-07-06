@@ -7,7 +7,7 @@ import {
   Image,
 } from "react-native";
 import TinderCard from "react-tinder-card";
-import { StackActions, useFocusEffect } from "@react-navigation/native";
+import { StackActions } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // import { movieService } from "../../src/services/movies/movies.service";
@@ -16,6 +16,7 @@ import ContinueBtn from "../../components/continueBtn";
 
 function CardList({ navigation, data, onFinish }) {
   const [userNum, setUserNum] = useState(0);
+  const [nextRender, setNextRender] = useState(true);
 
   const getData = async () => {
     try {
@@ -29,43 +30,28 @@ function CardList({ navigation, data, onFinish }) {
 
   getData();
 
-  console.log(userNum, "userNum");
   const { movies, isLoading, onNextRound, isNextRoundReady } =
     useContext(MovieContext);
   for (let i = 0; i < movies.length; i++) {
-    // console.log(movies.length, "pop before");
-
     if (movies.length > userNum && userNum != 0) {
       movies.pop();
     }
   }
   const nextRoundMovies = [];
-  const [nextRender, setNextRender] = useState(true);
   const swiped = (direction, movie, index) => {
     // console.log(direction.toLowerCase(), "movie swiped");
     if (direction.toLowerCase() === "right") {
       nextRoundMovies.push({ ...movie });
     } else {
-      // console.log(movie + " swiped left");
+      console.log(movie + " swiped left");
     }
     if (index === 0) {
-      // setNextRoundMovies([...movies]);
-      // setMovies(
-      //   movies.filter((currentMovie) => currentMovie in nextRoundMovies)
-      // );
-      // need to bring in function from movie context and call it here where we pass in next round movies and in that function definition
-      // we will pass that new array of movies to setMovies.
       onNextRound(nextRoundMovies);
     }
   };
 
-  const handleNextRender = () => {
-    console.log("test");
-    setNextRender(!nextRender);
-  };
   useEffect(() => {
-    console.log("run", onNextRound);
-    handleNextRender();
+    setNextRender(!nextRender);
   }, [onNextRound]);
 
   const outOfFrame = (title) => {
